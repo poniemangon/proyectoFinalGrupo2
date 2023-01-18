@@ -16,102 +16,6 @@
 /*/ //////HEADER////////*/
 /*/////////////////////*/
 
-header {
-    width: 100%;
-    height: 70px;
-    background-color: rgb(95, 168, 211, 0.7);
-    margin-bottom: 45px;
-    position: fixed;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-  
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  
-  .logo-nombre {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .logo-header {
-    font-size: 40px;
-    transform: rotate(25deg);
-  }
-  
-  .nombre-header {
-    font-size: 25px;
-    font-weight: 600;
-  }
-  
-  .categorias-header {
-    display: flex;
-    justify-content: space-around;
-    width: 20%;
-    /* gap: 15px; */
-    align-items: center;
-  
-  }
-
-  .categorias-header{
-    display: none;
-  }
-  
-  .categoria-header-btn {
-    border: none;
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    font-family: inherit;
-    font-size: inherit;
-  }
-  
-  .categoria-header-nombre {
-    margin-right: 5px;
-  
-    font-weight: 600;
-  }
-  
-  .search-container {
-    width: 25%; /*40*/
-    position: relative;
-  }
-  
-  .search {
-    width: 100%;
-    height: 30px;
-  
-    text-align: center;
-    border-radius: 5px;
-    border: none;
-  }
-  
-  .search-icon {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    left: 92%;
-    top: 61%;
-    transform: translateY(-50%);
-  }
-  
-  .usuario-carrito {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-  }
-  
-  .icon-header-usario {
-    font-size: 30px;
-    margin-left: 0px;
-  }
-  
-  .icon-header-carrito {
-    font-size: 25px;
-  }
-
 /*/ ////////////////////*/
 /*/ //////MAIN////////*/
 /*/ ////////////////////*/
@@ -368,6 +272,8 @@ footer {
   }
 
   @media(min-width: 760px){
-    .categorias-header{ display:flex;} 
+    .categorias-header{ 
+      display:flex;
+    } 
   }
   
