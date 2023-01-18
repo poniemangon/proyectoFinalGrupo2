@@ -102,13 +102,14 @@ header {
     header {
     display: flex;
     flex-direction: column;
-    height: 300px;
+    height: 200px;
     position: relative;
   }
 
   .categorias-header{
-    display: flex;
-    flex-direction: column;
+    display: none;
+    
+    
   }
   .columna-footer {
     display: flex;
