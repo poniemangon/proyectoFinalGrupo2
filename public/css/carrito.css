@@ -5,16 +5,25 @@ body {
 
 .caja-padre {
     width: 100%;
-    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+}
+
+.caja-padre .caja-60 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 
 /* //////////////////// */
 /* ARTICULO  */
 .caja-padre .carrito {
+    width: 100%;
     border: solid 1px black;
     display: flex;
     flex-direction: column;
+    /* justify-content: space-between; */
 }
 .articulo {
     display: flex;
@@ -38,4 +47,71 @@ body {
 }
 
 /* //////////////////// */
-/* ARTICULO  */
+/* TITULO CARRITO */
+
+.caja-padre .caja-60 .titulo-carrito {
+    display: flex;
+    flex-direction: column;
+}
+
+.caja-padre .caja-60 .titulo-carrito .titulo {
+    font-size: xx-large;
+}
+
+.caja-padre .caja-60 .titulo-carrito .seleccion {
+    display: flex;
+    flex-direction: row;
+}
+
+/* //////////////////// */
+/* ARTICULO CARRITO  */
+.carrito .articulo {
+    border: solid 1px black;
+}
+.carrito .articulo .imagen {
+    width: 10%;
+}
+
+.carrito .articulo .nombre {
+    width: 70%;
+}
+.carrito .articulo .precio {
+    width: 20%;
+}
+
+
+/* //////////////////// */
+/* CAJA SUBTOTAL  */
+
+
+.caja-subtotal {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    border: solid 1px black;
+}
+
+.caja-subtotal .articulo {
+    display: flex;
+    flex-direction: row;
+}
+.caja-subtotal .articulo .imagen {
+    border: 1px solid black;
+    width: 30%;
+}
+
+.caja-subtotal .articulo .descripcion {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 10%;
+}
+
+.caja-subtotal .articulo .descripcion p {
+    padding: 0%;
+}
+
+
+
+/* //////////////////// */
+/* CAJA SUBTOTAL  */

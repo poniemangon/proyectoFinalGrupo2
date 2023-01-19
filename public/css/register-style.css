@@ -1,0 +1,154 @@
+
+
+.register{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.register h4{
+    font-size: 25px;
+}
+
+h2 {
+    display: flex;
+    font-size: 40px;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold
+  }
+
+.centradoletra{
+  text-align: center;
+}
+
+.tamañoletra{
+  font-size: 12px;
+}
+
+
+.boxpaginas{
+  display: flex;
+  
+  justify-content: space-around;
+  align-items: center;
+  
+}
+
+.boxpaginas a{
+  border: solid 1px grey;
+  padding: 5px 10px;
+  width: 150px;
+  height: max-content;
+  border-radius: 5%;
+  margin-bottom: 15px;
+  background-color: whitesmoke;
+  font-style: normal;
+}
+
+.boxpaginas a:link{
+  text-decoration: none;
+  color: grey;
+}
+
+.logopaginas{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contenedorform{
+  margin-top: 80px;
+  width: 50%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background-color: rgba(219, 226, 230, 0.7);
+  margin-bottom: 45px;
+  border-radius: 10%;
+
+}
+
+.comentario{
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="email" i] {
+    width: 100%;
+    padding: 8px;
+}
+
+input[type="password" i] {
+    
+    width: 100%;
+    padding: 8px;
+}
+
+input[type="text" i] {
+   
+    width: 100%;
+    padding: 8px;
+}
+
+
+input[type="date" i] {
+    align-items: center;
+    display: inline-flex;
+    font-family: monospace;
+    padding-inline-start: 1px;
+    cursor: default;
+    overflow: hidden;
+    padding: 5px;
+}
+
+input[type="submit" i] {
+    align-self: center;
+    display: flex;
+    font-family: monospace;
+    cursor: default;
+    overflow: hidden;
+    padding: 10px;
+    background-color: rgb(174, 174, 221);
+    font-size: 15px;
+    border-radius: 5%;
+    
+}
+
+label[for="birth_date" i] {
+    font-size: 20px;
+}
+
+a:-webkit-any-link {
+    color: grey;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 28px;
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+  @media (max-width: 700px){
+   
+
+  .contenedorform{
+    width: 95%;
+  }
+
+  .boxpaginas{
+    flex-direction: column;
+
+  }
+}
