@@ -1,0 +1,41 @@
+body {
+    height: 100%;
+}
+
+
+.caja-padre {
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+
+/* //////////////////// */
+/* ARTICULO  */
+.caja-padre .carrito {
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+}
+.articulo {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.nombre {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+
+}
+
+.precio {
+    margin: 5px;
+}
+
+.imagen {
+    border: solid 2px black;
+}
+
+/* //////////////////// */
+/* ARTICULO  */
