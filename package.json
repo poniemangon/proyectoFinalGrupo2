@@ -1,23 +1,23 @@
 {
-  "name": "grupo_2_proyectointegrador",
+  "name": "sprint2",
   "version": "1.0.0",
-  "description": "<h1>readme proyecto final grupo 2<h2>",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Lucasthomas43/grupo_2_proyectoIntegrador.git"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Lucasthomas43/grupo_2_proyectoIntegrador/issues"
-  },
-  "homepage": "https://github.com/Lucasthomas43/grupo_2_proyectoIntegrador#readme",
   "dependencies": {
-    "express": "^4.18.2",
-    "nodemon": "^2.0.20"
-  }
+    "express": "^4.18.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PabloDiaz84/Formulario_Registro.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PabloDiaz84/Formulario_Registro/issues"
+  },
+  "homepage": "https://github.com/PabloDiaz84/Formulario_Registro#readme",
+  "description": ""
 }
