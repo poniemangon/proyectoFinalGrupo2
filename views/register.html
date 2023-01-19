@@ -15,7 +15,6 @@
       rel="stylesheet"
     />
     <link href="/css/detalle-producto-style.css" rel="stylesheet" />
-    <link href="/css/header_footer.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -24,11 +23,9 @@
 </head>
 <body>
     <header>
-      <div class="logo-nombre">
-        <a href="/">
-        <i class="fa-solid fa-person-running logo-header"></i>
-        </a>
-        <p class="nombre-header">MULTIDEPORTE</p>
+        <div class="logo-nombre" >
+        <i class=" fa-solid fa-person-running logo-header "></i>
+        <p class="nombre-header" >MULTIDEPORTE </p>
       </div>
       <div  class="categorias-header">
         <button class="categoria-header-btn">
@@ -57,30 +54,35 @@
         <i  class ="fa-solid fa-cart-shopping icon-header-carrito"></i>
       </div>
     </header>
-    <main class="register">
+    <main class="register"> <section class="contenedorform"> 
+
         <h2>REGISTRARSE</h2>
-        <div><h4>Regístrese con:</h4></div>
+        <h4 class="tamañoletra">Regístrese con:</h4>
     <form action="/" method="POST">
-        <div class="google">
-            <p><a href="https://www.google.com">Google</a></p>
+        <div class="boxpaginas">
+            <a href="https://www.google.com"> <div class="logopaginas">
+              <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="grey" class="bi bi-google" viewBox="0 0 16 16">
+              <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+            </svg><p class="tamañoletra">Google</p></div></a>
+            <a href="https://www.facebook.com"> <div class="logopaginas"> <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="grey" class="bi bi-facebook" viewBox="0 0 16 16">
+              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+            </svg><p class="tamañoletra">Facebook</p></div></a>
         </div>
-        <div class="facebook">
-            <p><a href="https://www.facebook.com">Facebook</a></p>
-        </div>
-        <h4> O </h4>
+        <hr>
+        <p class="centradoletra"> O </p>
         <input type="text" name="user" placeholder="Apellido *">
         <br>
         <br>
         <input type="text" name="pass" placeholder="Nombre *">
         <br>
-        <br>
-        <label for="birth_date"><b>Fecha de nacimiento</b></label>
+        
+        <label for="birth_date"><b class="tamañoletra">Fecha de nacimiento</b></label>
         <br>
         <input type="date" name="birth_date" id="birth_date">
         <br>
-        <h6> Recopilamos la fecha de nacimiento de acuerdo a nuestra Política de privacidad. ¡Te haremos un regalo por tu cumpleaños!</h6>
+        <h6 class="tamañoletra"> Recopilamos la fecha de nacimiento de acuerdo a nuestra Política de privacidad. ¡Te haremos un regalo por tu cumpleaños!</h6>
         <br>
-        <h3> Datos de Acceso</h3>   
+        <h3 class="tamañoletra"> Datos de Acceso</h3>   
         <form action="/" method="POST">
             <input type="email" name="email" placeholder="Correo electrónico *">
             <br>
@@ -88,19 +90,20 @@
             <input type="password" name="pass" placeholder="Contraseña *">
             <br>  
         </form>
-        <h5>Mínimo 8 caracteres con una mayúscula, una minúscula, un caracter especial y un número</h5>
+        <h5 class="tamañoletra">Mínimo 8 caracteres con una mayúscula, una minúscula, un caracter especial y un número</h5>
         <br>
         <div class="comentario">
             <div>
                 <input type="checkbox" name="comentario" value="a" id="a">
-                <label for="a">Me gustaría recibir noticias sobre productos y servicios. Consiento recibir mensajes de marketing personalizados por correo electrónico</label>
+                <label class="tamañoletra" for="a">Me gustaría recibir noticias sobre productos y servicios. Consiento recibir mensajes de marketing personalizados por correo electrónico</label>
             </div>
             <div>
                 <input type="checkbox" name="comentario value="b" id="b">
-                <label for="b">He leído y aceptado los Términos y Condiciones y la Política de privacidad</label>
+                <label class="tamañoletra" for="b">He leído y aceptado los Términos y Condiciones y la Política de privacidad</label>
             </div>
             <br>
             <input type="submit" value="Registrarse"> 
+        </section>    
     </main>
     <footer>
         <div class="border-top"></div>
