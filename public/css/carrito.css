@@ -5,10 +5,13 @@
 
 body {
     height: 100%;
+   
 }
 
 main {
-    margin: 10px;
+    margin: 10px; 
+    
+  
 }
 .caja-padre {
     width: 100%;

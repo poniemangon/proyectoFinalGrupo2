@@ -10,6 +10,7 @@ header {
     position: fixed;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+   
   
     display: flex;
     justify-content: space-around;
@@ -20,12 +21,12 @@ header {
   .logo-nombre {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 40px;
   }
   
   .logo-header {
     font-size: 40px;
-    transform: rotate(25deg);
+    color: black;
   }
   
   .nombre-header {
@@ -101,10 +102,7 @@ header {
 @media (max-width: 768px) {
 
 
-  .icon-header-usario {
-    display: none;
-  }
-  .search-container{
+
 
   }
     header {
@@ -125,7 +123,7 @@ header {
     height: 300px;
     position: relative;
   }
-}
+
 
 footer {
   background-color: rgb(95, 168, 211, 0.7);
@@ -138,23 +136,30 @@ footer {
 
 .footer-container {
   display: flex;
+  text-align: center;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   margin-top: -80px;
-  margin-bottom: -30px;
-  padding-top: 55px;
+  max-width: 760px;
+margin:auto
 }
 
 .seccion-footer {
-  width: 30%;
+  width: 50%;
   margin-bottom: 55px;
+  margin: 0;
+}
+.contactos{
+justify-content: center;
+  width: 100%;
+  margin-bottom: 60px;
 }
 
 .logo-nombre-footer {
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 25px;
 }
 
 .logo-footer {
@@ -163,7 +168,7 @@ footer {
 }
 
 .nombre-redes-footer {
-  width: 80%;
+  width:100%;
   text-align: center;
 }
 
@@ -176,7 +181,9 @@ footer {
 
 .iconos-footer-container {
   display: flex;
-  justify-content: space-around;
+  gap: 100px;
+  justify-content: center;
+ 
 }
 
 .iconos-footer {
@@ -195,7 +202,7 @@ footer {
 
 .border-top {
   width: 80%;
-  border-top: 1px solid hsla(210, 17%, 98%, 0.5);
+  border-top: 1px solid hsla(0, 0%, 0%, 0.5);
 
   margin-left: auto;
   margin-right: auto;
@@ -203,11 +210,11 @@ footer {
 
 .copyright {
   width: 80%;
-  border-top: 1px solid hsla(210, 17%, 98%, 0.5);
+  border-top: 1px solid hsla(0, 0%, 0%, 0.5);
   text-align: center;
-  color: hsla(210, 17%, 98%, 0.6);
-
-  padding-top: 5px;
-  margin-left: auto;
-  margin-right: auto;
+  color: black;
+  padding-top: 10px;
+  margin: auto;
+  margin-top: -35px;
+ 
 }
