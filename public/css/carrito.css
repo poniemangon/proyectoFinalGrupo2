@@ -1,12 +1,20 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
 body {
     height: 100%;
 }
 
-
+main {
+    margin: 10px;
+}
 .caja-padre {
     width: 100%;
     display: flex;
     flex-direction: row;
+    border: 7px solid rgb(95, 168, 211, 0.7);;
 }
 
 .caja-padre .caja-60 {
@@ -89,6 +97,7 @@ body {
     display: flex;
     flex-direction: column;
     border: solid 1px black;
+    padding: 5px;
 }
 
 .caja-subtotal .articulo {
@@ -115,3 +124,65 @@ body {
 
 /* //////////////////// */
 /* CAJA SUBTOTAL  */
+
+
+
+
+/* //////////////////// */
+/* VISTO X ULTIMA VEZ  */
+
+.last-box{
+    width: 100%;
+    border: 7px solid rgb(95, 168, 211, 0.7);
+    height: 400px;
+    padding: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: auto;
+    max-width: 1650px;
+}
+
+.visto-recientemente{
+    margin-bottom: -10px;
+}
+.articulos{
+    height:  100%;
+    display: flex;
+       align-items: center;
+    gap: 20px;
+    
+  
+
+
+
+}
+
+.articulo-1, .articulo-2, .articulo-3, .articulo-4,  .articulo-5,  .articulo-6  {
+width: 80%;
+height:90%;
+border: solid black 1px;
+display: flex;
+flex-direction: column;
+padding: 10px;
+
+} 
+
+.pic{
+    height: 70%;
+}
+
+@media (min-width: 360px) {
+    .articulo-3, .articulo-4,  .articulo-5,  .articulo-6 {
+        display: none;
+    }
+}
+@media (min-width: 760px) {
+    .articulo-3, .articulo-4 {
+        display: block;
+    }
+}
+@media (min-width: 1400px) {
+    .articulo-5,  .articulo-6 {
+        display: block;
+    }
+}
