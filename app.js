@@ -2,7 +2,27 @@ const express = require("express");
 const path = require("path");
 const app = express();
 
-app.use(express.static("public"));
+
+app.set('view engine', 'ejs');
+
+app.set('views','./views')
+
+app.get('/', (req, res) => {
+  res.render('home-page')
+});
+app.get('/register', (req, res) => {
+  res.render('register')
+});
+
+app.get('/login', (req, res) => {
+  res.render('login')
+});
+app.get('/product', (req, res) => {
+  res.render('detalle-producto')
+});
+app.get('/carrito', (req, res) => {
+  res.render('carrito')
+});
 
 app.get("/register", (req, res) => {
   res.sendFile(path.join(__dirname, "./views/register.html"));
@@ -10,17 +30,5 @@ app.get("/register", (req, res) => {
 
 app.listen(3000, () => console.log("Servidor 3000 corriendo"));
 
-app.get("/login", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views/login.html"));
-});
+app.use(express.static("public"));
 
-app.get("/product", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views/detalle-producto.html"));
-});
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views/home-page.html"));
-});
-
-app.get("/carrito", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views/carrito.html"));
-});
