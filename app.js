@@ -10,6 +10,12 @@ app.set('views','./views')
 app.get('/', (req, res) => {
   res.render('home-page')
 });
+
+app.get('/agregar', (req, res) => {
+  res.render('agregar')
+});
+
+
 app.get('/register', (req, res) => {
   res.render('register')
 });

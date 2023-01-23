@@ -1,0 +1,49 @@
+.contenedorFormulario
+{
+    display: flex;
+    justify-content: center;
+}
+
+.contenedorFormulario h1 {
+    font-size: x-large;
+    text-decoration: underline;
+}
+
+
+
+.formularioPRoducto {
+    display: flex; 
+    justify-content: center;    
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 14px;
+    padding: 19px;
+
+    width:300px;
+    margin:10px;
+    
+}
+
+.formularioPRoducto h5{
+    padding-top: 10px;
+}
+
+
+.descripcion  {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.precioProducto {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    
+}
+
+.botonAgregar {
+    padding:10px
+}
+
+
