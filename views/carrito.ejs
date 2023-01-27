@@ -21,152 +21,105 @@
   </head>
   <body>
     <%- include('./partials/header') %>
-    
-    <div class="invisible"></div>
-    
-    
+
     <main>
-
-
-        <div class="caja-padre">
-              <div class="caja-60">
-                    <div class="titulo-carrito">
-                      <div class="titulo"><p>Carrito</p></div>
-                      <div class="seleccion">
-                        <p>Seleccionar todo</p>
-                        <p>Anular selecciones</p>
-                      </div>
-                    </div>
-
-                    <div class="carrito">
-                                          <div class="articulo">
-                                              <div class="imagen">
-                                                  <i class="fa-check"></i>
-                                                  <p>objeto</p>
-                                              </div>
-                                              <div class="nombre">
-                                                  <p>Nombre articulo</p>
-                                                  <select name="language" id="language">
-                                                    <option value="cantidad" disabled selected>Cantidad</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                  </select>
-                                              </div>
-                                              <div class="precio">
-                                                  <p>$ 1234</p>
-                                              </div>
-                                          </div>
-                                          <div class="articulo">
-                                            <div class="imagen">
-                                                <i class="fa-check"></i>
-                                                <p>objeto</p>
-                                            </div>
-                                            <div class="nombre">
-                                                <p>Nombre articulo</p>
-                                                <select name="language" id="language">
-                                                  <option value="cantidad" disabled selected>Cantidad</option>
-                                                  <option value="1">1</option>
-                                                  <option value="2">2</option>
-                                                  <option value="3">3</option>
-                                                  <option value="4">4</option>
-                                                </select>
-                                            </div>
-                                            <div class="precio">
-                                                <p>$ 1234</p>
-                                            </div>
-                                        </div>
-                                        <div class="articulo">
-                                          <div class="imagen">
-                                              <i class="fa-check"></i>
-                                              <p>objeto</p>
-                                          </div>
-                                          <div class="nombre">
-                                              <p>Nombre articulo</p>
-                                              <select name="language" id="language">
-                                                <option value="cantidad" disabled selected>Cantidad</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                              </select>
-                                          </div>
-                                          <div class="precio">
-                                              <p>$ 1234</p>
-                                          </div>
-                                      </div>
-                        
-                    </div>
-                </div>
-            <div class="caja-subtotal">
-              <div class="subtotal">
-                <div class="valor">Subtotal: $1234</div>
-                <div class="pagar"><button>Pagar</button></div>
-              </div>  
-              <div class="articulos-similares">
-                  <p>Articulos similares</p>
-                  <div class="articulo">
-                    <div class="imagen"></div>
-                    <div class="descripcion">
-                    <p>articulo</p> 
-                    <p>$1234</p>
-                    </div>
-
-                  </div>
-                  <div class="articulo">
-                    <div class="imagen"></div>
-                    <div class="descripcion">
-                    <p>articulo</p> 
-                    <p>$1234</p>
-                    </div>
-
-                  </div>
-                  <div class="articulo">
-                    <div class="imagen"></div>
-                    <div class="descripcion">
-                    <p>articulo</p> 
-                    <p>$1234</p>
-                    </div>
-
-                  </div>
-                  
-                  
-              </div>
+      <h1>
+        Carrito <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
+      </h1>
+      <div class="carrito-container">
+        <div class="productos-container">
+          <div class="producto">
+            <img src="/imgs/remera-ejemplo1.webp" class="imagen-producto" />
+            <div class="descripcion">
+              <p class="nombre">REMERA OWN THE RUN</p>
+              <p class="color">Color: Negro</p>
+              <p class="talle">Talle: M</p>
+              <form class="cantidad">
+                <label>Cantidad:</label>
+                <select class="main-select">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </form>
+              <p class="precio">$12.999</p>
             </div>
+          </div>
+          <div class="linea-producto-deco"></div>
+          <div class="producto">
+            <img src="/imgs/remera-ejemplo2.webp" class="imagen-producto" />
+            <div class="descripcion">
+              <p class="nombre">REMERA LOGO PEQUEÑO</p>
+              <p class="color">Color: Blanco</p>
+              <p class="talle">Talle: M</p>
+              <form class="cantidad">
+                <label>Cantidad:</label>
+                <select class="main-select">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </form>
+              <p class="precio">$7.499</p>
             </div>
-            <div class="last-box">
-              <p class="visto-recientemente">Productos que pueden interesarte</p>
-              
-              <div class="articulos">
-                  <div class="articulo-1">
-                    <p class="pic">foto</p>
-                    <hr>
-                    <p> descripcion</p>
-                  </div>
-                  <div class="articulo-2"> <p class="pic">foto</p>
-                    <hr> <p> descripcion</p></div>
-                  <div class="articulo-3"> <p class="pic">foto</p>
-                    <hr><p> descripcion</p></div>
-                  <div class="articulo-4"> <p class="pic">foto</p>
-                    <hr><p> descripcion</p></div>
-                  <div class="articulo-5"> <p class="pic">foto</p>
-                    <hr><p> descripcion</p></div>
-                  <div class="articulo-6"> <p class="pic">foto</p>
-                    <hr><p> descripcion</p></div>
+          </div>
+        </div>
+        <div class="resumen">
+          <h2>Resumen</h2>
+          <div class="subtotal">
+            <p class="subtotal-texto">Subtotal:</p>
+            <p class="subtotal-precio">$20.498</p>
+          </div>
+          <div class="total">
+            <p class="total-texto">Total:</p>
+            <p class="total-precio">$20.498</p>
+          </div>
+          <div class="linea-deco"></div>
+          <div class="cupon-descuento">
+            <p class="cupon-texto">¿Tenés cupón de descuento?</p>
+            <input
+              type="search"
+              placeholder="Ingresá tu cupón"
+              class="cupon-search"
+            />
+            <button class="cupon-btn">Aplicar</button>
+          </div>
 
-
-              </div>
-            </div>
-            
-        
-
-        
-
-
-        
+          <button class="comprar-btn">Comprar</button>
+        </div>
+      </div>
     </main>
-    
+
+    <aside class="productos-similares">
+      <h3>Productos Similares</h3>
+      <div class="productos-similares-container">
+        <button class="productos-similares-arrows">
+          <i class="fa-solid fa-angle-left productos-similares-arrow-izq"></i>
+        </button>
+        <div class="producto-similar">
+          <img src="/imgs/remera-ejemplo2.webp" class="img-producto-similar" />
+          <p class="nombre-producto-similar">REMERA ESSENTIALS LOGO PEQUEÑO</p>
+          <p class="precio-producto-similar">$7.499</p>
+        </div>
+        <div class="producto-similar">
+          <img src="/imgs/remera-ejemplo3.webp" class="img-producto-similar" />
+          <p class="nombre-producto-similar">REMERA ESSENTIALS LOGO GRANDE</p>
+          <p class="precio-producto-similar">$8.499</p>
+        </div>
+        <div class="producto-similar">
+          <img src="/imgs/remera-ejemplo4.webp" class="img-producto-similar" />
+          <p class="nombre-producto-similar">REMERA ADIDAS MANGAS LARGAS</p>
+          <p class="precio-producto-similar">$12.999</p>
+        </div>
+        <button class="productos-similares-arrows">
+          <i class="fa-solid fa-angle-right productos-similares-arrow-der"></i>
+        </button>
+      </div>
+    </aside>
 
     <%- include('./partials/footer') %>
   </body>
