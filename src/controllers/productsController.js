@@ -19,6 +19,11 @@ const productsController = {
         const id = req.params.id; 
         const product = products.find(product => product.id == id);
         return res.render("detalle-producto", {product})                  
+    },
+    edit: (req,res) => {
+        const id = req.params.id;
+        const product = products.find(product => product.id == id);
+        res.render("editar-producto", {product})
     }
 
 }
