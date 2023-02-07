@@ -5,12 +5,9 @@ const path = require("path");
 // const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const productsController = {
-    home: (req,res) => {
-        return res.render("products")
-    },
-    create: (req,res) => {
-        return res.render("agregar")
-    },
+    carrito : (req, res) =>res.render('carrito'),
+    home: (req,res) =>  res.render("products"),
+    create: (req,res) => res.render("agregar"),
     store: (req,res) => {
         console.log(req.body)
         return res.redirect("products")

@@ -2,7 +2,7 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-
+const userRoutes = require('./src/routes/usersRoutes')
 const mainRouter = require("./src/routes/mainRoutes");
 const productsRouter = require("./src/routes/productsRoutes");
 
@@ -18,25 +18,15 @@ app.use(express.json());
 
 // Main
 app.use("/", mainRouter);
+app.get('/carrito', productsRouter  );
+
+//user interface
+app.get("/register", userRoutes );
+app.get('/login', userRoutes);
+
+//Products routes
 app.use("/products", productsRouter);
 
-app.get('/register', (req, res) => {
-  res.render('register')
-});
-
-app.get('/login', (req, res) => {
-  res.render('login')
-});
-
-app.get('/carrito', (req, res) => {
-  res.render('carrito')
-});
-
-app.get("/register", (req, res) => {
-  res.sendFile(path.join(__dirname, "./views/register.html"));
-});
-
-//Products
 
 // ************ Server ************
 app.use(express.static("public"));
