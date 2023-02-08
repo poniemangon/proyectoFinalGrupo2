@@ -31,6 +31,8 @@ app.use("/", userRoutes );
 //Products routes
 app.use("/products", productsRouter);
 
+console.log('hola');
+
 
 // ************ Server ************
 app.use(express.static("public"));
