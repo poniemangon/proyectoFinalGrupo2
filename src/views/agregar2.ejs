@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="/css/home.css" rel="stylesheet" />
+    <link href="/css/header_footer.css" rel="stylesheet" />
+    <link href="/css/carrito.css" rel="stylesheet" />
+    <link href="/css/agregar.css" rel="stylesheet"/>
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('./partials/header') %>
+    
+    <div class="invisible"></div>
+    
+    
+   <main>
+    <div class="contenedorFormulario" > 
+     
+
+        <form class="formularioPRoducto" action="/" method="post">
+          <!-- Nombre Producto-->
+          <h1>Agregar Producto</h1>
+        
+          <div class="nombreProducto">
+            <label for="productName"> <h5>Nombre de Producto</h5></label>
+            <input
+              type="text"
+              name="productName"
+              id="name"
+              placeholder="Nombre Producto"
+            />
+          </div>
+          <!-- Dropdown Categotrias -->
+          <div class="categoria" id="category">
+            <h5>Categorias</h5>
+            <select
+              class="form-dropdown"
+              id="category"
+              name="dropMenuProducto"
+              style="width: 150px"
+              data-component="dropdown"
+            >
+  
+              <option value="Deportiva">Deportiva</option>
+              <option value="Casual">Casual</option>
+  
+            </select>
+          </div>
+  
+          <!-- Checkbox-->
+  
+          
+  
+          <div class="agregarImagen">
+  <h5>Imagen del producto</h5>
+  <button >Seleccionar archivo</button> 
+  
+  <!--Descripcion del prodcto-->
+          </div>
+  
+          <div class="descripcion"> 
+            
+              <label for="description"><h5> Descripcion</h5>  </label>
+  
+              <input type="text" name="descripcion" id="description" cols="23" rows="6"></input>
+  
+  
+          </div>
+  
+          <div class="precioProducto"> 
+              <label for="precio"><h5> Precio </h5></label>
+              <input type="text" name="precio" id="precio " type="number" maxlength="200">
+  
+          </div>
+  
+
+  
+  
+  <div class="botonAgregar"> <input type="submit" value="Agregar Producto"> </input></div>
+  
+  
+  
+  
+  
+        </form>
+  
+      </div>
+   </main>
+
+    <%- include('./partials/footer') %>
+  </body>
+</html>

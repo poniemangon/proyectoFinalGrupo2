@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "nike air",
+    "description": "zapatilla nike air 123 probando",
+    "category": "deportiva",
+    "price": 420,
+    "image": "default.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Gonzalo ",
+    "description": "asdasd",
+    "category": "deportiva",
+    "price": "1231123",
+    "image": "product_image-1675883668501-154061921.png"
+  },
+  {
+    "id": 3,
+    "name": "Gonzalo24",
+    "description": "24242424",
+    "category": "deportiva",
+    "price": 2242424,
+    "image": "product_image-1675872993370-281851744.png"
+  }
+]

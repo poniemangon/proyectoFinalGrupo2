@@ -30,98 +30,32 @@
     <div class="contenedorFormulario" > 
      
 
-        <form class="formularioPRoducto" action="/products"" method="post">
-          <!-- Nombre Producto-->
-          <h1>Agregar Producto</h1>
-        
-          <div class="nombreProducto">
-            <label for="productName"> <h5>Nombre de Producto</h5></label>
-            <input
-              type="text"
-              name="productName"
-              id="productName"
-              placeholder="Nombre Producto"
-            />
-          </div>
-          <!-- Dropdown Categotrias -->
-          <div class="categoria">
-            <h5>Categorias</h5>
-            <select
-              class="form-dropdown"
-              id="dropMenuProducto"
-              name="dropMenuProducto"
-              style="width: 150px"
-              data-component="dropdown"
-            >
-              <option value="">Please Select</option>
-  
-              <option value="Remeras">Remeras</option>
-              <option value="Buzos">Buzos</option>
-              <option value="Shorts">Shorts</option>
-              <option value="Pantalones">Pantalones</option>
-            </select>
-          </div>
-  
-          <!-- Checkbox-->
-  
-          <div class="estilo">
-            <h5 >Estilo</h5>
-            <div>
-              <label for="deportivo">Deportivo</label>
-              <input type="checkbox" name="deportivo" id="deportivo" />
-            </div>
-  
-            <div>
-              <label for="Urbano">Urbano</label>
-              <input type="checkbox" name="Urbano" id="Urbano" />
-            </div>
-  
-            <div>
-              <label for="Formal">Formal</label>
-              <input type="checkbox" name="Formal" id="Formal" />
-            </div>
-          </div>
-  
-  
-          <div class="agregarImagen">
-  <h5>Imagen del producto</h5>
-  <button >Seleccionar archivo</button> 
-  
-  <!--Descripcion del prodcto-->
-          </div>
-  
-          <div class="descripcion"> 
-  
-              <label for="description"><h5> Descripcion</h5>  </label>
-  
-              <textarea name="descripcion" id="descripcion" cols="23" rows="6"></textarea>
-  
-  
-          </div>
-  
-          <div class="precioProducto"> 
-              <label for="precio"><h5> Precio </h5></label>
-              <input type="text" name="precio" id="precio " type="number" maxlength="200">
-  
-          </div>
-  
-          <div class="descripcion"> 
-  
-              <label> <h5> Comentarios </h5></label>
-  
-              <textarea name="descripcion" id="" cols="23" rows="6"></textarea>
-  
-  
-          </div>
-  
-  
-  <div class="botonAgregar"> <input type="submit" value="Agregar Producto"> </input></div>
-  
-  
-  
-  
-  
-        </form>
+      <form action="/products" method="post" enctype="multipart/form-data">
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name">
+        </div>
+        <div>
+          <label for="description">Description:</label>
+          <textarea id="description" name="description"></textarea>
+        </div>
+        <div>
+          <label for="category">Category:</label>
+          <select id="category" name="category">
+            <option value="deportiva">Deportiva</option>
+            <option value="casual">Casual</option>
+          </select>
+        </div>
+        <div>
+          <label for="price">Price:</label>
+          <input type="number" id="price" name="price">
+        </div>
+        <div>
+          <label for="image">Image:</label>
+          <input type="file" id="file" name="product_image">
+        </div>
+        <button type="submit">Submit</button>
+      </form>
   
       </div>
    </main>

@@ -21,8 +21,39 @@
   </head>
   <body>
     <%- include('./partials/header') %>
+  </br>
+</br>
+</br>
+</br>
+    <h2 class="products-title">Estás editando: <i><%= product.name %></i></h2>
+  <form action="/products/edit/<%= product.id %>?_method=PUT" method="post" enctype="multipart/form-data">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="<%= product.name %>">
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" value=""><%= product.description %></textarea>
+    </div>
+    <div>
+      <label for="category">Category:</label>
+      <select id="category" name="category">
+        <option value="deportiva">Deportiva</option>
+        <option value="casual">Casual</option>
+      </select>
+    </div>
+    <div>
+      <label for="price">Price:</label>
+      <input type="number" id="price" name="price" value="<%= product.price %>">
+    </div>
+    <div>
+      <label for="image">Image:</label>
+      <input type="file" id="file" name="product_image">
+    </div>
+    <button type="submit">Submit</button>
+  </form>
 
-    <h1>edicion productos</h1>
+  </div>
 
     <%- include('./partials/footer') %>
   </body>
