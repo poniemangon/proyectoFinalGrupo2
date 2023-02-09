@@ -35,4 +35,8 @@ router.put('/edit/:id', upload.single("product_image"), productsController.updat
 //carrito
 router.get('/carrito', productsController.carrito)
 
+//delete
+router.delete('/delete/:id', productsController.destroy);
+router.get('/delete/:id', productsController.destroy);
+
 module.exports = router;

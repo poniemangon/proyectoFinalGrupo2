@@ -50,10 +50,24 @@ const productsController = {
 	
 	// Delete - Delete one product from DB
 	destroy : (req, res) => {
+
 		eliminarProducto(req.params.id);
+
 		return res.redirect("/products");
-	}
+	},
 }
+
+function eliminarProducto(id) {
+	let products = getProductList(productsFilePath);
+
+	products = products.filter( product => product.id != id);
+
+	fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
+}
+
+
+
+
 
 function guardarProducto(productToStore) {
 
