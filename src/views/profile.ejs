@@ -27,25 +27,16 @@
     <br>
     <br>
     <br>
-    <div class="formLog">
-        <a href="/register">No user? Register</a>
-        <form method="POST" action="/login">
-          <% if (locals.errors) { %>
-            <p>
-              <% errors %>
-            </p>
-            <% } %>
-              <div>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-              </div>
-              <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-              </div>
-              <div>
-                <button type="submit">Login</button>
-              </div>
-        </form>
-      </div>
+    <div>
+      
+      <% if (user && user.id == userFound.id) {%>
+      <p><%= user.username %> estas en tu perfil</p>
+      <p><a href="/edituser/<%= user.id %>">editar perfil</a></p>
+      <% } else { %>
+      <p>perfil de <%= userFound.username %></p>
+
+      <% }%>
+      <p><%= userFound.mail %></p>
+      <p><%= userFound.name %></p>
+    </div>
   </body>

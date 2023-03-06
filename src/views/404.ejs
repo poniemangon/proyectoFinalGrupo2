@@ -22,30 +22,5 @@
   </head>
   <body>
     <%- include('./partials/header') %>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="formLog">
-        <a href="/register">No user? Register</a>
-        <form method="POST" action="/login">
-          <% if (locals.errors) { %>
-            <p>
-              <% errors %>
-            </p>
-            <% } %>
-              <div>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-              </div>
-              <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-              </div>
-              <div>
-                <button type="submit">Login</button>
-              </div>
-        </form>
-      </div>
+    
   </body>
