@@ -10,14 +10,13 @@
       href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700&display=swap" rel="stylesheet">
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
       rel="stylesheet"
     />
-    <link href="/css/home.css" rel="stylesheet" />
+    <link href="/css/login-style.css" rel="stylesheet" />
     <link href="/css/header_footer.css" rel="stylesheet" />
-    <link href="/css/carrito.css" rel="stylesheet" />
-    <link href="/css/agregar.css" rel="stylesheet"/>
     <title>Document</title>
   </head>
   <body>
@@ -25,27 +24,55 @@
     <br>
     <br>
     <br>
+    <main>
+      <section class="container-principal">
+        <div class="titulo">INICIAR SESIÓN</div>
+
+        <div class="opciones">
+           <a href="/login" style="color: black; text-decoration: none;"><p>Inciar Sesión</p></a> 
+            <a href="/register" style="color: black; text-decoration: none;"> <p>Registrarme</p></a>
+        </div>
+        <hr class="linea">
+    
+        <div class="formularios">
+
+        
+        <form action="/login" method="POST">
+        <div class="formulario-email">
+            <div class="palabra-email"> Usuario</i></div>
+            <i class="fa-solid fa-envelope iconos"></i>
+            <label for="email"></label>
+            <input  class="email-form" type="text" id="username" name="username"><br>
+          </div> 
+
+
+        <div class="formulario-pass">
+                    <div class="palabra-contraseña">  CONTRASEÑA </div>
+              <i class="fa-sharp fa-solid fa-lock iconos"></i><label for="password"> </label>
+              <input class="email-pass" type="password" id="password" name="password" ><br>
+              
+            
+          
+        </div> 
+        
+        </div>
+        <section class="final">      
+            
+                    
+                        <button type="submit"> Iniciar Sesión <i class="fa-sharp fa-solid fa-arrow-right"></i>    </button>
+
+                    </section>
+
+
+                
+    </section>
+  </form>
+    </main>
     <br>
-    <br>
-    <div class="formLog">
-        <a href="/register">No user? Register</a>
-        <form method="POST" action="/login">
-          <% if (locals.errors) { %>
-            <p>
-              <% errors %>
-            </p>
-            <% } %>
-              <div>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-              </div>
-              <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-              </div>
-              <div>
-                <button type="submit">Login</button>
-              </div>
-        </form>
-      </div>
+
+   
+
+    
+    <%- include('./partials/footer') %>
   </body>
+</html>

@@ -1,63 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link href="/css/home.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
+    <link href="/css/detalle-producto-style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="/css/login-style.css" rel="stylesheet" />
     <link href="/css/header_footer.css" rel="stylesheet" />
-    <link href="/css/carrito.css" rel="stylesheet" />
-    <link href="/css/agregar.css" rel="stylesheet"/>
-    <title>Document</title>
-  </head>
-  <body>
+    <title>Documento</title>
+</head>
+
+<body>
     <%- include('./partials/header') %>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div class="formLog">
+        <br>
+        <br>
+        <br>
+        <br>
+        <main>
+            <section class="container-principal">
+                <div class="titulo">REGISTRARSE</div>
 
-        <form method="POST" action="/" enctype="/">
-          <% if (locals.errors) { %>
-            <p>
-              <% errors %>
-            </p>
-            <% } %>
-              <div>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-              </div>
-              <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-              </div>
-              <div>
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-              </div>
-              <div>
-                <label for="mail">Email</label>
-                <input type="text" id="mail" name="mail" required>
-              </div>
-    
-    
-              <div>
-                <button type="submit">Register</button>
-              </div>
-        </form>
-      </div>
+                <div class="opciones">
+                    <a href="/login" style="color: black; text-decoration: none;">
+                        <p>Inciar Sesión</p>
+                    </a>
+                    <a href="/register" style="color: black; text-decoration: none;">
+                        <p>Registrarme</p>
+                    </a>
+                </div>
+                <hr class="linea">
 
-  </body>
+                <div class="formularios">
+
+
+                    <form action="/" method="POST">
+                        <div class="formulario-email">
+                            <div class="palabra-email"> Usuario</i></div>
+                            <i class="fa-solid fa-envelope iconos"></i>
+                            <label for="email"></label>
+                            <input class="email-form" type="text" id="username" name="username"><br>
+                        </div>
+
+
+                        <div class="formulario-pass">
+                            <div class="palabra-contraseña"> CONTRASEÑA </div>
+                            <i class="fa-sharp fa-solid fa-lock iconos"></i><label for="password"> </label>
+                            <input class="email-pass" type="password" id="password" name="password"><br>
+
+
+
+                        </div>
+
+                        <div class="formulario-pass">
+                            <div class="palabra-contraseña"> NOMBRE </div>
+                            <i class="fa-sharp fa-solid fa-lock iconos"></i><label for="name"> </label>
+                            <input class="email-pass" type="text" id="name" name="name"><br>
+
+
+
+                        </div>
+                        <div class="formulario-pass">
+                            <div class="palabra-contraseña"> MAIL </div>
+                            <i class="fa-sharp fa-solid fa-lock iconos"></i><label for="mail"> </label>
+                            <input class="email-pass" type="text" id="mail" name="mail"><br>
+
+
+
+                        </div>
+
+                </div>
+                <section class="final">
+
+
+                    <button type="submit"> Iniciar Sesión <i class="fa-sharp fa-solid fa-arrow-right"></i> </button>
+
+                </section>
+
+
+
+            </section>
+            </form>
+        </main>
+        <br>
+
+        <%- include('./partials/footer') %>
+</body>
+
+</html>

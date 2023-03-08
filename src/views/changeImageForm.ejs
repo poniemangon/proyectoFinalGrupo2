@@ -1,59 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link href="/css/home.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
+    <link href="/css/detalle-producto-style.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="/css/login-style.css" rel="stylesheet" />
     <link href="/css/header_footer.css" rel="stylesheet" />
-    <link href="/css/carrito.css" rel="stylesheet" />
-    <link href="/css/agregar.css" rel="stylesheet"/>
-    <title>Document</title>
-  </head>
-  <body>
+    <title>Documento</title>
+</head>
+
+<body>
     <%- include('./partials/header') %>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div>
-      
-      <% if (user && user.id == picUser.id) {%>
-      <p>editar perfil de <%= user.username %> </p>
-      <div class="formLog">
+        <br>
+        <br>
+        <br>
+        <br>
+        <main>
+          <% if (user && user.id == picUser.id) {%>
+            
+            <section class="container-principal">
+                <div class="titulo"><p>Editar foto de <%= user.username %> </p></div>
+                <hr class="linea">
 
-        <form method="POST" action="/image/<%= picUser.id %>?_method=PUT" enctype="multipart/form-data">
-          <% if (locals.errors) { %>
-            <p>
-              <% errors %>
-            </p>
-            <% } %>
-              <div>
-                <label for="image">Image</label>
-                <input type="file" id="user_image" name="user_image" accept="image/*">
-              </div>
+                <div class="formularios">
 
-    
-    
-              <div>
-                <button type="submit">Change image</button>
-              </div>
-        </form>
-      </div>
 
-      <% } else { %>
-        <p>Acceso denegado</p>
-      <% }%>
-    </div>
-  </body>
+                  <form method="POST" action="/image/<%= picUser.id %>?_method=PUT" enctype="multipart/form-data">
+                        <div class="formulario-email">
+                            <div class="palabra-email"> Imagen</i></div>
+                            <i class="fa-solid fa-envelope iconos"></i>
+                            <label for="email"></label>
+                            <input class="email-form" type="file" id="image" name="image" ><br>
+                        </div>
+
+
+
+
+                </div>
+                <section class="final">
+
+
+                    <button type="submit"> Cambiar imagen <i class="fa-sharp fa-solid fa-arrow-right"></i> </button>
+
+                </section>
+
+
+
+            </section>
+            </form>
+            <% } else { %>
+              <p>Acceso denegado</p>
+            <% }%>
+        </main>
+        <br>
+
+        <%- include('./partials/footer') %>
+</body>
+
+</html>
