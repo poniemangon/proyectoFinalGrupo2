@@ -31,6 +31,38 @@
       
       <% if (user && user.id == picUser.id) {%>
       <p>editar perfil de <%= user.username %> </p>
+      <div class="formLog">
+
+        <form method="POST" action="/edituser/<%= picUser.id %>?_method=PUT" enctype="/">
+          <% if (locals.errors) { %>
+            <p>
+              <% errors %>
+            </p>
+            <% } %>
+              <div>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="<%= picUser.username %>" required>
+              </div>
+              <div>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+              </div>
+              <div>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" value="<%=picUser.name%>" required>
+              </div>
+              <div>
+                <label for="mail">Email</label>
+                <input type="text" id="mail" name="mail" value="<%=picUser.mail%>" required>
+              </div>
+    
+    
+              <div>
+                <button type="submit">Change data</button>
+              </div>
+        </form>
+      </div>
+
       <% } else { %>
         <p>no podes editar un perfil que no sea el tuyo</p>
       <% }%>

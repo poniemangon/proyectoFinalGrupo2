@@ -77,7 +77,7 @@ const controller = {
     editImage: (req, res) => {
       const id = req.params.id;
       const picUser = User.editImage(id);
-      return res.render("imageForm", { picUser });
+      return res.render("changeImageForm", { picUser });
     },
     updateImage: (req, res) => {
       const id = req.params.id;

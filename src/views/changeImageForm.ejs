@@ -29,18 +29,31 @@
     <br>
     <div>
       
-      <% if (user && user.id == userFound.id) {%>
-      <p><%= user.username %> estas en tu perfil</p>
-      <img src="/images/userimages/<%= userFound.image %>" alt="">
-      <p><a href="/edituser/<%= user.id %>">Editar datos de usuario</a></p>
-      
-      <p><a href="/image/<%= user.id%>">Editar imagen de usuario</a> </p>
-      <a href="/logout">Log-out</a>
+      <% if (user && user.id == picUser.id) {%>
+      <p>editar perfil de <%= user.username %> </p>
+      <div class="formLog">
+
+        <form method="POST" action="/image/<%= picUser.id %>?_method=PUT" enctype="multipart/form-data">
+          <% if (locals.errors) { %>
+            <p>
+              <% errors %>
+            </p>
+            <% } %>
+              <div>
+                <label for="image">Image</label>
+                <input type="file" id="user_image" name="user_image" accept="image/*">
+              </div>
+
+    
+    
+              <div>
+                <button type="submit">Change image</button>
+              </div>
+        </form>
+      </div>
+
       <% } else { %>
-      <p>perfil de <%= userFound.username %></p>
-      <img src="/images/userimages/<%= userFound.image %>" alt="">
+        <p>Acceso denegado</p>
       <% }%>
-      <p><%= userFound.mail %></p>
-      <p><%= userFound.name %></p>
     </div>
   </body>
