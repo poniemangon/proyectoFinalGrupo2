@@ -1,34 +1,58 @@
 [
   {
-    "id": 3,
-    "name": "Gonzalo24",
-    "description": "24242424",
+    "id": 8,
+    "name": "ADIDAS 4FD3",
+    "description": "",
     "category": "deportiva",
-    "price": 2242424,
-    "image": "product_image-1675872993370-281851744.png"
+    "price": 70000,
+    "image": "product_image-1678398771296-863269497.jpeg"
+  },
+  {
+    "id": 9,
+    "name": "ADIDAS RUN",
+    "description": "",
+    "category": "deportiva",
+    "price": 63000,
+    "image": "product_image-1678398792530-591800242.jpeg"
   },
   {
     "id": 4,
-    "name": "Tuki",
-    "description": "descripcion generica abc",
-    "category": "casual",
-    "price": 1000,
-    "image": "product_image-1678389596905-705908950.png"
+    "name": "NIKE AIR MAX 97",
+    "description": "",
+    "category": "deportiva",
+    "price": 60000,
+    "image": "product_image-1678398450007-141287435.jpeg"
   },
   {
     "id": 5,
-    "name": "nieki ",
-    "description": "aa",
+    "name": "NIKE AIR MAX 95",
+    "description": "",
     "category": "deportiva",
-    "price": 1000,
-    "image": "product_image-1678396734666-177921214.jfif"
+    "price": 60000,
+    "image": "product_image-1678398464297-808631966.jpeg"
   },
   {
     "id": 6,
-    "name": "aadadad",
-    "description": "aa",
+    "name": "NIKE AIR MAX 95",
+    "description": "",
     "category": "deportiva",
-    "price": 1000,
-    "image": "product_image-1678396835878-748459676.jpg"
+    "price": 60000,
+    "image": "product_image-1678398528604-175573256.jpeg"
+  },
+  {
+    "id": 8,
+    "name": "ADIDAS 4FD3",
+    "description": "",
+    "category": "deportiva",
+    "price": 70000,
+    "image": "product_image-1678398771296-863269497.jpeg"
+  },
+  {
+    "id": 9,
+    "name": "ADIDAS RUN",
+    "description": "",
+    "category": "deportiva",
+    "price": 63000,
+    "image": "product_image-1678398792530-591800242.jpeg"
   }
 ]

@@ -64,13 +64,14 @@
             <div class="descripcion"><p>Descripcion producto</p></div>
           </div>
         </div>
-      </section>
+      </section >
 
       <!-- ultimos productos -->
 
       <section class="ultimos-productos">
         <div class="titulo">Ultimos productos</div>
-        <% products.slice(0, 14).forEach(function(product) { %>
+       
+        <% products.forEach(function(product) { %>
           <!-- Your code to display each product goes here -->
         
         <div class="productos">
@@ -81,6 +82,7 @@
               </div>
           </div>
           <% }); %>
+      
           
           
           
