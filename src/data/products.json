@@ -6,5 +6,29 @@
     "category": "deportiva",
     "price": 2242424,
     "image": "product_image-1675872993370-281851744.png"
+  },
+  {
+    "id": 4,
+    "name": "Tuki",
+    "description": "descripcion generica abc",
+    "category": "casual",
+    "price": 1000,
+    "image": "product_image-1678389596905-705908950.png"
+  },
+  {
+    "id": 5,
+    "name": "nieki ",
+    "description": "aa",
+    "category": "deportiva",
+    "price": 1000,
+    "image": "product_image-1678396734666-177921214.jfif"
+  },
+  {
+    "id": 6,
+    "name": "aadadad",
+    "description": "aa",
+    "category": "deportiva",
+    "price": 1000,
+    "image": "product_image-1678396835878-748459676.jpg"
   }
 ]

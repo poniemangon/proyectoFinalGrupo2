@@ -39,6 +39,7 @@ app.use(express.json());
 
 const setUser = require('./src/middlewares/setUser');
 app.use(setUser);
+
 // Main
 app.use("/", mainRouter);
 app.get('/carrito', productsRouter  );
@@ -53,6 +54,13 @@ app.use("/products", productsRouter);
 console.log('hola');
 
 
+const productsMiddleware = require('./src/middlewares/setProducts');
+
+app.use(productsMiddleware);
+
 // ************ Server ************
 app.use(express.static("public"));
 app.listen(3100, () => console.log("Servidor 3100 corriendo"));
+
+
+

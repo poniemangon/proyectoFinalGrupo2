@@ -7,7 +7,6 @@ console.log(products);
 
 const productsController = {
     carrito : (req, res) =>res.render('carrito'),
-    home: (req,res) =>  res.render("products"),
     create: (req,res) => {return res.render("agregar");},
 	store: (req, res) => {
 		const products = getProductList(productsFilePath);

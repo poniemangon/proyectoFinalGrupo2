@@ -31,7 +31,7 @@
       <a href="">
         <div class="caja">
           <img src="https://sneakernews.com/wp-content/uploads/2021/07/adidas-originals-forum-shopping-guide-banner.jpg" alt="">
-          <div class="titulo"> <p>Ultima coleccion</p> </div>
+          <div class="titulo"> <p><Ultima coleccion></p> </div>
           <div class="descripcion"> <p>descripcion de la coleccion</p> </div>
         </div>
       </a>
@@ -70,92 +70,17 @@
 
       <section class="ultimos-productos">
         <div class="titulo">Ultimos productos</div>
+        <% products.slice(0, 14).forEach(function(product) { %>
+          <!-- Your code to display each product goes here -->
+        
         <div class="productos">
-          <div class="producto"><img src="https://static.dafiti.com.ar/p/adidas-5452-330288-1-product.jpg" alt="">
+          <div class="producto"><a href="/products/detalle/<%= product.id %>"><img src="/images/products/<%= product.image %>" alt=""></a>
               <div class="footer-producto">
-                <p>Producto nombre</p>
+                <p><%= product.name %></p>
                 <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
               </div>
           </div>
-          <div class="producto"><img src="https://static.dafiti.com.ar/p/adidas-5452-330288-1-product.jpg" alt="">
-            <div class="footer-producto">
-              <p>Producto nombre</p>
-              <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
-            </div>
-          </div>
-          <div class="producto"><img src="https://static.dafiti.com.ar/p/adidas-5452-330288-1-product.jpg" alt="">
-            <div class="footer-producto">
-              <p>Producto nombre</p>
-              <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
-            </div>
-          </div>
-          <div class="producto"><img src="https://static.dafiti.com.ar/p/adidas-5452-330288-1-product.jpg" alt="">
-            <div class="footer-producto">
-              <p>Producto nombre</p>
-              <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
-            </div>
-          </div>
-          <div class="producto"><img src="https://static.dafiti.com.ar/p/adidas-5452-330288-1-product.jpg" alt="">
-            <div class="footer-producto">
-              <p>Producto nombre</p>
-              <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
-            </div>
-          </div>
-          <div class="producto"><img src="https://static.dafiti.com.ar/p/adidas-5452-330288-1-product.jpg" alt="">
-            <div class="footer-producto">
-              <p>Producto nombre</p>
-              <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
-            </div>
-          </div>
-          <div class="producto"><img src="https://static.dafiti.com.ar/p/adidas-5452-330288-1-product.jpg" alt="">
-            <div class="footer-producto">
-              <p>Producto nombre</p>
-              <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
-            </div>
-          </div>
-          <div class="producto"><img src="https://static.dafiti.com.ar/p/adidas-5452-330288-1-product.jpg" alt="">
-            <div class="footer-producto">
-              <p>Producto nombre</p>
-              <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
-            </div>
-          </div>
-          <div class="producto"><img src="https://static.dafiti.com.ar/p/adidas-5452-330288-1-product.jpg" alt="">
-            <div class="footer-producto">
-              <p>Producto nombre</p>
-              <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
-            </div>
-          </div>
-          <div class="producto"><img src="https://static.dafiti.com.ar/p/adidas-5452-330288-1-product.jpg" alt="">
-            <div class="footer-producto">
-              <p>Producto nombre</p>
-              <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
-            </div>
-          </div>
-          <div class="producto"><img src="https://static.dafiti.com.ar/p/adidas-5452-330288-1-product.jpg" alt="">
-            <div class="footer-producto">
-              <p>Producto nombre</p>
-              <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
-            </div>
-          </div>
-          <div class="producto"><img src="https://static.dafiti.com.ar/p/adidas-5452-330288-1-product.jpg" alt="">
-            <div class="footer-producto">
-              <p>Producto nombre</p>
-              <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
-            </div>
-          </div>
-          <div class="producto"><img src="https://static.dafiti.com.ar/p/adidas-5452-330288-1-product.jpg" alt="">
-            <div class="footer-producto">
-              <p>Producto nombre</p>
-              <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
-            </div>
-          </div>
-          <div class="producto"><img src="https://static.dafiti.com.ar/p/adidas-5452-330288-1-product.jpg" alt="">
-            <div class="footer-producto">
-              <p>Producto nombre</p>
-              <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
-            </div>
-          </div>
-          
+          <% }); %>
           
           
           
