@@ -16,7 +16,7 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.INTEGER(10),
       allowNull: false,
     },
-    price: {
+    quantity: {
       type: dataTypes.INTEGER(10),
       allowNull: false,
     },
@@ -27,5 +27,18 @@ module.exports = (sequelize, dataTypes) => {
   };
 
   let FacturaProduct = sequelize.define(alias, cols, config);
+
+  FacturaProduct.associate = function (models) {
+    FacturaProduct.belongsTo(models.Factura, {
+      as: "facturas",
+      foreignKey: "id_factura",
+    });
+
+    FacturaProduct.belongsTo(models.Product, {
+      as: "products",
+      foreignKey: "id_product",
+    });
+  };
+
   return FacturaProduct;
 };
