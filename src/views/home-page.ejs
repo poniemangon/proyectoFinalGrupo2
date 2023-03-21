@@ -1,52 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-      rel="stylesheet"
-    />
-    <link href="/css/home.css" rel="stylesheet" />
-    <link href="/css/header_footer.css" rel="stylesheet" />
-    <title>Document</title>
-  </head>
-  <body>
-    <%- include('./partials/header') %>
-    
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
+  <link href="/css/home.css" rel="stylesheet" />
+  <link href="/css/header_footer.css" rel="stylesheet" />
+  <title>Document</title>
+</head>
+
+<body>
+  <%- include('./partials/header') %>
+
     <div class="invisible"></div>
-    
-    
+
+
     <main>
 
       <!-- ultima coleccion -->
-    <section class="ultima-coleccion">
-      <a href="">
-        <div class="caja">
-          <img src="https://sneakernews.com/wp-content/uploads/2021/07/adidas-originals-forum-shopping-guide-banner.jpg" alt="">
-          <div class="titulo"> <p><Ultima coleccion></p> </div>
-          <div class="descripcion"> <p>descripcion de la coleccion</p> </div>
-        </div>
-      </a>
-    </section>
+      <section class="ultima-coleccion">
+        <a href="">
+          <div class="caja">
+            <img
+              src="https://sneakernews.com/wp-content/uploads/2021/07/adidas-originals-forum-shopping-guide-banner.jpg"
+              alt="">
+            <div class="titulo">
+              <p>
+                <Ultima coleccion>
+              </p>
+            </div>
+            <div class="descripcion">
+              <p>descripcion de la coleccion</p>
+            </div>
+          </div>
+        </a>
+      </section>
 
 
-    <!-- navbar -->
+      <!-- navbar -->
 
       <nav class="nav-categorias">
-         <div class="categoria"> <p>remeras</p> </div>
-        <div class="categoria"> <p>buzos</p></div>
-        <div class="categoria"><p>shorts</p></div>
-        <div class="categoria"><p>pantalones</p></div>
+        <div class="categoria">
+          <p>remeras</p>
+        </div>
+        <div class="categoria">
+          <p>buzos</p>
+        </div>
+        <div class="categoria">
+          <p>shorts</p>
+        </div>
+        <div class="categoria">
+          <p>pantalones</p>
+        </div>
       </nav>
- 
+
 
       <!-- producto destacado -->
 
@@ -60,41 +72,93 @@
           </div>
           <div class="producto">
             <img src="https://media.mysport.lv/wysiwyg/Brendu_kategoriju_content_LV/adidas_apavi-baneris.jpg" alt="">
-            <div class="nombre"><p>Nombre producto</p></div>
-            <div class="descripcion"><p>Descripcion producto</p></div>
+            <div class="nombre">
+              <p>Nombre producto</p>
+            </div>
+            <div class="descripcion">
+              <p>Descripcion producto</p>
+            </div>
           </div>
         </div>
-      </section >
+      </section>
 
       <!-- ultimos productos -->
 
       <section class="ultimos-productos">
         <div class="titulo">Ultimos productos</div>
-       
-        <% products.forEach(function(product) { %>
+
+        <% products1.forEach(function(product) { %>
           <!-- Your code to display each product goes here -->
-        
-        <div class="productos">
-          <div class="producto"><a href="/products/detalle/<%= product.id %>"><img src="/images/products/<%= product.image %>" alt=""></a>
+
+          <div class="productos">
+            <div class="producto"><a href="/products/detalle/<%= product.id %>"><img
+                  src="/images/products/<%= product.image %>" alt=""></a>
               <div class="footer-producto">
-                <p><%= product.name %></p>
+                <p>
+                  <%= product.name %>
+                </p>
                 <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
               </div>
-          </div>
-          <% }); %>
-      
-          
-          
-          
+            </div>
+            <% }); %>
 
-          
-        </div>
+
+
+
+
+
+          </div>
+
+
+
+
+
+
+
+
+          </div>
+      </section>
+      
+      <section class="ultimos-productos">
+        
+
+        <% products2.forEach(function(product) { %>
+          <!-- Your code to display each product goes here -->
+
+          <div class="productos">
+            <div class="producto"><a href="/products/detalle/<%= product.id %>"><img
+                  src="/images/products/<%= product.image %>" alt=""></a>
+              <div class="footer-producto">
+                <p>
+                  <%= product.name %>
+                </p>
+                <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
+              </div>
+            </div>
+            <% }); %>
+
+
+
+
+
+
+          </div>
+
+
+
+
+
+
+
+
+          </div>
       </section>
 
 
     </main>
-    
+
 
     <%- include('./partials/footer') %>
-  </body>
+</body>
+
 </html>

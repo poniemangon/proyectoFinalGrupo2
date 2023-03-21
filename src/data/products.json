@@ -1,7 +1,7 @@
 [
   {
     "id": 8,
-    "name": "ADIDAS 4FD3",
+    "name": "1",
     "description": "",
     "category": "deportiva",
     "price": 70000,
@@ -9,7 +9,7 @@
   },
   {
     "id": 9,
-    "name": "ADIDAS RUN",
+    "name": "2",
     "description": "",
     "category": "deportiva",
     "price": 63000,
@@ -17,7 +17,7 @@
   },
   {
     "id": 4,
-    "name": "NIKE AIR MAX 97",
+    "name": "3",
     "description": "",
     "category": "deportiva",
     "price": 60000,
@@ -25,7 +25,7 @@
   },
   {
     "id": 5,
-    "name": "NIKE AIR MAX 95",
+    "name": "4",
     "description": "",
     "category": "deportiva",
     "price": 60000,
@@ -33,7 +33,7 @@
   },
   {
     "id": 6,
-    "name": "NIKE AIR MAX 95",
+    "name": "5",
     "description": "",
     "category": "deportiva",
     "price": 60000,
@@ -41,7 +41,7 @@
   },
   {
     "id": 8,
-    "name": "ADIDAS 4FD3",
+    "name": "6",
     "description": "",
     "category": "deportiva",
     "price": 70000,
@@ -49,7 +49,71 @@
   },
   {
     "id": 9,
-    "name": "ADIDAS RUN",
+    "name": "7",
+    "description": "",
+    "category": "deportiva",
+    "price": 63000,
+    "image": "product_image-1678398792530-591800242.jpeg"
+  },
+  {
+    "id": 9,
+    "name": "8",
+    "description": "",
+    "category": "deportiva",
+    "price": 63000,
+    "image": "product_image-1678398792530-591800242.jpeg"
+  },
+  {
+    "id": 9,
+    "name": "9",
+    "description": "",
+    "category": "deportiva",
+    "price": 63000,
+    "image": "product_image-1678398792530-591800242.jpeg"
+  },
+  {
+    "id": 9,
+    "name": "10",
+    "description": "",
+    "category": "deportiva",
+    "price": 63000,
+    "image": "product_image-1678398792530-591800242.jpeg"
+  },
+  {
+    "id": 9,
+    "name": "11",
+    "description": "",
+    "category": "deportiva",
+    "price": 63000,
+    "image": "product_image-1678398792530-591800242.jpeg"
+  },
+  {
+    "id": 9,
+    "name": "12",
+    "description": "",
+    "category": "deportiva",
+    "price": 63000,
+    "image": "product_image-1678398792530-591800242.jpeg"
+  },
+  {
+    "id": 9,
+    "name": "13",
+    "description": "",
+    "category": "deportiva",
+    "price": 63000,
+    "image": "product_image-1678398792530-591800242.jpeg"
+  },
+  {
+    "id": 9,
+    "name": "14",
+    "description": "",
+    "category": "deportiva",
+    "price": 63000,
+    "image": "product_image-1678398792530-591800242.jpeg"
+  },
+  {
+    "id": 9,
+    "name": "15",
     "description": "",
     "category": "deportiva",
     "price": 63000,

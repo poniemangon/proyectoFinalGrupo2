@@ -1,5 +1,5 @@
 function setUser(req, res, next) {
-    res.locals.user = req.session.userLogged || null;
+    res.locals.user = req.session.user || null;
     next();
   }
 

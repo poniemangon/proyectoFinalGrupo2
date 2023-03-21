@@ -5,150 +5,151 @@ const users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'));
 const bcrypt = require("bcrypt");
 const multer = require('multer');
 const upload = multer({ dest: 'public/images/userimages' });
-const User = require('../models/User');
+const db = require('../database/models/');
+
 
 
 
 const controller = {
+  indexUser: (req, res) => {
+    
+  return res.render('header', {user: req.session.user})
+  },
   register: (req, res)=>{
   res.render('register');
   },  
-  register: (req, res)=>{
-      res.render('register');
-  },
   login: (req, res)=>{
       res.render('login');
   },
-  loginProcess: (req, res) => {
-    let userToLog = findByField('username', req.body.username);
-    if(userToLog) {
-      let passwordCheck = bcrypt.compareSync(req.body.password, userToLog.password);
-      if(passwordCheck){ 
-        req.session.userLogged = userToLog;
-        console.log(req.session.userLogged);
-        return res.redirect('/');
-      }
-    }
-    return res.render('login', {
-      errors: "User not found"
-    });
+  logout: async (req, res) => {
+    await req.session.destroy();
+    return res.redirect('/');
   },
-  indexUser: (req, res) => {
+  profile: async (req, res) => {
     
-    return res.render('header', {user: req.session.userLogged});
-      
-},
-  store: (req, res) => {
-        console.log('req:', req)
-        // hash the password
-        
-        const userData = req.body;
-        // create user object
-        const result = User.create(userData);
-        if (result == 'yes'){
-          return res.redirect('/');
-        }
-        else {
-          return res.redirect('back');
-        }
-  
-
-  
-        
-        },
-    
-    logout: (req, res) => {
-      req.session.destroy();
-        ``
-      return res.redirect('back');
-    },
-    getUser: (req, res) => {
-      const id = req.params.id;
-      
-      const userFound = User.getUser(id);
-      if (userFound) {
-        console.log('USUARIO ENCONTRADO');
-        return res.render('profile', {userFound});
-      }
-      else {
-        return res.render('404');
-      }
-    },
-    editImage: (req, res) => {
-      const id = req.params.id;
-      const picUser = User.editImage(id);
-      return res.render("changeImageForm", { picUser });
-    },
-    updateImage: (req, res) => {
-      const id = req.params.id;
-      
-      if (req.file) {
-      const imagen = req.file.filename;
-      User.updateImage(id, imagen);
-      const userBuscado = User.getUser(id);
-      req.session.userLogged.image = userBuscado.image;
-      
-      return res.redirect("/");}
-      else {return res.redirect('back');}
-    },
-    editUser: (req, res) => {
-      const id = req.params.id;
-      const picUser = User.editUser(id);
-      return res.render("changeUserForm", { picUser });
-    },
-    updateUser: (req, res) => {
-      const id = req.params.id;
-      const newData = {
-        username: req.body.username.toString(), 
-        password: req.body.password.toString(), 
-        name: req.body.name.toString(), 
-        mail: req.body.mail.toString(),
-      };
-      
-      
-      
-      if (req.body) {
-      User.onUserUpdate(id, newData);
-      const userBuscado = User.getUser(id);
-      req.session.userLogged = userBuscado;
-      
-      return res.redirect("/");}
-      else {return res.redirect('back');}
-    },
-    mySession: (req, res) => {
-      
+    const id = await req.params.id;
+    const userFound = await db.User.findOne({ where: { id } });
+    if (userFound) {
+    return res.render('profile', {userFound});
     }
-};
+    else {
+      return res.redirect('/');
+    }
+  },
+  store: async (req, res) => {
+    try {
+      const newUser = {
+        username: req.body.username,
+        password: req.body.password,
+        email: req.body.email,
+        name: req.body.name
+      }
+      
 
-function findByID(id) {
-let userFound = User.findAll().find(user => user.id === id);
-return userFound;
-};
+      // Check if user already exists
+      const existingUser = await db.User.findOne({
+        where: { 
+          [db.Sequelize.Op.or]: [{ username: newUser.username }, { email: newUser.email }] 
+        },
+      });
 
-function findByField(field, text){
-let userFound = User.findAll().find(user => user[field] === text);
-return userFound;
-};
+      if (existingUser) {
+        return res.redirect('back');
+      }
 
-function getUsersList(path) {
-return JSON.parse(fs.readFileSync(path, 'utf-8'));
-}
+      // Hash the password
+      const hashedPassword = await bcrypt.hash(newUser.password, 10);
 
-function guardarUser(userToStore) {
+      // Create the user
+      const user = await db.User.create({
+        username: newUser.username,
+        name: newUser.name,
+        email: newUser.email,
+        password: hashedPassword,
+        id_user_category: 1
+      });
 
-const users = getUsersList(usersPath);
+      res.redirect('/login');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
+  },
+  loginProcess: async (req, res) => {
+    try {
+      const { username, password } = req.body;
 
-const usersList = users.map(usuario => {
-  if(usuario.id == userToStore.id) {
-    return userToStore;
+      // Find the user by their username
+      const user = await db.User.findOne({ where: { username } });
+
+      // If the user doesn't exist or the password is incorrect, show an error message
+      if (!user || !await bcrypt.compare(password, user.password)) {
+        return res.render('login', { error: 'Invalid username or password' });
+      }
+
+      // If the user exists and the password is correct, log them in and redirect to the home page
+      req.session.user = user;
+      req.session.user.password = 'hidden';
+      console.log('success');
+      console.log(req.session.user.username);
+      res.redirect('/');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
+    }
+  },
+  editUser: async (req, res) => {
+    
+    const id = await req.params.id;
+    const picUser = await db.User.findOne({ where: { id } });
+    if (picUser) {
+    return res.render('changeUserForm', {picUser});
+    }
+    else {
+      return res.redirect('/');
+    }
+  },
+  editUserProcess: async (req, res) => {
+    const id = await req.params.id;
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    const newData = await {
+      username: req.body.username,
+      password: hashedPassword,
+      email: req.body.email,
+      name: req.body.name,
+      
+    };
+    await db.User.update(newData, { where: { id: id } });
+
+    
+    req.session.user.username = newData.username;
+    req.session.user.email = newData.email;
+    req.session.user.name = newData.name;
+
+    return res.redirect('/');
+
+  },
+  search: async (req, res) => {
+    const username = await req.body.busqueda;
+    console.log(req.body.busqueda);
+    const userFound = await db.User.findOne({ where: { username } });
+    if (userFound) {
+      return res.redirect(`/profile/${userFound.id}`);
+    }
+    else {
+      return res.redirect('back');
+    }
   }
-  return usuario;
   
-});
+};
 
-fs.writeFileSync(usersPath, JSON.stringify(usersList, null, 2));
-}
+
+
+
+
+
 
 
 
 module.exports = controller;
+

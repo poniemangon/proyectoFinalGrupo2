@@ -54,6 +54,8 @@ app.use("/products", productsRouter);
 console.log('hola');
 
 
+
+
 const productsMiddleware = require('./src/middlewares/setProducts');
 
 app.use(productsMiddleware);

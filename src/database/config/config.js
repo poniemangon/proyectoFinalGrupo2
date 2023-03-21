@@ -2,8 +2,9 @@ module.exports = {
   development: {
     username: "root",
     password: null,
-    database: "bd_proyecto_int_dh",
-    host: "127.0.0.1",
+    database: "usuarios",
+    host: "localhost",
+    port: 3307,
     dialect: "mysql",
   },
   test: {

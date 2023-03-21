@@ -30,10 +30,6 @@ module.exports = (sequelize, dataTypes) => {
       foreignKey: "id_user",
     });
 
-    Factura.hasMany(models.FacturaProduct, {
-      as: "factura_product",
-      foreignKey: "id_factura",
-    });
 
     Factura.belongsToMany(models.Product, {
       as: "products",

@@ -8,11 +8,11 @@ module.exports = (sequelize, dataTypes) => {
       unique: true,
       autoIncrement: true,
     },
-    first_name: {
+    username: {
       type: dataTypes.STRING(50),
       allowNull: false,
     },
-    last_name: {
+    name: {
       type: dataTypes.STRING(50),
       allowNull: false,
     },
@@ -30,7 +30,7 @@ module.exports = (sequelize, dataTypes) => {
     },
     id_user_category: {
       type: dataTypes.INTEGER(10),
-      allowNull: false,
+      allowNull: true,
     },
   };
   let config = {
