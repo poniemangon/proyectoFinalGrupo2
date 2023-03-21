@@ -24,19 +24,19 @@ router.get("/", productsController.carrito);
 
 //Crear un producto
 router.get("/create", productsController.create);
-router.post('/',upload.single("product_image"), productsController.store); 
+router.post('/store', upload.fields([{ name: 'product_image', maxCount: 1 },{ name: 'product_banner', maxCount: 1 }]), productsController.store); 
 
 //Detalle producto
 router.get("/detalle/:id", productsController.detail);
 
-//Editar un producto
-router.get('/edit/:id', productsController.edit); 
-router.put('/edit/:id', upload.single("product_image"), productsController.update); 
+// //Editar un producto
+// router.get('/edit/:id', productsController.edit); 
+// router.put('/edit/:id', upload.fields("product_image"), productsController.update); 
 //carrito
 router.get('/carrito', productsController.carrito)
 
-//delete
-router.delete('/delete/:id', productsController.destroy);
-router.get('/delete/:id', productsController.destroy);
+// //delete
+// router.delete('/delete/:id', productsController.destroy);
+// router.get('/delete/:id', productsController.destroy);
 
 module.exports = router;

@@ -1,89 +1,50 @@
 const fs = require("fs");
 const path = require("path"); 
-
+const db = require('../database/models/');
 const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+const multer = require('multer');
+const upload = multer({ dest: 'public/images/products' });
 console.log(products);
 
 const productsController = {
-    carrito : (req, res) =>res.render('carrito'),
-    create: (req,res) => {return res.render("agregar");},
-	store: (req, res) => {
-		const products = getProductList(productsFilePath);
-		const product = {
-			id: products.length > 0 ? products[products.length -1].id + 1 : 1,
-			name: req.body.name,
-            description: req.body.description,
-			category: req.body.category,
-			price: Number(req.body.price),
-			image: req.file ? req.file.filename : "default.jpg",
-		}
-        console.log(product);
-		products.push(product);
-
-		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-
-		return res.redirect("/products");
+	carrito: (req, res) => {
+		return res.render('carrito');
 	},
-    detail: (req,res) => {
-        const id = req.params.id; 
-        const product = products.find(product => product.id == id);
-        return res.render("detalle-producto", {product})                  
-    },
-    edit: (req,res) => {
-        const id = req.params.id;
-        const product = products.find(product => product.id == id);
-        res.render("editar-producto", {product})
-    },
-    update: (req, res) => {
+	detail: async (req, res) => {
 		const id = req.params.id;
-		
-		const product = {
-			id,
-			...req.body,
-			image: req.file ? req.file.filename : "default.jpg",
+		try {
+			const product = await db.Product.findByPk(id);
+			return res.render('detalle-producto', {product});
 		}
-		guardarProducto(product)
-		return res.redirect("/products");
-    },
-	
-	// Delete - Delete one product from DB
-	destroy : (req, res) => {
-
-		eliminarProducto(req.params.id);
-
-		return res.redirect("/products");
+		catch (err) {
+			return res.redirect('back');
+		}
 	},
-}
-
-function eliminarProducto(id) {
-	let products = getProductList(productsFilePath);
-
-	products = products.filter( product => product.id != id);
-
-	fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2));
-}
-
-
-
-
-
-function guardarProducto(productToStore) {
-
-	const products = getProductList(productsFilePath);
-
-	const productList = products.map(prod => {
-		if(prod.id == productToStore.id) {
-			return productToStore
+	create: async (req, res) => {
+		const categorias = await db.ProductCategory.findAll();
+		return res.render('agregar', {categorias});
+	},
+	store: async (req, res) => {
+		try {
+			console.log(req.body);
+			const product = await db.Product.create({
+				name: req.body.name,
+				description: req.body.description,
+				price: req.body.price,
+				image: req.files.product_image[0].filename,
+				banner: req.files.product_banner[0].filename,
+				id_product_category: req.body.id_product_category
+			});
+			return res.redirect('/');
 		}
-		return prod;
-	});
+		catch (error) {
+			console.error(error);
+			return res.redirect('back');
+		  }
 
-	fs.writeFileSync(productsFilePath, JSON.stringify(productList, null, 2));
-}
 
-function getProductList(path) {
-	return JSON.parse(fs.readFileSync(path, 'utf-8'));
+	},
 }
 
 module.exports = productsController;

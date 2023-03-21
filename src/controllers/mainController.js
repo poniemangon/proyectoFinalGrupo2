@@ -1,15 +1,15 @@
 const path = require('path');
 const fs = require('fs');
 const productsFilePath = path.join(__dirname, '../data/products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-const products1 = products.slice(products.length-7, products.length).reverse();
-const products2 = products.slice(products.length-14, products.length-7).reverse();
+const db = require('../database/models/');
 
 
 
 const mainController = {
-    home: (req,res) => {
-        console.log(req.session.user);
+    home: async (req,res) => {
+        const products = await db.Product.findAll();
+        const products1 = await products.slice(products.length-7, products.length).reverse();
+        const products2 = await products.slice(products.length-14, products.length-7).reverse();
         
         return res.render("home-page", {products1, products2} );
     }

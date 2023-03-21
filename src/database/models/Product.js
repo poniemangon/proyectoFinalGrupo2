@@ -17,7 +17,7 @@ module.exports = (sequelize, dataTypes) => {
       allowNull: false,
     },
     image: {
-      type: dataTypes.BLOB,
+      type: dataTypes.STRING,
       allowNull: true,
     },
     price: {
@@ -29,7 +29,7 @@ module.exports = (sequelize, dataTypes) => {
       allowNull: false,
     },
     banner: {
-      type: dataTypes.BLOB,
+      type: dataTypes.STRING,
       allowNull: true,
     },
   };

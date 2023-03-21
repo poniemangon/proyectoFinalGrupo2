@@ -30,7 +30,7 @@
     <div class="contenedorFormulario" > 
      
 
-      <form action="/products" method="post" enctype="multipart/form-data">
+      <form action="/products/store" method="post" enctype="multipart/form-data">
         <div>
           <label for="name">Name:</label>
           <input type="text" id="name" name="name">
@@ -40,10 +40,11 @@
           <textarea id="description" name="description"></textarea>
         </div>
         <div>
-          <label for="category">Category:</label>
-          <select id="category" name="category">
-            <option value="deportiva">Deportiva</option>
-            <option value="casual">Casual</option>
+          <label for="id_product_category">Category:</label>
+          <select id="id_product_category" name="id_product_category">
+            <% categorias.forEach(categoria => { %>
+            <option value="<%= categoria.id %>"><%= categoria.category_name %></option>
+            <% }); %>
           </select>
         </div>
         <div>
@@ -52,7 +53,11 @@
         </div>
         <div>
           <label for="image">Image:</label>
-          <input type="file" id="file" name="product_image">
+          <input type="file" id="product_image" name="product_image">
+        </div>
+        <div>
+          <label for="banner">Banner:</label>
+          <input type="file" id="product_banner" name="product_banner">
         </div>
         <button type="submit">Submit</button>
       </form>
