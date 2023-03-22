@@ -35,10 +35,9 @@
             <% if (user && user.id==userFound.id) {%>
 
               <img src="/images/userimages/<%= userFound.image %>" alt="" class="profile-user-img" />
-              <a href="/image/<%= user.id%>" class="profile-edit-img">Editar imagen</a>
               <h2 class="profile-user-name">Nombre de usuario: <%= user.username %>
               </h2>
-              <h2 class="profile-user-email">Email: <%= user.email %>
+              <h2 class="profile-user-email">Email: <%= userFound.email %>
               </h2>
 
               <a href="/edituser/<%= user.id %>" class="profile-edit-data">Editar datos</a>

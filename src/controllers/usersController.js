@@ -113,16 +113,28 @@ const controller = {
   },
   editUserProcess: async (req, res) => {
     const id = await req.params.id;
+   
+    const picUser = await db.User.findOne({ where: { id } });
+
+    const imagePath = path.join(__dirname, '..', '..', 'public', 'images', 'userimages', picUser.dataValues.image);
     if (req.file) {
-      fs.unlink('./public/images/userimages/', picUser.image);
-    }
+	
+		  fs.unlink(imagePath, (err) => {
+			if (err) {
+			  console.error(err);
+			}
+		  });
+		}
+		console.log(picUser.dataValues.image);
+
+
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const newData = await {
       username: req.body.username,
       password: hashedPassword,
       email: req.body.email,
       name: req.body.name,
-      image: req.file ? req.file.filename : picUser.image
+      image: req.file ? req.file.filename : picUser.dataValues.image
       
     };
     await db.User.update(newData, { where: { id: id } });

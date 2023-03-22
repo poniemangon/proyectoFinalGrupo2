@@ -57,26 +57,40 @@ const productsController = {
 	update: async (req, res) => {
 		const id = req.params.id;
 		const product = await db.Product.findOne({ where: { id } });
-		if (req.files.product_image) {
-			await fs.unlink('./public/images/products/', product.image);
-		  }
-		else {console.log('brasil porra')};
-		if (req.files.product_banner) {
-			await fs.unlink('./public/images/products/', product.banner);
-		  };
-		const newData = await {
-			name: req.body.name,
-			description: req.body.description,
-			price: req.body.price,
-			image: req.files.product_image ? req.files.product_image.filename : product.image,
-			banner: req.files.product_banner ? req.files.product_banner.filename : product.banner,
-			id_product_category: req.body.id_product_category
-			};
-		  await db.Product.update(newData, { where: { id: id } });
-
-		  return res.redirect(`/products/detail/${id}` );
+		const imagePath = path.join(__dirname, '..', '..', 'public', 'images', 'products', product.image);
+		const bannerPath = path.join(__dirname, '..', '..', 'public', 'images', 'products', product.banner);
 	  
-	}
+		if (req.files.product_image) {
+			console.log(req.files.product_image);
+		  fs.unlink(imagePath, (err) => {
+			if (err) {
+			  console.error(err);
+			}
+		  });
+		}
+		
+		if (req.files.product_banner) {
+		  fs.unlink(bannerPath, (err) => {
+			if (err) {
+			  console.error(err);
+			}
+		  });
+		}
+	  
+		const newData = {
+		  name: req.body.name,
+		  description: req.body.description,
+		  price: req.body.price,
+		  image: req.files.product_image ? req.files.product_image[0].filename : product.image,
+		  banner: req.files.product_banner ? req.files.product_banner[0].filename : product.banner,
+		  id_product_category: req.body.id_product_category
+		};
+		console.log(newData.image);
+		await db.Product.update(newData, { where: { id } });
+		return res.redirect(`/products/detail/${id}`);
+	  }
+	  
+	
 }
 
 module.exports = productsController;
