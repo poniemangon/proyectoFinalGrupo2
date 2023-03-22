@@ -83,15 +83,15 @@ const controller = {
     try {
       const { username, password } = req.body;
 
-      // Find the user by their username
+
       const user = await db.User.findOne({ where: { username } });
 
-      // If the user doesn't exist or the password is incorrect, show an error message
+    
       if (!user || !await bcrypt.compare(password, user.password)) {
         return res.render('login', { error: 'Invalid username or password' });
       }
 
-      // If the user exists and the password is correct, log them in and redirect to the home page
+
       req.session.user = user;
       req.session.user.password = 'hidden';
       console.log('success');
