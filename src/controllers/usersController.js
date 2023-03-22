@@ -49,7 +49,7 @@ const controller = {
       
       
 
-      // Check if user already exists
+
       const existingUser = await db.User.findOne({
         where: { 
           [db.Sequelize.Op.or]: [{ username: newUser.username }, { email: newUser.email }] 
@@ -60,10 +60,8 @@ const controller = {
         return res.redirect('back');
       }
 
-      // Hash the password
       const hashedPassword = await bcrypt.hash(newUser.password, 10);
 
-      // Create the user
       const user = await db.User.create({
         username: newUser.username,
         name: newUser.name,
