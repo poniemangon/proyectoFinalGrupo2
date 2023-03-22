@@ -41,7 +41,7 @@
                 <div class="formularios">
 
 
-                    <form action="/" method="POST">
+                    <form action="/register" method="post" enctype="multipart/form-data">
                         <div class="formulario-email">
                             <div class="palabra-email"> Usuario</i></div>
                             <i class="fa-solid fa-envelope iconos"></i>
@@ -75,19 +75,27 @@
 
 
                         </div>
+                        <div class="formulario-pass">
+                            <div class="palabra-contraseña"> IMAGEN </div>
+                            <i class="fa-sharp fa-solid fa-lock iconos"></i><label for="user_image"> </label>
+                            <input class="email-pass" type="file" id="user_image" name="user_image"><br>
+
+
+
+                        </div>
 
                 </div>
                 <section class="final">
 
 
                     <button type="submit"> Registrar <i class="fa-sharp fa-solid fa-arrow-right"></i> </button>
-
+                </form>
                 </section>
 
-
+                
 
             </section>
-            </form>
+            
         </main>
         <br>
 

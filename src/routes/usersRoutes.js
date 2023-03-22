@@ -23,12 +23,12 @@ const upload = multer({ storage: storage });
 // ************ Controller Require ************
 const usersController = require('../controllers/usersController');
 
-router.get('/register', usersController.register); 
-router.post('/', usersController.store);
+router.get('/register',  usersController.register);
+router.post('/register', upload.single('user_image'), usersController.store);
 router.get('/login', usersController.login);
 router.post('/login', usersController.loginProcess);
-router.get('/edituser/:id', usersController.editUser);
-router.put('/edituser/:id', usersController.editUserProcess);
+router.get('/edituser/:id',  usersController.editUser);
+router.put('/edituser/:id', upload.single('user_image'), usersController.editUserProcess);
 router.get('/profile/:id', usersController.profile); 
 router.get('/logout', usersController.logout); 
 router.post('/search', usersController.search);

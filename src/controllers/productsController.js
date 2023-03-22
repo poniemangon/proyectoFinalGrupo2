@@ -1,11 +1,8 @@
 const fs = require("fs");
 const path = require("path"); 
 const db = require('../database/models/');
-const productsFilePath = path.join(__dirname, '../data/products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const multer = require('multer');
 const upload = multer({ dest: 'public/images/products' });
-console.log(products);
 
 const productsController = {
 	carrito: (req, res) => {
@@ -45,6 +42,41 @@ const productsController = {
 
 
 	},
+	edit: async (req, res) => {
+		const categorias = await db.ProductCategory.findAll();
+		console.log(categorias);
+		const id = await req.params.id;
+		const product = await db.Product.findOne({ where: { id } });
+		if (product) {
+		return res.render('editar-producto', {product, categorias});
+		}
+		else {
+		  return res.redirect('/');
+		}
+	},
+	update: async (req, res) => {
+		const id = req.params.id;
+		const product = await db.Product.findOne({ where: { id } });
+		if (req.files.product_image) {
+			await fs.unlink('./public/images/products/', product.image);
+		  }
+		else {console.log('brasil porra')};
+		if (req.files.product_banner) {
+			await fs.unlink('./public/images/products/', product.banner);
+		  };
+		const newData = await {
+			name: req.body.name,
+			description: req.body.description,
+			price: req.body.price,
+			image: req.files.product_image ? req.files.product_image.filename : product.image,
+			banner: req.files.product_banner ? req.files.product_banner.filename : product.banner,
+			id_product_category: req.body.id_product_category
+			};
+		  await db.Product.update(newData, { where: { id: id } });
+
+		  return res.redirect(`/products/detail/${id}` );
+	  
+	}
 }
 
 module.exports = productsController;

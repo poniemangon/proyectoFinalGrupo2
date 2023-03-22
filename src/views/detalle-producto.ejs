@@ -32,7 +32,12 @@
         </button>
       </div>
       <div class="info-producto">
-        <h2 class="nombre-producto"><%= product.name %></h2>
+        <% if (user) { %>
+        <h2 class="nombre-producto"><%= product.name %></h2> 
+        <a href="/products/edit/<%= product.id %>">Editar</a>
+        <% } else { %>
+        <h2 class="nombre-producto"><%= product.name %></h2> 
+        <% } %>
         <p class="descripcion-producto">
           <%= product.description %>
         </p>
@@ -76,7 +81,7 @@
       </div>
     </main>
 
-    <article class="descripcion-detalles">
+    <!-- <article class="descripcion-detalles">
       <h3>Descripción del producto</h3>
       <p>
         Tu guardarropa está lleno de remeras de running que nunca funcionaron
@@ -97,7 +102,7 @@
         <li>Color del artículo: Yellow</li>
         <li>Número de artículo: GM3248</li>
       </ul>
-    </article>
+    </article> -->
 
     <aside class="productos-similares">
       <h3>Productos Similares</h3>

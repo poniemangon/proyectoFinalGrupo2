@@ -7,6 +7,8 @@ const mainRouter = require("./src/routes/mainRoutes");
 const productsRouter = require("./src/routes/productsRoutes");
 const methodOverride =  require('method-override');
 const session = require('express-session');
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 app.use(methodOverride('_method'));
@@ -51,18 +53,17 @@ app.use("/", usersRoutes );
 //Products routes
 app.use("/products", productsRouter);
 
-console.log('hola');
 
 
 
 
-const productsMiddleware = require('./src/middlewares/setProducts');
 
-app.use(productsMiddleware);
+
+
 
 // ************ Server ************
 app.use(express.static("public"));
-app.listen(3100, () => console.log("Servidor 3100 corriendo"));
+app.listen(3100, () => console.log("Listening on port 3100"));
 
 
 

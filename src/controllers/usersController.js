@@ -1,7 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-const usersPath = path.join(__dirname, '../data/users.json');
-const users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'));
 const bcrypt = require("bcrypt");
 const multer = require('multer');
 const upload = multer({ dest: 'public/images/userimages' });
@@ -15,7 +13,7 @@ const controller = {
     
   return res.render('header', {user: req.session.user})
   },
-  register: (req, res)=>{
+  register: async (req, res)=>{
   res.render('register');
   },  
   login: (req, res)=>{
@@ -37,13 +35,18 @@ const controller = {
     }
   },
   store: async (req, res) => {
+    console.log(req.body);
     try {
-      const newUser = {
+      const newUser = await {
         username: req.body.username,
         password: req.body.password,
         email: req.body.email,
-        name: req.body.name
-      }
+        name: req.body.name,
+        image: req.file ? req.file.filename : 'default.jpg'
+      };
+
+      
+      
       
 
       // Check if user already exists
@@ -66,6 +69,7 @@ const controller = {
         name: newUser.name,
         email: newUser.email,
         password: hashedPassword,
+        image: newUser.image,
         id_user_category: 1
       });
 
@@ -111,12 +115,16 @@ const controller = {
   },
   editUserProcess: async (req, res) => {
     const id = await req.params.id;
+    if (req.file) {
+      fs.unlink('./public/images/userimages/', picUser.image);
+    }
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const newData = await {
       username: req.body.username,
       password: hashedPassword,
       email: req.body.email,
       name: req.body.name,
+      image: req.file ? req.file.filename : picUser.image
       
     };
     await db.User.update(newData, { where: { id: id } });
