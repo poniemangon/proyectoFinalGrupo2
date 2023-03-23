@@ -22,7 +22,8 @@ const productsController = {
 	},
 	create: async (req, res) => {
 		const categorias = await db.ProductCategory.findAll();
-		return res.render('agregar', {categorias});
+		const errors = [];
+		return res.render('agregar', {categorias, errors});
 	},
 	store: async (req, res) => {
 		try {
