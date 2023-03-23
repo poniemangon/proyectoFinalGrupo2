@@ -3,6 +3,8 @@ const path = require("path");
 const db = require('../database/models/');
 const multer = require('multer');
 const upload = multer({ dest: 'public/images/products' });
+const validateNewProduct = require('../middlewares/productValidation');
+
 
 const productsController = {
 	carrito: (req, res) => {
@@ -24,7 +26,7 @@ const productsController = {
 	},
 	store: async (req, res) => {
 		try {
-			console.log(req.body);
+			await validateNewProduct(req, res, () => {});
 			const product = await db.Product.create({
 				name: req.body.name,
 				description: req.body.description,

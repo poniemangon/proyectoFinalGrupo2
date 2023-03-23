@@ -24,18 +24,18 @@
 
       <!-- ultima coleccion -->
       <section class="ultima-coleccion">
-        <a href="">
+        <a href="/products/detail/<%= products1[0].id %>">
           <div class="caja">
             <img
-              src="https://sneakernews.com/wp-content/uploads/2021/07/adidas-originals-forum-shopping-guide-banner.jpg"
+              src="/images/products/<%= products1[0].banner %>"
               alt="">
             <div class="titulo">
               <p>
-                <Ultima coleccion>
+                <%= products1[0].name %>
               </p>
             </div>
             <div class="descripcion">
-              <p>descripcion de la coleccion</p>
+              <p><%= products1[0].description %></p>
             </div>
           </div>
         </a>

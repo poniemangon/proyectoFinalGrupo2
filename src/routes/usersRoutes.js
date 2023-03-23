@@ -4,7 +4,7 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const multer = require('multer');
 const path = require('path');
-const setUser = require('../middlewares/setUser');
+const validateNewUser = require('../middlewares/registerValidation');
 
 // multer
 
@@ -24,7 +24,7 @@ const upload = multer({ storage: storage });
 const usersController = require('../controllers/usersController');
 
 router.get('/register',  usersController.register);
-router.post('/register', upload.single('user_image'), usersController.store);
+router.post('/register', upload.single('user_image'),validateNewUser, usersController.store);
 router.get('/login', usersController.login);
 router.post('/login', usersController.loginProcess);
 router.get('/edituser/:id',  usersController.editUser);

@@ -4,6 +4,7 @@ const bcrypt = require("bcrypt");
 const multer = require('multer');
 const upload = multer({ dest: 'public/images/userimages' });
 const db = require('../database/models/');
+const validationResult = require('../middlewares/registerValidation');
 
 
 
@@ -14,7 +15,8 @@ const controller = {
   return res.render('header', {user: req.session.user})
   },
   register: async (req, res)=>{
-  res.render('register');
+    const errors = [];
+  res.render('register', {errors});
   },  
   login: (req, res)=>{
       res.render('login');
@@ -35,8 +37,10 @@ const controller = {
     }
   },
   store: async (req, res) => {
-    console.log(req.body);
+   
+    
     try {
+      await validateNewUser(req, res, () => {});
       const newUser = await {
         username: req.body.username,
         password: req.body.password,

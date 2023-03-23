@@ -3,6 +3,7 @@ const router = express.Router();
 const multer = require('multer')
 const productsController = require("../controllers/productsController");
 const path = require('path');
+const validateNewProduct = require('../middlewares/productValidation');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -24,7 +25,7 @@ router.get("/", productsController.carrito);
 
 //Crear un producto
 router.get("/create", productsController.create);
-router.post('/store', upload.fields([{ name: 'product_image', maxCount: 1 },{ name: 'product_banner', maxCount: 1 }]), productsController.store); 
+router.post('/store', upload.fields([{ name: 'product_image', maxCount: 1 },{ name: 'product_banner', maxCount: 1 }]), validateNewProduct, productsController.store); 
 
 //Detalle producto
 router.get("/detail/:id", productsController.detail);
