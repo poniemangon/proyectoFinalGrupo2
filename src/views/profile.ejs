@@ -41,14 +41,12 @@
               </h2>
 
               <a href="/edituser/<%= user.id %>" class="profile-edit-data">Editar datos</a>
+              <a href="/delete/<%= user.id %>" class="profile-delete">Eliminar usuario</a>
 
               <% } else { %>
 
                 <img src="/images/userimages/<%= userFound.image %>" alt="" class="profile-user-img" />
-                <% if (user && user.id==userFound.id) {%>
-                <a href="/image/<%= userFound.id%>" class="profile-edit-img">Editar imagen</a>
-                <% } else { %>
-                <% }%>
+
                 <h2 class="profile-user-name">Nombre: <%= userFound.username %>
                 </h2>
 

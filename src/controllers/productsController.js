@@ -8,7 +8,8 @@ const validateNewProduct = require('../middlewares/productValidation');
 
 const productsController = {
 	carrito: (req, res) => {
-		return res.render('carrito');
+		const productos = req.session.carrito;
+		return res.render('carrito', {productos});
 	},
 	detail: async (req, res) => {
 		const id = req.params.id;
@@ -20,6 +21,22 @@ const productsController = {
 			return res.redirect('back');
 		}
 	},
+	addToCart: async (req, res) => {
+		if (req.session.user){
+			console.log('hay user logueado');
+
+			
+		}
+
+		
+		const id = req.body.productId;
+		const product = await db.Product.findByPk(id);
+		product.dataValues.numeroCarrito = (req.session.carrito.length + 1);
+		req.session.carrito.push(product.dataValues);
+		console.log(req.session.carrito);
+		return res.redirect('back');
+		
+	},
 	create: async (req, res) => {
 		const categorias = await db.ProductCategory.findAll();
 		const errors = [];
@@ -27,7 +44,7 @@ const productsController = {
 	},
 	store: async (req, res) => {
 		try {
-			await validateNewProduct(req, res, () => {});
+			// await validateNewProduct(req, res, () => {});
 			const product = await db.Product.create({
 				name: req.body.name,
 				description: req.body.description,
@@ -91,9 +108,42 @@ const productsController = {
 		console.log(newData.image);
 		await db.Product.update(newData, { where: { id } });
 		return res.redirect(`/products/detail/${id}`);
+	  },
+	  delete: async (req, res) => {
+		const id = req.params.id;
+		try {
+		  // Find the product to delete
+		  const product = await db.Product.findByPk(id);
+		  if (!product) {
+			return res.status(404).send('Product not found');
+		  }
+		  console.log(product);
+		  // Delete the product image and banner files
+		  const imagePath = path.join(__dirname, '..', '..', 'public', 'images', 'products', product.image);
+		  const bannerPath = path.join(__dirname, '..', '..', 'public', 'images', 'products', product.banner);
+		  fs.unlink(imagePath, (err) => {
+			if (err) {
+			  console.error(err);
+			}
+		  });
+		  fs.unlink(bannerPath, (err) => {
+			if (err) {
+			  console.error(err);
+			}
+		  });
+	
+		  // Delete the product from the database
+		  await product.destroy();
+		  return res.redirect('/');
+		} catch (error) {
+		  console.error(error);
+		  return res.redirect('back');
+		}
 	  }
+	};
+
 	  
 	
-}
+
 
 module.exports = productsController;

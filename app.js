@@ -31,7 +31,7 @@ app.use(session({
 
 // ************ Ejs ************
 app.set('view engine', 'ejs');
-app.set('views','./src/views')
+app.set('views','./src/views');
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
@@ -44,7 +44,7 @@ app.use(setUser);
 
 // Main
 app.use("/", mainRouter);
-app.get('/carrito', productsRouter  );
+app.get('/carrito', productsRouter );
 
 //user interface
 app.use("/", usersRoutes );

@@ -29,10 +29,11 @@
       </h1>
       <div class="carrito-container">
         <div class="productos-container">
+          <% for (producto of productos){ %>
           <div class="producto">
-            <img src="/imgs/remera-ejemplo1.webp" class="imagen-producto" />
+            <img src="images/products/<%= producto.image %>" class="imagen-producto" />
             <div class="descripcion">
-              <p class="nombre">REMERA OWN THE RUN</p>
+              <p class="nombre"><%= producto.name %></p>
               <p class="color">Color: Negro</p>
               <p class="talle">Talle: M</p>
               <form class="cantidad">
@@ -48,54 +49,11 @@
               <p class="precio">$12.999</p>
             </div>
           </div>
-          <div class="linea-producto-deco"></div>
-          <div class="producto">
-            <img src="/imgs/remera-ejemplo2.webp" class="imagen-producto" />
-            <div class="descripcion">
-              <p class="nombre">REMERA LOGO PEQUEÑO</p>
-              <p class="color">Color: Blanco</p>
-              <p class="talle">Talle: M</p>
-              <form class="cantidad">
-                <label>Cantidad:</label>
-                <select class="main-select">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-              </form>
-              <p class="precio">$7.499</p>
-            </div>
-          </div>
-        </div>
-        <div class="resumen">
-          <h2>Resumen</h2>
-          <div class="subtotal">
-            <p class="subtotal-texto">Subtotal:</p>
-            <p class="subtotal-precio">$20.498</p>
-          </div>
-          <div class="total">
-            <p class="total-texto">Total:</p>
-            <p class="total-precio">$20.498</p>
-          </div>
-          <div class="linea-deco"></div>
-          <div class="cupon-descuento">
-            <p class="cupon-texto">¿Tenés cupón de descuento?</p>
-            <input
-              type="search"
-              placeholder="Ingresá tu cupón"
-              class="cupon-search"
-            />
-            <button class="cupon-btn">Aplicar</button>
-          </div>
-
-          <button class="comprar-btn">Comprar</button>
-        </div>
+         <% } %>
       </div>
     </main>
 
-    <aside class="productos-similares">
+    <!-- <aside class="productos-similares">
       <h3>Productos Similares</h3>
       <div class="productos-similares-container">
         <button class="productos-similares-arrows">
@@ -120,7 +78,7 @@
           <i class="fa-solid fa-angle-right productos-similares-arrow-der"></i>
         </button>
       </div>
-    </aside>
+    </aside> -->
 
     <%- include('./partials/footer') %>
   </body>

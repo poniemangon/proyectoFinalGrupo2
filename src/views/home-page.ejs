@@ -21,21 +21,21 @@
 
 
     <main>
-
+      
       <!-- ultima coleccion -->
       <section class="ultima-coleccion">
-        <a href="/products/detail/<%= products1[0].id %>">
+        <a href="/products/detail/<%= bannerProduct.id %>">
           <div class="caja">
             <img
-              src="/images/products/<%= products1[0].banner %>"
+              src="/images/products/<%= bannerProduct.banner %>"
               alt="">
             <div class="titulo">
               <p>
-                <%= products1[0].name %>
+                <%= bannerProduct.name %>
               </p>
             </div>
             <div class="descripcion">
-              <p><%= products1[0].description %></p>
+              <p><%= bannerProduct.description %></p>
             </div>
           </div>
         </a>
@@ -46,7 +46,7 @@
 
       <nav class="nav-categorias">
         <div class="categoria">
-          <p>remeras</p>
+          <a href="/products/create"><p>remeras</p></a>
         </div>
         <div class="categoria">
           <p>buzos</p>

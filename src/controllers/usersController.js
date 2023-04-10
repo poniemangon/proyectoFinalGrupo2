@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const multer = require('multer');
 const upload = multer({ dest: 'public/images/userimages' });
 const db = require('../database/models/');
-const validationResult = require('../middlewares/registerValidation');
+const { validateNewUser } = require('../middlewares/registerValidation');
 
 
 
@@ -37,35 +37,28 @@ const controller = {
     }
   },
   store: async (req, res) => {
-   
-    
     try {
-      await validateNewUser(req, res, () => {});
-      const newUser = await {
+      const newUser = {
         username: req.body.username,
         password: req.body.password,
         email: req.body.email,
         name: req.body.name,
         image: req.file ? req.file.filename : 'default.jpg'
       };
-
-      
-      
-      
-
-
+  
       const existingUser = await db.User.findOne({
         where: { 
           [db.Sequelize.Op.or]: [{ username: newUser.username }, { email: newUser.email }] 
         },
       });
-
+  
       if (existingUser) {
-        return res.redirect('back');
+        const message = `${newUser.username} ya existe`; 
+        return res.render('register', {message}); 
       }
-
+  
       const hashedPassword = await bcrypt.hash(newUser.password, 10);
-
+  
       const user = await db.User.create({
         username: newUser.username,
         name: newUser.name,
@@ -74,7 +67,7 @@ const controller = {
         image: newUser.image,
         id_user_category: 1
       });
-
+  
       res.redirect('/login');
     } catch (error) {
       console.error(error);
@@ -160,6 +153,27 @@ const controller = {
     }
     else {
       return res.redirect('back');
+    }
+  },
+  deleteUser: async (req, res) => {
+    const id = await req.params.id;
+    try {
+      const user = await db.User.findOne({ where: { id } });
+      if (!user) {
+        return res.redirect('/');
+      }
+      const imagePath = path.join(__dirname, '..', '..', 'public', 'images', 'userimages', user.image);
+      if (fs.existsSync(imagePath)) {
+        fs.unlinkSync(imagePath);
+      }
+      await db.User.destroy({ where: { id } });
+      if (req.session.user.id == id) {
+        await req.session.destroy();
+      }
+      return res.redirect('/');
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Internal Server Error');
     }
   }
   

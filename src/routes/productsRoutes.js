@@ -29,14 +29,18 @@ router.post('/store', upload.fields([{ name: 'product_image', maxCount: 1 },{ na
 
 //Detalle producto
 router.get("/detail/:id", productsController.detail);
+router.post("/add", productsController.addToCart);
 
 //Editar un producto
 router.get('/edit/:id', productsController.edit); 
 router.put('/edit/:id', upload.fields([{ name: 'product_image', maxCount: 1 },{ name: 'product_banner', maxCount: 1 }]), productsController.update); 
 // carrito
-router.get('/carrito', productsController.carrito)
+router.get('/carrito', productsController.carrito);
+router.get('/delete/:id', productsController.delete);
+router.delete('/delete/:id', productsController.delete);
 
-// //delete
+
+// delete
 // router.delete('/delete/:id', productsController.destroy);
 // router.get('/delete/:id', productsController.destroy);
 

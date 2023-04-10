@@ -35,6 +35,7 @@
         <% if (user) { %>
         <h2 class="nombre-producto"><%= product.name %></h2> 
         <a href="/products/edit/<%= product.id %>">Editar</a>
+        <a href="/products/delete/<%= product.id %>">Eliminar</a>
         <% } else { %>
         <h2 class="nombre-producto"><%= product.name %></h2> 
         <% } %>
@@ -67,7 +68,13 @@
             <option value="5">5</option>
           </select>
         </form>
-        <button class="agregar-carrito-btn">Agregar al carrito</button>
+       
+        <form  action="/products/add" method="post" enctype="application/x-www-form-urlencoded">
+            <input type="hidden" id="productId" name="productId" value="<%= product.id %>">
+            <button type="submit" class="agregar-carrito-btn">Agregar al carrito</button>
+           
+            
+        </form>
         <div class="pago-envio">
           <div>
             <i class="fa-solid fa-credit-card"></i>
@@ -104,7 +111,7 @@
       </ul>
     </article> -->
 
-    <aside class="productos-similares">
+    <!-- <aside class="productos-similares">
       <h3>Productos Similares</h3>
       <div class="productos-similares-container">
         <button class="productos-similares-arrows">
@@ -129,7 +136,7 @@
           <i class="fa-solid fa-angle-right productos-similares-arrow-der"></i>
         </button>
       </div>
-    </aside>
+    </aside> -->
 
     <%- include('./partials/footer') %>
   </body>

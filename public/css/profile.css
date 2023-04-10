@@ -65,6 +65,18 @@ body {
 
   margin-bottom: 50px;
 }
+.profile-delete {
+  font-size: 14px;
+  text-decoration: none;
+  color: white;
+
+  margin-bottom: 40px;
+  background-color: rgba(211, 95, 95, 0.7);
+  border-radius: 100px;
+  padding: 5px;
+
+  margin-bottom: 50px;
+}
 
 .profile-logout {
   color: white;
