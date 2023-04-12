@@ -4,7 +4,8 @@ const bcrypt = require("bcrypt");
 const multer = require('multer');
 const upload = multer({ dest: 'public/images/userimages' });
 const db = require('../database/models/');
-const { validateNewUser } = require('../middlewares/registerValidation');
+const validation = require('../middlewares/registerValidation');
+const { validationResult } = require('express-validator');
 
 
 
@@ -37,6 +38,15 @@ const controller = {
     }
   },
   store: async (req, res) => {
+
+    const errors = validationResult(req).array();
+
+
+    if (errors.length !== 0){
+      
+      return res.render('register', {errors, oldData: req.body});
+    }
+    else {
     try {
       const newUser = {
         username: req.body.username,
@@ -73,7 +83,7 @@ const controller = {
       console.error(error);
       res.status(500).send('Internal Server Error');
     }
-  },
+  }},
   loginProcess: async (req, res) => {
     try {
       const { username, password } = req.body;

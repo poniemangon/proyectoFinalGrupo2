@@ -5,6 +5,7 @@ const db = require('../database/models/');
 
 
 
+
 const mainController = {
     home: async (req,res) => {
         const products = await db.Product.findAll();

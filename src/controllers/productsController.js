@@ -3,7 +3,7 @@ const path = require("path");
 const db = require('../database/models/');
 const multer = require('multer');
 const upload = multer({ dest: 'public/images/products' });
-const validateNewProduct = require('../middlewares/productValidation');
+
 
 
 const productsController = {
