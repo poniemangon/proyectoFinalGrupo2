@@ -26,7 +26,10 @@
         <br>
         <main>
             <section class="container-principal">
-                <div class="titulo">REGISTRARSE</div>
+                <div class="titulo">REGISTRARSE 
+                </div>
+                <div class="titulo"> 
+                </div>
 
                 <div class="opciones">
                     <a href="/login" style="color: black; text-decoration: none;">
@@ -43,6 +46,13 @@
 
                     <form action="/register" method="post" enctype="multipart/form-data">
                         <div class="formulario-email">
+                            <% if (locals && locals.errors) { %>
+                                <% for (let error of locals.errors) { %>
+                                  <div class="error-message">
+                                    <%- error.msg %>
+                                  </div>
+                                <% } %>
+                              <% } %>
                             <% if (locals && locals.message) { %>
                             
                           
@@ -50,6 +60,7 @@
                             <% } %>
                             <i class="fa-solid fa-envelope iconos"></i>
                             <label for="email"></label>
+                            
                             <input class="email-form" type="text" id="username" name="username"><br>
                         </div>
 

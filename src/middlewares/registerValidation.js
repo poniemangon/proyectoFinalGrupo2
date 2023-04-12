@@ -15,7 +15,6 @@ const path = require('path');
             else {
                 const file = req.file;
                 const fileExt = path.extname(file.originalname);
-                console.log(fileExt);
                 const extensionesValidas = ['jpeg', 'png', 'gif', '.jpg'];
 
                 if(!extensionesValidas.includes(fileExt)){
