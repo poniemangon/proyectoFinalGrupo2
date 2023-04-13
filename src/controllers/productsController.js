@@ -53,8 +53,8 @@ const productsController = {
 				if (product_image) fs.unlinkSync(product_image[0].path);
 				if (product_banner) fs.unlinkSync(product_banner[0].path);
 			  }
-			console.log(errors);
-			return res.render('agregar', {categorias, errors});
+			  console.log(errors);
+			return res.render('agregar', {categorias, errors, oldData: req.body});
 		}
 		else {
 			try {

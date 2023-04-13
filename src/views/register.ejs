@@ -61,7 +61,13 @@
                             <i class="fa-solid fa-envelope iconos"></i>
                             <label for="email"></label>
                             
-                            <input class="email-form" type="text" id="username" name="username"><br>
+                            <input class="email-form" 
+                            type="text" 
+                            id="username" 
+                            name="username" 
+                            <% if (locals.oldData && locals.oldData.username) {%>
+                            value="<%= oldData.username %>"
+                            <% } %> ><br>
                         </div>
 
 
@@ -78,7 +84,14 @@
                         <div class="formulario-pass">
                             <div class="palabra-contraseña"> NOMBRE  </div>
                             <i class="fa-sharp fa-solid fa-lock iconos"></i><label for="name"> </label>
-                            <input class="email-pass" type="text" id="name" name="name"><br>
+                            <input class="email-pass" 
+                            type="text" 
+                            id="name" 
+                            name="name"
+                            <% if (locals.oldData && locals.oldData.name) {%>
+                                value="<%= oldData.name %>"
+                                <% } %> 
+                            ><br>
 
 
 
@@ -86,7 +99,14 @@
                         <div class="formulario-pass">
                             <div class="palabra-contraseña"> MAIL </div>
                             <i class="fa-sharp fa-solid fa-lock iconos"></i><label for="email"> </label>
-                            <input class="email-pass" type="text" id="email" name="email"><br>
+                            <input class="email-pass" 
+                            type="text" 
+                            id="email" 
+                            name="email"
+                            <% if (locals.oldData && locals.oldData.email) {%>
+                                value="<%= oldData.email %>"
+                                <% } %> 
+                            ><br>
 
 
 

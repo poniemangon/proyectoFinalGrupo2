@@ -23,13 +23,22 @@ const fs = require('fs');
                 if(!extensionesValidas.includes(fileExt)){
                     throw new Error('Solo es valido JPG, PNG y GIF');
                 }
-                if (!(sizeOf(readFile).height / sizeOf(readFile).width == 1.0)){
-                    throw new Error('La foto de producto debe ser cuadrada');
-                }
-            }
-            return true;
+                else {
+                    const maxRatio = 1.15;
+                    const minRatio = 0.85;
 
-        }
+                    const imageRatio = sizeOf(readFile).height / sizeOf(readFile).width;
+                    if(!(imageRatio <= maxRatio && imageRatio >= minRatio)){
+                        throw new Error('La foto de usuario debe ser cuadrada');
+                    }
+                        
+                    }
+                }
+                return true;
+            }
+            
+        
+        
     )
 
 
