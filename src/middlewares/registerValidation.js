@@ -1,7 +1,9 @@
 const { body } = require('express-validator');
 const path = require('path');
+const sizeOf = require('image-size');
+const fs = require('fs');
 
- const validation = [
+ const registerValidation = [
     body('username').notEmpty().withMessage('Usuario no puede estar vacio'),
     body('email').isEmail().withMessage('Ingresar email valido'),
     body('password').isLength({min: 6}).withMessage('La contrasena debe tener 6 caracteres como minimo'),
@@ -14,20 +16,33 @@ const path = require('path');
             }
             else {
                 const file = req.file;
+                const readFile = fs.readFileSync(file.path);
                 const fileExt = path.extname(file.originalname);
-                const extensionesValidas = ['jpeg', 'png', 'gif', '.jpg'];
+                const extensionesValidas = ['.jpeg', '.png', '.gif', '.jpg'];
 
                 if(!extensionesValidas.includes(fileExt)){
                     throw new Error('Solo es valido JPG, PNG y GIF');
                 }
-            }
-            return true;
+                else {
+                    const maxRatio = 1.15;
+                    const minRatio = 0.85;
 
-        }
+                    const imageRatio = sizeOf(readFile).height / sizeOf(readFile).width;
+                    if(!(imageRatio <= maxRatio && imageRatio >= minRatio)){
+                        throw new Error('La foto de usuario debe ser cuadrada');
+                    }
+                        
+                    }
+                }
+                return true;
+            }
+            
+        
+        
     )
 
 
 ];
 
 
-module.exports = validation;
+module.exports = registerValidation;

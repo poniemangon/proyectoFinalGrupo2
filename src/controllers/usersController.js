@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const multer = require('multer');
 const upload = multer({ dest: 'public/images/userimages' });
 const db = require('../database/models/');
-const validation = require('../middlewares/registerValidation');
+const registerValidation = require('../middlewares/registerValidation');
 const { validationResult } = require('express-validator');
 
 
@@ -43,7 +43,9 @@ const controller = {
 
 
     if (errors.length !== 0){
-      
+      if (req.file) {
+        fs.unlinkSync(req.file.path);
+      }
       return res.render('register', {errors, oldData: req.body});
     }
     else {
