@@ -16,15 +16,14 @@
   <link href="/css/home.css" rel="stylesheet" />
   <link href="/css/header_footer.css" rel="stylesheet" />
   <link href="/css/carrito.css" rel="stylesheet" />
-  <link href="/css/agregar.css" rel="stylesheet" />
+  <link href="/css/agregar-editar-productos.css" rel="stylesheet" />
   <title>Document</title>
 </head>
 
 <body>
   <%- include('./partials/header') %>
-  
-    <div class="invisible"></div>
 
+    <div class="invisible"></div>
 
     <main>
       <% if (locals.errors) {%>
@@ -35,7 +34,6 @@
       <div class="container-principal">
 
         <h1 class="titulo-seccion">CREAR PRODUCTO</h1>
-
 
         <form action="/products/store" method="post" enctype="multipart/form-data" id="formulario-creacion-producto">
           <div class="container-titulo-input-small container-name">

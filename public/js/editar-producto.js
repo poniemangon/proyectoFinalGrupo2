@@ -1,5 +1,5 @@
-const formulario = document.querySelector("#formulario-creacion-producto");
-const inputs = document.querySelectorAll("#formulario-creacion-producto input");
+const formulario = document.querySelector("#formulario-edicion-producto");
+const inputs = document.querySelectorAll("#formulario-edicion-producto input");
 console.log(inputs);
 
 const regularExpressions = {
@@ -61,12 +61,7 @@ formulario.addEventListener("submit", function (e) {
 
   if (campos.name && campos.description && campos.product_image) {
     formulario.submit();
-    document
-      .querySelector(".mensaje-correcto-invisible")
-      .classList.add("mensaje-correcto-visible");
-    document
-      .querySelector(".mensaje-correcto-invisible")
-      .classList.remove("mensaje-correcto-invisible");
+    document;
     document
       .querySelector(".mensaje-incorrecto-invisible")
       .classList.remove("mensaje-incorrecto-visible");
@@ -75,12 +70,6 @@ formulario.addEventListener("submit", function (e) {
       .classList.add("mensaje-incorrecto-invisible");
   } else {
     e.preventDefault();
-    document
-      .querySelector(".mensaje-correcto-invisible")
-      .classList.remove("mensaje-correcto-visible");
-    document
-      .querySelector(".mensaje-correcto-invisible")
-      .classList.add("mensaje-correcto-invisible");
     document
       .querySelector(".mensaje-incorrecto-invisible")
       .classList.add("mensaje-incorrecto-visible");

@@ -24,15 +24,16 @@ main {
 }
 
 .titulo-seccion {
-  color: black;
+  color: rgb(4, 52, 80);
   font-size: 26px;
   text-align: center;
   margin-top: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
 }
 
-#formulario-creacion-productos {
-  padding: 5%;
+.titulo-seccion p {
+  display: block;
+  text-align: center;
 }
 
 /*////////////*/
@@ -46,6 +47,22 @@ main {
 }
 
 #formulario-creacion-producto input {
+  font-size: 16px;
+  font-family: inherit;
+  width: 100%;
+  height: 35px;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  transition: all 0.35s;
+  box-shadow: 3px 0 30px rgba(163, 163, 163, 0.4);
+
+  padding: 4px;
+  margin-top: 5px;
+}
+
+#formulario-edicion-producto input {
+  font-size: 16px;
+  font-family: inherit;
   width: 100%;
   height: 35px;
   border: 2px solid transparent;
@@ -62,7 +79,28 @@ main {
   outline: none;
 }
 
+#formulario-edicion-producto input:focus {
+  border: 2px solid #0075ff;
+  outline: none;
+}
+
 #formulario-creacion-producto select {
+  font-size: 16px;
+  font-family: inherit;
+  width: 100%;
+  height: 35px;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  transition: all 0.35s;
+  box-shadow: 3px 0 30px rgba(163, 163, 163, 0.4);
+
+  padding: 4px;
+  margin-top: 5px;
+}
+
+#formulario-edicion-producto select {
+  font-size: 16px;
+  font-family: inherit;
   width: 100%;
   height: 35px;
   border: 2px solid transparent;
@@ -75,6 +113,22 @@ main {
 }
 
 #formulario-creacion-producto textarea {
+  font-size: 16px;
+  font-family: inherit;
+  width: 100%;
+  height: 75px;
+  border: 2px solid transparent;
+  border-radius: 3px;
+  transition: all 0.35s;
+  box-shadow: 3px 0 30px rgba(163, 163, 163, 0.4);
+
+  padding: 4px;
+  margin-top: 5px;
+}
+
+#formulario-edicion-producto textarea {
+  font-size: 16px;
+  font-family: inherit;
   width: 100%;
   height: 75px;
   border: 2px solid transparent;
@@ -91,10 +145,21 @@ main {
   outline: none;
 }
 
+#formulario-edicion-producto textarea:focus {
+  border: 2px solid #0075ff;
+  outline: none;
+}
+
 #formulario-creacion-producto label {
-  font-weight: bold;
-  color: rgb(4, 52, 80);
   font-size: 18px;
+  font-weight: bold;
+  color: black;
+}
+
+#formulario-edicion-producto label {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
 }
 
 /*////////////*/
@@ -130,7 +195,15 @@ button:hover {
   border: 2px solid rgb(0, 201, 0);
 }
 
+#formulario-edicion-producto .container-titulo-input-small .input-valido {
+  border: 2px solid rgb(0, 201, 0);
+}
+
 #formulario-creacion-producto .container-titulo-input-small .input-invalido {
+  border: 2px solid rgb(255, 52, 52);
+}
+
+#formulario-edicion-producto .container-titulo-input-small .input-invalido {
   border: 2px solid rgb(255, 52, 52);
 }
 
