@@ -64,13 +64,14 @@
                 id="name"
                 name="name"
                 <%
-                if
-                (locals.oldData
+                if(locals.oldData
                 &&
                 locals.oldData.name)
-                {%
+                {
+                %
               />
               value="<%= oldData.name %>" <% } %> /><br />
+
               <small class="small-valido"
                 >Este campo es obligatorio, debe tener mas de 2 caracteres y no
                 puede contener simbolos.</small
