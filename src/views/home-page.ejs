@@ -87,7 +87,7 @@
       <section class="ultimos-productos">
         <div class="titulo">Ultimos productos</div>
 
-        <% products1.forEach(function(product) { %>
+        <% products1.map(product => { %>
           <!-- Your code to display each product goes here -->
 
           <div class="productos">
@@ -119,41 +119,7 @@
           </div>
       </section>
       
-      <section class="ultimos-productos">
-        
-
-        <% products2.forEach(function(product) { %>
-          <!-- Your code to display each product goes here -->
-
-          <div class="productos">
-            <div class="producto"><a href="/products/detail/<%= product.id %>"><img
-                  src="/images/products/<%= product.image %>" alt=""></a>
-              <div class="footer-producto">
-                <p>
-                  <%= product.name %>
-                </p>
-                <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
-              </div>
-            </div>
-            <% }); %>
-
-
-
-
-
-
-          </div>
-
-
-
-
-
-
-
-
-          </div>
-      </section>
-
+      
 
     </main>
 
