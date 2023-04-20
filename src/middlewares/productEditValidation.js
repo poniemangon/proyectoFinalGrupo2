@@ -3,14 +3,14 @@ const path = require('path');
 const sizeOf = require('image-size');
 const fs = require('fs');
 
- const productAddValidation = [
+ const productEditValidation = [
     body('name').isLength({min:1, max:50}).withMessage('Nombre no puede estar vacio o es muy largo'),
     body('description').isLength({min:1, max:255}).withMessage('La descripcion no puede estar vacia o es muy larga (mas de 255 caracteres)'),
     body('product_image').custom(
         (value, {req}) =>
         {
             if (!req.file){
-                throw new Error('Campo de foto vacio');
+                return true;
             }
             else {
                 const file = req.file;
@@ -45,4 +45,4 @@ const fs = require('fs');
 ];
 
 
-module.exports = productAddValidation;
+module.exports = productEditValidation;

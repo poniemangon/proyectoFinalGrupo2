@@ -44,15 +44,13 @@ const productsController = {
 		return res.render('agregar', {categorias});
 	},
 	store: async (req, res) => {
-		
+		console.log(req.body, req.file);
 		const errors = validationResult(req).array();
 		const categorias = await db.ProductCategory.findAll();
 		if (!errors.length == 0){
-			if (req.files) {
-				const { product_image, product_banner } = req.files;
-				if (product_image) fs.unlinkSync(product_image[0].path);
-				if (product_banner) fs.unlinkSync(product_banner[0].path);
-			  }
+			
+				if (req.file) {fs.unlinkSync(req.file.path)};
+			  
 			  console.log(errors);
 			return res.render('agregar', {categorias, errors, oldData: req.body});
 		}
@@ -63,8 +61,8 @@ const productsController = {
 					name: req.body.name,
 					description: req.body.description,
 					price: req.body.price,
-					image: req.files.product_image[0].filename,
-					banner: req.files.product_banner[0].filename,
+					image: req.file.filename,
+					banner: 'BANNER.png',
 					id_product_category: req.body.id_product_category
 				});
 				return res.redirect('/');
@@ -80,7 +78,6 @@ const productsController = {
 	},
 	edit: async (req, res) => {
 		const categorias = await db.ProductCategory.findAll();
-		console.log(categorias);
 		const id = await req.params.id;
 		const product = await db.Product.findOne({ where: { id } });
 		if (product) {
@@ -91,13 +88,23 @@ const productsController = {
 		}
 	},
 	update: async (req, res) => {
+		console.log(req.body, req.file);
+		const errors = validationResult(req).array();
+		const categorias = await db.ProductCategory.findAll();
+		if (!errors.length == 0){
+				console.log(errors);
+				if (req.file) {fs.unlinkSync(req.file.path)};
+			  
+			  console.log(errors);
+			return res.render('agregar', {categorias, errors, oldData: req.body});
+		}
 		const id = req.params.id;
 		const product = await db.Product.findOne({ where: { id } });
 		const imagePath = path.join(__dirname, '..', '..', 'public', 'images', 'products', product.image);
-		const bannerPath = path.join(__dirname, '..', '..', 'public', 'images', 'products', product.banner);
-	  
-		if (req.files.product_image) {
-			console.log(req.files.product_image);
+		if (!errors.length == 0){
+			return res.render('editar-producto', {categorias, oldData: req.body, errors} );
+		}
+		if (req.file) {
 		  fs.unlink(imagePath, (err) => {
 			if (err) {
 			  console.error(err);
@@ -105,20 +112,13 @@ const productsController = {
 		  });
 		}
 		
-		if (req.files.product_banner) {
-		  fs.unlink(bannerPath, (err) => {
-			if (err) {
-			  console.error(err);
-			}
-		  });
-		}
 	  
 		const newData = {
 		  name: req.body.name,
 		  description: req.body.description,
 		  price: req.body.price,
-		  image: req.files.product_image ? req.files.product_image[0].filename : product.image,
-		  banner: req.files.product_banner ? req.files.product_banner[0].filename : product.banner,
+		  image: req.file ? req.file.filename : product.image,
+		  banner: 'BANNER.PNG',
 		  id_product_category: req.body.id_product_category
 		};
 		console.log(newData.image);
