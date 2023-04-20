@@ -8,11 +8,11 @@ module.exports = (sequelize, dataTypes) => {
       unique: true,
       autoIncrement: true,
     },
-    username: {
+    name: {
       type: dataTypes.STRING(50),
       allowNull: false,
     },
-    name: {
+    surname: {
       type: dataTypes.STRING(50),
       allowNull: false,
     },

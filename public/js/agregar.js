@@ -1,10 +1,10 @@
-const formulario = document.querySelector("#formulario-creacion-producto");
-const inputs = document.querySelectorAll("#formulario-creacion-producto input");
+const formulario = document.querySelector("#formulario");
+const inputs = document.querySelectorAll("#formulario input");
 console.log(inputs);
 
 const regularExpressions = {
   nombre: /^[a-zA-ZÁ-ÿ0-9_.+-\s]{5,100}$/,
-  descripcion: /^[a-zA-ZÁ-ÿ0-9_.+-\s]{20,200}$/,
+  descripcion: /^[a-zA-ZÁ-ÿ0-9_.+-\s]{20,500}$/,
   imagen: /^.*\.(jpeg|jpg|gif|png)$/,
 };
 
@@ -47,14 +47,18 @@ const validacionForm = function (e) {
 };
 
 inputs.forEach((input) => {
+  input.addEventListener("click", validacionForm);
   input.addEventListener("blur", validacionForm);
   input.addEventListener("keyup", validacionForm);
+  input.addEventListener("change", validacionForm);
 });
 
 const descriptionInput = document.querySelector("#description");
 
+descriptionInput.addEventListener("click", validacionForm);
 descriptionInput.addEventListener("blur", validacionForm);
 descriptionInput.addEventListener("keyup", validacionForm);
+descriptionInput.addEventListener("change", validacionForm);
 
 formulario.addEventListener("submit", function (e) {
   e.preventDefault();

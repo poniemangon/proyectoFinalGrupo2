@@ -17,7 +17,13 @@ const controller = {
   },
   register: async (req, res)=>{
     const errors = [];
-  res.render('register', {errors});
+    const oldData = {
+    name: '',
+    password: '',
+    email: '',
+    surname: '',
+  }
+  res.render('register', {errors, oldData});
   },  
   login: (req, res)=>{
       res.render('login');
@@ -51,29 +57,29 @@ const controller = {
     else {
     try {
       const newUser = {
-        username: req.body.username,
+        name: req.body.name,
         password: req.body.password,
         email: req.body.email,
-        name: req.body.name,
+        surname: req.body.surname,
         image: req.file ? req.file.filename : 'default.jpg'
       };
   
       const existingUser = await db.User.findOne({
         where: { 
-          [db.Sequelize.Op.or]: [{ username: newUser.username }, { email: newUser.email }] 
+          [db.Sequelize.Op.or]: [{ email: newUser.email }] 
         },
       });
   
       if (existingUser) {
-        const message = `${newUser.username} ya existe`; 
+        const message = `${newUser.email} ya existe`; 
         return res.render('register', {message}); 
       }
   
       const hashedPassword = await bcrypt.hash(newUser.password, 10);
   
       const user = await db.User.create({
-        username: newUser.username,
         name: newUser.name,
+        surname: newUser.surname,
         email: newUser.email,
         password: hashedPassword,
         image: newUser.image,
@@ -88,14 +94,14 @@ const controller = {
   }},
   loginProcess: async (req, res) => {
     try {
-      const { username, password } = req.body;
+      const { email, password } = req.body;
 
 
-      const user = await db.User.findOne({ where: { username } });
+      const user = await db.User.findOne({ where: { email } });
 
     
       if (!user || !await bcrypt.compare(password, user.password)) {
-        return res.render('login', { error: 'Invalid username or password' });
+        return res.render('login', { error: 'Invalid email or password' });
       }
 
 

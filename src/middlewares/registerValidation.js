@@ -4,10 +4,10 @@ const sizeOf = require('image-size');
 const fs = require('fs');
 
  const registerValidation = [
-    body('username').notEmpty().withMessage('Usuario no puede estar vacio'),
+    body('name').notEmpty().withMessage('Nombre no puede estar vacio'),
+    body('surname').notEmpty().withMessage('Apellido no puede estar vacio'),
     body('email').isEmail().withMessage('Ingresar email valido'),
     body('password').isLength({min: 6}).withMessage('La contrasena debe tener 6 caracteres como minimo'),
-    body('name').notEmpty().withMessage('Nombre no puede estar vacio'),
     body('user_image').custom(
         (value, {req}) =>
         {
