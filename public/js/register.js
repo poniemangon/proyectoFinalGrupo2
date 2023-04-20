@@ -1,5 +1,5 @@
-const formulario = document.querySelector("#formulario-register");
-const inputs = document.querySelectorAll("#formulario-register input");
+const formulario = document.querySelector("#formulario");
+const inputs = document.querySelectorAll("#formulario input");
 
 const regularExpressions = {
   nombre: /^[a-zA-ZÁ-ÿ\s]{2,50}$/, //Letras, espacios y pueden llevar tildes
@@ -81,8 +81,10 @@ const validacionForm = function (e) {
 };
 
 inputs.forEach((input) => {
+  input.addEventListener("click", validacionForm);
   input.addEventListener("blur", validacionForm);
   input.addEventListener("keyup", validacionForm);
+  input.addEventListener("change", validacionForm);
 });
 
 formulario.addEventListener("submit", function (e) {

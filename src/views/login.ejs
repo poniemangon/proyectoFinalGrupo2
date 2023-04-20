@@ -20,7 +20,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
       rel="stylesheet"
     />
-    <link href="/css/login-style.css" rel="stylesheet" />
+    <link href="/css/agregar-editar-login-register.css" rel="stylesheet" />
     <link href="/css/header_footer.css" rel="stylesheet" />
     <title>Document</title>
   </head>
@@ -45,10 +45,10 @@
         </div>
 
         <div class="formularios">
-          <form action="/login" method="POST" id="formulario-login">
+          <form action="/login" method="POST" id="formulario">
             <div class="container-titulo-input-small container-email">
               <div class="container-titulo-icono">
-                <div class="palabra-email">Correo Electrónico</div>
+                <label>Correo Electrónico</label>
                 <i class="fa-solid fa-envelope iconos"></i>
               </div>
               <input type="email" id="email" name="email" /><br />
@@ -59,14 +59,14 @@
 
             <div class="container-titulo-input-small container-password">
               <div class="container-titulo-icono">
-                <div class="palabra-contraseña">Contraseña</div>
+                <label>Contraseña</label>
                 <i class="fa-sharp fa-solid fa-lock iconos"></i>
               </div>
               <input type="password" id="password" name="password" /><br />
               <small class="small-valido">Este campo es obligatorio.</small>
             </div>
 
-            <div class="container-btn-register">
+            <div class="container-btn">
               <p class="mensaje-correcto-invisible">
                 Formulario enviado exitosamente!
               </p>

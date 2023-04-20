@@ -1,5 +1,5 @@
-let formulario = document.querySelector("#formulario-login");
-let inputs = document.querySelectorAll("#formulario-login input");
+let formulario = document.querySelector("#formulario");
+let inputs = document.querySelectorAll("#formulario input");
 
 const regularExpressions = {
   correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, //Tiene que ser un mail
@@ -41,8 +41,10 @@ const validacionForm = function (e) {
 };
 
 inputs.forEach((input) => {
+  input.addEventListener("click", validacionForm);
   input.addEventListener("blur", validacionForm);
   input.addEventListener("keyup", validacionForm);
+  input.addEventListener("change", validacionForm);
 });
 
 formulario.addEventListener("submit", function (e) {

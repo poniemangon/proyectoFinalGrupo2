@@ -23,14 +23,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
     />
-    <link href="/css/login-style.css" rel="stylesheet" />
+    <link href="/css/agregar-editar-login-register.css" rel="stylesheet" />
     <link href="/css/header_footer.css" rel="stylesheet" />
     <title>Documento</title>
   </head>
 
   <body>
     <%- include('./partials/header') %>
-    <br />
     <br />
     <br />
     <br />
@@ -52,25 +51,15 @@
             action="/register"
             method="post"
             enctype="multipart/form-data"
-            id="formulario-register"
+            id="formulario"
           >
             <div class="container-titulo-input-small container-name">
               <div class="container-titulo-icono">
-                <div class="titulo-input">Nombre</div>
+                <label>Nombre</label>
                 <i class="fa-solid fa-user"></i>
               </div>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                <%
-                if(locals.oldData
-                &&
-                locals.oldData.name)
-                {
-                %
-              />
-              value="<%= oldData.name %>" <% } %> /><br />
+              <input type="text" id="name" name="name" />
+              <br />
 
               <small class="small-valido"
                 >Este campo es obligatorio, debe tener mas de 2 caracteres y no
@@ -80,7 +69,7 @@
 
             <div class="container-titulo-input-small container-surname">
               <div class="container-titulo-icono">
-                <div class="titulo-input">Apellido</div>
+                <label>Apellido</label>
                 <i class="fa-solid fa-user"></i>
               </div>
               <input type="text" id="surname" name="surname" /><br />
@@ -91,55 +80,20 @@
             </div>
 
             <div class="container-titulo-input-small container-email">
-              <!-- <% if (locals && locals.errors) { %>
-                                <% for (let error of locals.errors) { %>
-                                  <div class="error-message">
-                                    <%- error.msg %>
-                                  </div>
-                                <% } %>
-                              <% } %>
-                            <% if (locals && locals.message) { %>
-                            
-                          
-                            <div class="titulo-input"> Usuario <%= message %></div>
-                            <% }%> -->
               <div class="container-titulo-icono">
-                <div class="titulo-input">Correo Electrónico</div>
+                <label>Correo Electrónico</label>
                 <i class="fa-solid fa-envelope"></i>
               </div>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                <%
-                if
-                (locals.oldData
-                &&
-                locals.oldData.email)
-                {%
-              />
-              value="<%= oldData.email %>" <% } %> /><br />
+              <input type="email" id="email" name="email" />
+              <br />
               <small class="small-valido"
                 >Este campo es obligatorio y debe ser un email valido.</small
               >
             </div>
-            <!-- <div class="palabra-email"> Usuario <%= message %></div>
-                            <% } %>
-                            <i class="fa-solid fa-envelope iconos"></i>
-                            <label for="email"></label>
-                            
-                            <input class="email-form" 
-                            type="text" 
-                            id="username" 
-                            name="username" 
-                            <% if (locals.oldData && locals.oldData.username) {%>
-                            value="<%= oldData.username %>"
-                            <% } %> ><br>
-                        </div> -->
 
             <div class="container-titulo-input-small container-password">
               <div class="container-titulo-icono">
-                <div class="titulo-input">Contraseña</div>
+                <label>Contraseña</label>
                 <i class="fa-solid fa-lock"></i>
               </div>
               <input type="password" id="password" name="password" /><br />
@@ -151,7 +105,7 @@
 
             <div class="container-titulo-input-small container-repassword">
               <div class="container-titulo-icono">
-                <div class="titulo-input">Repetir Contraseña</div>
+                <label>Repetir Contraseña</label>
                 <i class="fa-solid fa-lock"></i>
               </div>
               <input type="password" id="repassword" name="repassword" /><br />
@@ -162,7 +116,7 @@
 
             <div class="container-titulo-input-small container-user_image">
               <div class="container-titulo-icono">
-                <div class="titulo-input">Imagen</div>
+                <label>Imagen</label>
                 <i class="fa-solid fa-image"></i>
               </div>
               <input type="file" id="user_image" name="user_image" /><br />
@@ -171,7 +125,7 @@
               >
             </div>
 
-            <div class="container-btn-register">
+            <div class="container-btn">
               <p class="mensaje-correcto-invisible">
                 Formulario enviado exitosamente!
               </p>

@@ -9,7 +9,49 @@ body {
 }
 
 /*/ ////////////////////*/
-/*/ //////MAIN////////*/
+/*/ //////LOGIN y REGISTER////////*/
+/*/ ////////////////////*/
+.container-titulos-formularios {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+  margin-bottom: 8px;
+}
+
+.titulo-formulario-activo {
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  color: rgb(4, 52, 80);
+  border-bottom: 1px solid rgb(4, 52, 80);
+  width: 50%;
+
+  padding-bottom: 5px;
+}
+
+.titulo-formulario-inactivo {
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  color: rgba(4, 52, 80, 0.5);
+  border-bottom: 1px solid rgba(4, 52, 80, 0.5);
+  width: 50%;
+
+  padding-bottom: 5px;
+}
+
+.formularios {
+  padding: 5%;
+}
+
+.container-titulo-icono {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/*/ ////////////////////*/
+/*/ //////EDITAR Y CREAR////////*/
 /*/ ////////////////////*/
 main {
   font-family: "Roboto", sans-serif;
@@ -36,17 +78,20 @@ main {
   text-align: center;
 }
 
+/*/ /////////////////////////////////////////*/
+/*/ //////LOGIN,REGISTER,CREAR,EDITAR////////*/
+/*/ /////////////////////////////////////////*/
 /*////////////*/
 /*INPUTS*/
 /*////////////*/
 .container-titulo-input-small {
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
 
   margin-bottom: 30px;
 }
 
-#formulario-creacion-producto input {
+#formulario input {
   font-size: 16px;
   font-family: inherit;
   width: 100%;
@@ -60,7 +105,7 @@ main {
   margin-top: 5px;
 }
 
-#formulario-edicion-producto input {
+/* #formulario-edicion-producto input {
   font-size: 16px;
   font-family: inherit;
   width: 100%;
@@ -72,19 +117,19 @@ main {
 
   padding: 4px;
   margin-top: 5px;
-}
+} */
 
-#formulario-creacion-producto input:focus {
+#formulario input:focus {
   border: 2px solid #0075ff;
   outline: none;
 }
 
-#formulario-edicion-producto input:focus {
+/* #formulario-edicion-producto input:focus {
   border: 2px solid #0075ff;
   outline: none;
-}
+} */
 
-#formulario-creacion-producto select {
+#formulario select {
   font-size: 16px;
   font-family: inherit;
   width: 100%;
@@ -98,7 +143,7 @@ main {
   margin-top: 5px;
 }
 
-#formulario-edicion-producto select {
+/* #formulario-edicion-producto select {
   font-size: 16px;
   font-family: inherit;
   width: 100%;
@@ -110,9 +155,9 @@ main {
 
   padding: 4px;
   margin-top: 5px;
-}
+} */
 
-#formulario-creacion-producto textarea {
+#formulario textarea {
   font-size: 16px;
   font-family: inherit;
   width: 100%;
@@ -126,7 +171,7 @@ main {
   margin-top: 5px;
 }
 
-#formulario-edicion-producto textarea {
+/* #formulario-edicion-producto textarea {
   font-size: 16px;
   font-family: inherit;
   width: 100%;
@@ -138,29 +183,29 @@ main {
 
   padding: 4px;
   margin-top: 5px;
-}
+} */
 
-#formulario-creacion-producto textarea:focus {
+#formulario textarea:focus {
   border: 2px solid #0075ff;
   outline: none;
 }
 
-#formulario-edicion-producto textarea:focus {
+/* #formulario-edicion-producto textarea:focus {
   border: 2px solid #0075ff;
   outline: none;
-}
+} */
 
-#formulario-creacion-producto label {
+#formulario label {
   font-size: 18px;
   font-weight: bold;
   color: black;
 }
 
-#formulario-edicion-producto label {
+/* #formulario-edicion-producto label {
   font-size: 18px;
   font-weight: bold;
   color: black;
-}
+} */
 
 /*////////////*/
 /*BUTTON*/
@@ -191,21 +236,21 @@ button:hover {
 /*////////////*/
 /*VALIDACIONES*/
 /*////////////*/
-#formulario-creacion-producto .container-titulo-input-small .input-valido {
+#formulario .container-titulo-input-small .input-valido {
   border: 2px solid rgb(0, 201, 0);
 }
 
-#formulario-edicion-producto .container-titulo-input-small .input-valido {
+/* #formulario-edicion-producto .container-titulo-input-small .input-valido {
   border: 2px solid rgb(0, 201, 0);
-}
+} */
 
-#formulario-creacion-producto .container-titulo-input-small .input-invalido {
+#formulario .container-titulo-input-small .input-invalido {
   border: 2px solid rgb(255, 52, 52);
 }
 
-#formulario-edicion-producto .container-titulo-input-small .input-invalido {
+/* #formulario-edicion-producto .container-titulo-input-small .input-invalido {
   border: 2px solid rgb(255, 52, 52);
-}
+} */
 
 .small-valido {
   display: none;
@@ -217,7 +262,7 @@ button:hover {
   color: rgb(255, 52, 52);
   width: 100%;
 
-  margin-top: 3px;
+  margin-top: 4px;
 }
 
 .mensaje-correcto-invisible {
