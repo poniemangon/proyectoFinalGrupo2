@@ -1,7 +1,10 @@
 const formulario = document.querySelector("#formulario");
 const inputs = document.querySelectorAll("#formulario input");
-console.log(inputs);
-
+const currentValues = {
+  name: document.querySelector("#name").value,
+  description: document.querySelector("#description").value,
+  product_image: ''
+};
 const regularExpressions = {
   nombre: /^[a-zA-ZÁ-ÿ0-9_.+-\s]{5,100}$/,
   descripcion: /^[a-zA-ZÁ-ÿ0-9_.+-\s]{20,500}$/,
@@ -9,9 +12,9 @@ const regularExpressions = {
 };
 
 let campos = {
-  name: false,
-  description: false,
-  product_image: false,
+  name: true,
+  description: true,
+  product_image: true,
 };
 
 const validacionInput = function (regularExpression, target, input) {
@@ -35,13 +38,42 @@ const validacionInput = function (regularExpression, target, input) {
 const validacionForm = function (e) {
   switch (e.target.name) {
     case "name":
-      validacionInput(regularExpressions.nombre, e.target, "name");
+      if (e.target.value !== currentValues.name) {
+        validacionInput(regularExpressions.nombre, e.target, "name");
+      } else {
+        document.getElementById("name").classList.remove("input-invalido");
+        document.getElementById("name").classList.add("input-valido");
+        document
+          .querySelector(".container-name .small-valido")
+          .classList.remove("small-invalido");
+        campos.name = true;
+      }
       break;
     case "product_image":
-      validacionInput(regularExpressions.imagen, e.target, "product_image");
+      if (e.target.files.length > 0) {
+        currentValues.product_image = e.target.files[0].name;
+        validacionInput(regularExpressions.imagen, e.target, "product_image");
+      } else {
+        currentValues.product_image = '';
+        document.getElementById("product_image").classList.remove("input-invalido");
+        document.getElementById("product_image").classList.add("input-valido");
+        document
+          .querySelector(".container-product_image .small-valido")
+          .classList.remove("small-invalido");
+        campos.product_image = true;
+      }
       break;
     case "description":
-      validacionInput(regularExpressions.descripcion, e.target, "description");
+      if (e.target.value !== currentValues.description) {
+        validacionInput(regularExpressions.descripcion, e.target, "description");
+      } else {
+        document.getElementById("description").classList.remove("input-invalido");
+        document.getElementById("description").classList.add("input-valido");
+        document
+          .querySelector(".container-description .small-valido")
+          .classList.remove("small-invalido");
+        campos.description = true;
+      }
       break;
   }
 };
@@ -63,7 +95,8 @@ descriptionInput.addEventListener("change", validacionForm);
 formulario.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  if (campos.name && campos.description && campos.product_image) {
+  if (campos.name && campos
+.product_image) {
     formulario.submit();
     document;
     document
