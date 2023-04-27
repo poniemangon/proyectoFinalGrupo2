@@ -1,184 +1,197 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 /*/////////////////////*/
 /*/ //////HEADER////////*/
 /*/////////////////////*/
-
-/* BURGER MENU */
-
-
-
-
-
-
-/* BURGER MENU */
-
-
 header {
-    width: 100%;
-    height: 70px;
-    background-color: rgb(95, 168, 211, 0.7);
-    margin-bottom: 45px;
-    position: fixed;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-   
-  
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 1;
-  }
-  
-  .logo-nombre {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-  }
-  
-  .logo-header {
-    font-size: 40px;
-    color: black;
-  }
-  
-  .nombre-header {
-    font-size: 25px;
-    font-weight: 600;
-  }
-  
-  .categorias-header {
-    display: flex;
-    justify-content: space-around;
-    width: 20%;
-    /* gap: 15px; */
-    align-items: center;
-  }
-  
-  .categoria-header-btn {
-    border: none;
-    background-color: transparent;
-    display: flex;
-    align-items: center;
-    font-family: inherit;
-    font-size: inherit;
-  }
-  
-  .categoria-header-nombre {
-    margin-right: 5px;
-  
-    font-weight: 600;
-  }
-  
-  .search-container {
-    width: 25%; /*40*/
-    position: relative;
-  }
-  
-  .search {
-    width: 100%;
-    height: 30px;
-  
-    text-align: center;
-    border-radius: 5px;
-    border: none;
-  }
-  
-  .search-icon {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    left: 92%;
-    top: 61%;
-    transform: translateY(-50%);
-  }
-  
-  .usuario-carrito {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-  }
-  
-  .icon-header-usario {
-    font-size: 30px;
-    margin-left: 0px;
-  }
-  
-  .icon-header-carrito {
-    font-size: 25px;
-  }
+  width: 100%;
+  height: 70px;
+  background-color: #6a8f9d;
+  margin-bottom: 45px;
+  position: fixed;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 
-.invisible {
-    height: 80px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1;
 }
 
-@media (max-width: 768px) {
+/*/ //////LOGO NOMBRE////////*/
+.logo-nombre {
+  display: flex;
+  align-items: center;
+}
 
+.logo-header {
+  font-size: 30px;
+  color: black;
+  transform: rotate(-20deg);
+}
 
+.logo-nombre a {
+  text-decoration: none;
+  color: inherit;
+}
 
+.nombre-header {
+  font-size: 28px;
+  font-weight: 600;
+}
 
-  }
-    header {
-    display: flex;
-    flex-direction: row;
-    height: 70px;
-    
-  }
+/*/ //////SEARCH////////*/
+.search-container {
+  width: 20%;
+  position: relative;
+}
 
-  .categorias-header{
-    display: none;
-    
-    
-  }
-  .columna-footer {
-    display: flex;
-    flex-direction: column;
-    height: 300px;
-    position: relative;
-  }
+.search {
+  width: 300px;
+  height: 30px;
+  border-radius: 5px;
+  border: none;
 
+  padding-left: 5px;
+}
 
+.search-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 280px;
+  top: 55%;
+  transform: translateY(-50%);
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+/*/ //////DROPDOWN////////*/
+.dropdown {
+  position: relative;
+  display: inline-block;
+  padding: 23px 0;
+}
+
+.dropdown:hover {
+  cursor: pointer;
+}
+
+.dropdown-toggle {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: inherit;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  display: none;
+  min-width: 160px;
+  border-collapse: collapse;
+}
+
+.dropdown-menu a {
+  font-weight: bold;
+  color: black;
+  background-color: #ebebeb;
+  border: 1px solid black;
+  text-decoration: none;
+  display: block;
+  transition: all 0.5s;
+
+  padding: 10px 0;
+}
+
+.dropdown-menu a:hover {
+  background-color: #6a8f9d;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/*/ //////USUARION/CARRITO////////*/
+.usuario-carrito {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.icon-header-usario {
+  font-size: 30px;
+  margin-left: 0px;
+}
+
+.icon-header-carrito {
+  font-size: 25px;
+}
+
+.invisible {
+  height: 80px;
+}
+
+/*/ ////////////////////*/
+/*/ //////FOOTER////////*/
+/*/ ////////////////////*/
 footer {
-  background-color: rgb(95, 168, 211, 0.7);
+  background-color: #6a8f9d;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 
   padding-top: 35px;
-  flex-wrap: wrap;
 }
 
 .footer-container {
   display: flex;
+  width: 80%;
   text-align: center;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  margin-top: -80px;
-  max-width: 760px;
-margin:auto
+
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin: auto;
 }
 
-.seccion-footer {
-  width: 50%;
-  margin-bottom: 55px;
-  margin: 0;
-}
-.contactos{
-justify-content: center;
-  width: 100%;
-  margin-bottom: 60px;
+/*/ //////CONTACTO ////////*/
+.contactos {
+  width: 33%;
+  justify-content: center;
 }
 
 .logo-nombre-footer {
   display: flex;
   justify-content: center;
-  gap: 25px;
+
+  margin-bottom: 5px;
+}
+
+.logo-nombre-footer a {
+  color: inherit;
+}
+
+.logo-nombre-footer a h2 {
+  font-size: 28px;
 }
 
 .logo-footer {
-  font-size: 35px;
-  transform: rotate(25deg);
+  font-size: 30px;
+  transform: rotate(-20deg);
 }
 
 .nombre-redes-footer {
-  width:100%;
   text-align: center;
 }
 
@@ -193,26 +206,48 @@ justify-content: center;
   display: flex;
   gap: 100px;
   justify-content: center;
- 
+}
+
+.iconos-footer-container a {
+  color: inherit;
 }
 
 .iconos-footer {
   font-size: 30px;
 }
 
+/*/ //////SECCION FOOTER////////*/
+.seccion-footer {
+  width: 33%;
+}
+
 .seccion-footer h3 {
   font-size: 25px;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 .seccion-footer li {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.seccion-footer li:last-child {
+  margin-bottom: 0;
+}
+
+.seccion-footer li a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.5s;
+}
+
+.seccion-footer li a:hover {
+  font-weight: bold;
 }
 
 .border-top {
   width: 80%;
-  border-top: 1px solid hsla(0, 0%, 0%, 0.5);
+  border-top: 1px solid #354f58;
 
   margin-left: auto;
   margin-right: auto;
@@ -220,12 +255,11 @@ justify-content: center;
 
 .copyright {
   width: 80%;
-  border-top: 1px solid hsla(0, 0%, 0%, 0.5);
+  border-top: 1px solid #354f58;
   text-align: center;
-  color: black;
-  padding-top: 10px;
-  margin: auto;
-  margin-top: -35px;
- 
-}
+  color: rgba(0, 0, 0, 0.5);
 
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin: auto;
+}
