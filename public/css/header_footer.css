@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-family: "Roboto", sans-serif;
+}
+
 /*/////////////////////*/
 /*/ //////HEADER////////*/
 /*/////////////////////*/
@@ -237,7 +241,7 @@ footer {
 
 .seccion-footer li a {
   text-decoration: none;
-  color: inherit;
+  color: black;
   transition: all 0.5s;
 }
 
