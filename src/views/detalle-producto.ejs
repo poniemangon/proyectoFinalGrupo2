@@ -23,17 +23,18 @@
 
     <main class="producto">
       <div class="img-producto-container">
-        <button class="img-producto-arrows">
+        <!-- <button class="img-producto-arrows">
           <i class="fa-solid fa-angle-left img-producto-arrow-izq"></i>
-        </button>
+        </button> -->
         <img
           src="/images/products/<%= product.image %>"
           class="imagen-producto"
         />
-        <button class="img-producto-arrows">
+        <!-- <button class="img-producto-arrows">
           <i class="fa-solid fa-angle-right img-producto-arrow-der"></i>
-        </button>
+        </button> -->
       </div>
+
       <div class="info-producto">
         <% if (user) { %>
         <h2 class="nombre-producto"><%= product.name %></h2>
@@ -44,16 +45,18 @@
         <% } %>
         <p class="descripcion-producto"><%= product.description %></p>
         <div>
-          <p class="precio"><%= product.price %></p>
-          <p class="cuotas">Paga hasta 3 cuotas sin interés</p>
+          <p class="precio">$<%= product.price %></p>
+          <p class="cuotas">Paga hasta 3 cuotas sin interés!</p>
         </div>
         <form class="talle">
           <label>Talle:</label>
           <select class="main-select">
-            <option value="s">S</option>
-            <option value="m">M</option>
-            <option value="l">L</option>
-            <option value="xl">XL</option>
+            <option value="40">40</option>
+            <option value="41">41</option>
+            <option value="42">42</option>
+            <option value="43">43</option>
+            <option value="44">44</option>
+            <option value="45">45</option>
           </select>
         </form>
         <div class="guia-talles">
@@ -88,7 +91,7 @@
         <div class="pago-envio">
           <div>
             <i class="fa-solid fa-credit-card"></i>
-            <a href="#" class="metodos-pago"> Métodos de Pago</a>
+            <a href="#" class="metodos-pago">Métodos de Pago</a>
           </div>
           <div>
             <i class="fa-solid fa-truck-fast"></i>
@@ -97,56 +100,6 @@
         </div>
       </div>
     </main>
-
-    <!-- <article class="descripcion-detalles">
-      <h3>Descripción del producto</h3>
-      <p>
-        Tu guardarropa está lleno de remeras de running que nunca funcionaron
-        como querías. Unas muy gruesas, otras muy delgadas. Algunas demasiado
-        ajustadas o demasiado holgadas. En fin, pero la que siempre terminas
-        usando es esta remera adidas Own the Run. Hecha con materiales
-        reciclados como parte de nuestro compromiso por alcanzar la
-        sostenibilidad, es una prenda que mantiene tu cuerpo cómodo durante tus
-        entrenamientos largos los domingos o los 5K que corrés a la hora del
-        almuerzo entre semana. No te contentes con la ropa que no te queda bien.
-      </p>
-      <h3>Detalles del producto</h3>
-      <ul class="detalles-ul">
-        <li>Corte clásico</li>
-        <li>Cuello redondo</li>
-        <li>Tejido de punto jersey 100 % algodón</li>
-        <li>Mangas cortas</li>
-        <li>Color del artículo: Yellow</li>
-        <li>Número de artículo: GM3248</li>
-      </ul>
-    </article> -->
-
-    <!-- <aside class="productos-similares">
-      <h3>Productos Similares</h3>
-      <div class="productos-similares-container">
-        <button class="productos-similares-arrows">
-          <i class="fa-solid fa-angle-left productos-similares-arrow-izq"></i>
-        </button>
-        <div class="producto-similar">
-          <img src="/imgs/remera-ejemplo2.webp" class="img-producto-similar" />
-          <p class="nombre-producto-similar">REMERA ESSENTIALS LOGO PEQUEÑO</p>
-          <p class="precio-producto-similar">$7.499</p>
-        </div>
-        <div class="producto-similar">
-          <img src="/imgs/remera-ejemplo3.webp" class="img-producto-similar" />
-          <p class="nombre-producto-similar">REMERA ESSENTIALS LOGO GRANDE</p>
-          <p class="precio-producto-similar">$8.499</p>
-        </div>
-        <div class="producto-similar">
-          <img src="/imgs/remera-ejemplo4.webp" class="img-producto-similar" />
-          <p class="nombre-producto-similar">REMERA ADIDAS MANGAS LARGAS</p>
-          <p class="precio-producto-similar">$12.999</p>
-        </div>
-        <button class="productos-similares-arrows">
-          <i class="fa-solid fa-angle-right productos-similares-arrow-der"></i>
-        </button>
-      </div>
-    </aside> -->
 
     <%- include('./partials/footer') %>
   </body>

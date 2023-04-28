@@ -10,7 +10,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
   <link href="/css/home.css" rel="stylesheet" />
   <link href="/css/header_footer.css" rel="stylesheet" />
-  <title>Document</title>
+  <title>Home</title>
 </head>
 
 <body>
@@ -20,7 +20,6 @@
 
 
     <main>
-      
       <!-- ultima coleccion -->
       <section class="ultima-coleccion">
         <a href="/products/detail/<%= bannerProduct.id %>">
@@ -39,10 +38,8 @@
           </div>
         </a>
       </section>
-
-
+      
       <!-- navbar -->
-
       <nav class="nav-categorias">
         <div class="categoria">
           <a href="/products/create"><p>remeras</p></a>
@@ -100,28 +97,11 @@
               </div>
             </div>
             <% }); %>
-
-
-
-
-
-
           </div>
-
-
-
-
-
-
-
-
           </div>
       </section>
-      
-      
 
     </main>
-
 
     <%- include('./partials/footer') %>
 </body>

@@ -160,10 +160,11 @@ main {
 .button {
   color: aliceblue;
   font-size: 20px;
+  font-weight: 600;
 
   border: none;
-  border-radius: 4px;
-  background-color: rgba(4, 52, 80, 0.85);
+  border-radius: 10000px;
+  background-color: #3e5c66;
   transition: all 0.35s;
 
   padding: 10px 60px;
@@ -172,7 +173,9 @@ main {
 
 .button:hover {
   cursor: pointer;
-  background-color: rgba(4, 52, 80);
+  background-color: #598392;
+  transform: translateY(-4px);
+  /* background-color: rgba(4, 52, 80); */
   box-shadow: 3px 0 30px rgba(163, 163, 163, 0.4);
 }
 
