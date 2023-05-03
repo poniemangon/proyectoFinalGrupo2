@@ -6,18 +6,6 @@
     <a href="/"><p class="nombre-header">StrongStep</p></a>
   </div>
 
-  <div class="search-container">
-    <form>
-      <input
-        type="search"
-        placeholder="Buscar..."
-        name="search"
-        class="search"
-      />
-      <i class="fa-solid fa-magnifying-glass search-icon"></i>
-    </form>
-  </div>
-
   <div class="dropdown">
     <button
       class="dropdown-toggle"
@@ -36,6 +24,18 @@
     </div>
   </div>
 
+  <div class="search-container">
+    <form>
+      <input
+        type="search"
+        placeholder="Buscar..."
+        name="search"
+        class="search"
+      />
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    </form>
+  </div>
+
   <div class="usuario-carrito">
     <!-- <p>Mi Usuario</p> -->
     <% if (user) {%>
@@ -50,5 +50,20 @@
     <a href="/carrito" style="color: black">
       <i class="fa-solid fa-cart-shopping icon-header-carrito"></i
     ></a>
+    <i class="fa-solid fa-bars icon-header-usario icon-hmb-menu"></i>
   </div>
+  <div class="hmb-menu-container hmb-menu-out">
+    <h2 class="hmb-menu-titulo">Zapatillas</h2>
+    <a href="" class="hmb-menu-link"
+      >Casuales <i class="fa-solid fa-angle-right"></i
+    ></a>
+    <a href="" class="hmb-menu-link"
+      >Deportivas <i class="fa-solid fa-angle-right"></i
+    ></a>
+    <a href="" class="hmb-menu-link"
+      >Ver Todas <i class="fa-solid fa-angle-right"></i
+    ></a>
+    <i class="fa-solid fa-xmark icon-header-usario icon-close-hmb-menu"></i>
+  </div>
+  <script src="/js/header.js"></script>
 </header>
