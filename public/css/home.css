@@ -162,15 +162,27 @@ main {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
 }
 
 .ultimo-producto {
-  width: 300px;
+  width: 180px;
+  height: 240px;
   /* width: 320px;
   height: 480px; */
   border: 1px solid #e4e4e4;
   border-radius: 4px;
+  background-color: white;
+  transition: all 0.5s;
+}
+
+.ultimo-producto-info-container {
+  height: 70px;
+  border-top: 1px solid #e4e4e4;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 5px;
   background-color: white;
   transition: all 0.5s;
 }
@@ -186,14 +198,14 @@ main {
   height: 85%;
 }
 
-.ultimo-producto-info-container {
+/* .ultimo-producto-info-container {
   display: flex;
   border-top: 1px solid #e4e4e4;
   justify-content: space-between;
   align-items: center;
 
   padding: 5px;
-}
+} */
 
 .ultimo-producto-nombre {
   font-weight: 600;
