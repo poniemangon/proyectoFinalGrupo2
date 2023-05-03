@@ -23,28 +23,13 @@
 
     <main class="producto">
       <div class="img-producto-container">
-        <!-- <button class="img-producto-arrows">
-          <i class="fa-solid fa-angle-left img-producto-arrow-izq"></i>
-        </button> -->
         <img
           src="/images/products/<%= product.image %>"
           class="imagen-producto"
         />
-        <!-- <button class="img-producto-arrows">
-          <i class="fa-solid fa-angle-right img-producto-arrow-der"></i>
-        </button> -->
       </div>
 
       <div class="info-producto">
-        <!-- <% if (user) { %>
-        <h2 class="nombre-producto"><%= product.name %></h2>
-        <div class="editar-eliminar-bts-container">
-          <a href="/products/edit/<%= product.id %>">Editar producto</a>
-          <a href="/products/delete/<%= product.id %>">Eliminar producto</a>
-        </div>
-        <% } else { %>
-        <h2 class="nombre-producto"><%= product.name %></h2>
-        <% } %> -->
         <h2 class="nombre-producto"><%= product.name %></h2>
         <p class="descripcion-producto"><%= product.description %></p>
         <div>

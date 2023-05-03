@@ -4,7 +4,7 @@ console.log(inputs);
 
 const regularExpressions = {
   nombre: /^[a-zA-ZÁ-ÿ0-9_.+-\s]{5,100}$/,
-  descripcion: /^[a-zA-ZÁ-ÿ0-9_.+-\s]{20,500}$/,
+  descripcion: /^[a-zA-ZÁ-ÿ0-9_.+%;,-\s]{20,1000}$/,
   imagen: /^.*\.(jpeg|jpg|gif|png)$/,
 };
 
