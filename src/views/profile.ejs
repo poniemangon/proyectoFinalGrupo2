@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="/css/home.css" rel="stylesheet" />
+    <link href="/css/header_footer.css" rel="stylesheet" />
+    <link href="/css/profile.css" rel="stylesheet" />
+    <title>Perfil</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
-  <link href="/css/home.css" rel="stylesheet" />
-  <link href="/css/header_footer.css" rel="stylesheet" />
-  <link href="/css/profile.css" rel="stylesheet" />
-  <title>Document</title>
-</head>
-
-<body>
-  <%- include('./partials/header') %>
+  <body>
+    <%- include('./partials/header') %>
     <br />
     <br />
     <br />
@@ -24,42 +29,45 @@
     <br />
 
     <% if (user && user.id==userFound.id) {%>
-      <h1 class="profile-title">Bienvenido a tu perfil, <%= user.username %>
-      </h1>
+    <h1 class="profile-title">Bienvenido a tu perfil, <%= user.username %></h1>
+    <% } else { %>
+    <h1 class="profile-title">Perfil de <%= userFound.username %></h1>
+    <% }%>
+    <div class="profile-container">
+      <% if (user && user.id==userFound.id) {%>
+
+      <img
+        src="/images/userimages/<%= userFound.image %>"
+        alt=""
+        class="profile-user-img"
+      />
+      <h2 class="profile-user-name">Nombre de usuario: <%= user.username %></h2>
+      <h2 class="profile-user-email">Email: <%= userFound.email %></h2>
+
+      <a href="/edituser/<%= user.id %>" class="profile-edit-data"
+        >Editar datos</a
+      >
+      <a href="/delete/<%= user.id %>" class="profile-delete"
+        >Eliminar usuario</a
+      >
+
       <% } else { %>
-        <h1 class="profile-title">
-          Perfil de <%= userFound.username %>
-        </h1>
-        <% }%>
-          <div class="profile-container">
-            <% if (user && user.id==userFound.id) {%>
 
-              <img src="/images/userimages/<%= userFound.image %>" alt="" class="profile-user-img" />
-              <h2 class="profile-user-name">Nombre de usuario: <%= user.username %>
-              </h2>
-              <h2 class="profile-user-email">Email: <%= userFound.email %>
-              </h2>
+      <img
+        src="/images/userimages/<%= userFound.image %>"
+        alt=""
+        class="profile-user-img"
+      />
 
-              <a href="/edituser/<%= user.id %>" class="profile-edit-data">Editar datos</a>
-              <a href="/delete/<%= user.id %>" class="profile-delete">Eliminar usuario</a>
+      <h2 class="profile-user-name">Nombre: <%= userFound.username %></h2>
 
-              <% } else { %>
+      <h2 class="profile-user-email">Email: <%= userFound.email %></h2>
 
-                <img src="/images/userimages/<%= userFound.image %>" alt="" class="profile-user-img" />
+      <% }%> <% if (user && user.id==userFound.id) {%>
 
-                <h2 class="profile-user-name">Nombre: <%= userFound.username %>
-                </h2>
-
-                <h2 class="profile-user-email">Email: <%= userFound.email %>
-                </h2>
-                
-                <% }%>
-                <% if (user && user.id==userFound.id) {%>
-
-                  <!-- <p><%= userFound.name %></p> -->
-                  <a class="profile-logout" href="/logout">Log-out</a>
-                  <% }%>
-          </div>
-</body>
-
+      <!-- <p><%= userFound.name %></p> -->
+      <a class="profile-logout" href="/logout">Log-out</a>
+      <% }%>
+    </div>
+  </body>
 </html>

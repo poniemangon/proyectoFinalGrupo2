@@ -36,13 +36,16 @@
       </div>
 
       <div class="info-producto">
-        <% if (user) { %>
+        <!-- <% if (user) { %>
         <h2 class="nombre-producto"><%= product.name %></h2>
-        <a href="/products/edit/<%= product.id %>">Editar</a>
-        <a href="/products/delete/<%= product.id %>">Eliminar</a>
+        <div class="editar-eliminar-bts-container">
+          <a href="/products/edit/<%= product.id %>">Editar producto</a>
+          <a href="/products/delete/<%= product.id %>">Eliminar producto</a>
+        </div>
         <% } else { %>
         <h2 class="nombre-producto"><%= product.name %></h2>
-        <% } %>
+        <% } %> -->
+        <h2 class="nombre-producto"><%= product.name %></h2>
         <p class="descripcion-producto"><%= product.description %></p>
         <div>
           <p class="precio">$<%= product.price %></p>
@@ -88,6 +91,18 @@
             Agregar al carrito
           </button>
         </form>
+        <% if (user) { %>
+        <div class="editar-eliminar-btns-container">
+          <a href="/products/edit/<%= product.id %>" class="editar-eliminar-btn"
+            >Editar producto</a
+          >
+          <a
+            href="/products/delete/<%= product.id %>"
+            class="editar-eliminar-btn"
+            >Eliminar producto</a
+          >
+        </div>
+        <% } %>
         <div class="pago-envio">
           <div>
             <i class="fa-solid fa-credit-card"></i>
