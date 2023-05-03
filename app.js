@@ -1,16 +1,18 @@
 // ************ Require's ************
+const cors = require('cors');
 const express = require("express");
 const path = require("path");
 const app = express();
 const usersRoutes = require('./src/routes/usersRoutes')
 const mainRouter = require("./src/routes/mainRoutes");
 const productsRouter = require("./src/routes/productsRoutes");
+const usersApiRoutes = require('./src/routes/apiRoutes');
 const methodOverride =  require('method-override');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
+app.use(cors());
 app.use(methodOverride('_method'));
 
 app.use(express.static(path.join(__dirname, '../public')));
@@ -53,7 +55,7 @@ app.use("/", usersRoutes );
 //Products routes
 app.use("/products", productsRouter);
 
-
+app.use("/api", usersApiRoutes );
 
 
 
