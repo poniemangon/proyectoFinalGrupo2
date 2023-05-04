@@ -4,7 +4,12 @@
   padding-top: 100px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 150px;
+  margin-bottom: 100px;
+}
+
+.productos-destacados-titulo-lineas {
+  display: flex;
+  justify-content: space-around;
 }
 
 .titulo-casuales {
@@ -12,6 +17,12 @@
   text-align: center;
 
   margin-bottom: 40px;
+}
+
+.linea {
+  border-bottom: 1px solid #598392;
+  height: 0px;
+  width: 35%;
 }
 
 .productos-container {
@@ -25,27 +36,25 @@
 
 .producto {
   width: 280px;
-  height: auto;
-  border: 1px solid #e4e4e4;
+  border: 2px solid #acc1c9;
   border-radius: 4px;
   background-color: white;
   transition: all 0.5s;
-  margin-bottom: 40px;
-  border-collapse: collapse;
+
+  margin-bottom: 25px;
 }
 
 .producto-info-container {
   height: 70px;
-  border-top: 1px solid #e4e4e4;
-  border: 1px solid #e4e4e4;
+  background-color: #acc1c9;
 
   padding: 5px;
-  background-color: white;
   transition: all 0.5s;
   border-collapse: collapse;
 
   display: flex;
   justify-content: space-between;
+  margin-top: -4px;
 }
 
 .producto:hover {
@@ -60,11 +69,26 @@
 
 .producto-img {
   width: 100%;
-  height: 85%;
+  height: auto;
 }
 
 .producto-nombre {
   font-weight: 600;
 
   margin-bottom: 5px;
+}
+
+/*/ ////////////////////*/
+/*/ //////MEDIA QUERIES////////*/
+/*/ ////////////////////*/
+@media (max-width: 1024px) {
+  .productos-seccion {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .producto {
+    margin-bottom: 0px;
+  }
 }

@@ -62,8 +62,11 @@
             />
             <div class="producto-destacado-info-container">
               <p class="producto-destacado-nombre">ZAPATILLAS TANJUN NN NIKE</p>
-              <p class="producto-destacado-descripcion">No exageramos. El Nike Tanjun te brinda la máxima simplicidad. Este modelo no pasa ningún detalle por alto. Este calzado es todo lo que necesitas.</p>
-              <!-- <p class="producto-destacado-precio">$33999</p> -->
+              <p class="producto-destacado-descripcion">
+                No exageramos. El Nike Tanjun te brinda la máxima simplicidad.
+                Este modelo no pasa ningún detalle por alto. Este calzado es
+                todo lo que necesitas.
+              </p>
               <button class="producto-destacado-boton">Mas Info</button>
             </div>
           </div>
@@ -77,7 +80,6 @@
             <div class="producto-destacado-info-container">
               <p class="producto-destacado-nombre">Nombre producto</p>
               <p class="producto-destacado-descripcion">Descripcion producto</p>
-              <!-- <p class="producto-destacado-precio">Precio producto</p> -->
               <button class="producto-destacado-boton">Mas info</button>
             </div>
           </div>
@@ -87,33 +89,35 @@
       <!-- ultimos productos -->
 
       <section class="ultimos-productos-seccion">
-        <!-- <div class="productos-destacados-titulo">Últimos productos</div> -->
         <div class="productos-destacados-titulo-lineas">
           <div class="linea"></div>
           <div class="productos-destacados-titulo">Últimos productos</div>
           <div class="linea"></div>
         </div>
 
-        <% products1.map(product => { %>
-
         <div class="ultimos-productos-container">
-              <div class="ultimo-producto"><a href="/products/detail/<%= product.id %>"><img
-                    src="/images/products/<%= product.image %>" alt="" class="ultimo-producto-img"></a>
-                <div class="ultimo-producto-info-container">
-                 <div class="ultimo-producto-nombre-precio">
-                   <p class="ultimo-producto-nombre">
-                     <%= product.name.toUpperCase() %>
-                   </p>
-                   <p class="ultimo-producto-precio">
-                     $<%= product.price %>
-                   </p>
-                 </div>
-                  <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
-                </div>
+          <% products1.map(product => { %>
+
+          <div class="ultimo-producto">
+            <a href="/products/detail/<%= product.id %>">
+              <img
+                src="/images/products/<%= product.image %>"
+                alt=""
+                class="ultimo-producto-img"
+              />
+            </a>
+            <div class="ultimo-producto-info-container">
+              <div class="ultimo-producto-nombre-precio">
+                <p class="ultimo-producto-nombre">
+                  <%= product.name.toUpperCase() %>
+                </p>
+                <p class="ultimo-producto-precio">$<%= product.price %></p>
               </div>
-              <% }); %>
+              <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
             </div>
-            </div>
+          </div>
+          <% }); %>
+        </div>
       </section>
     </main>
 

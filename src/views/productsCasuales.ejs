@@ -23,7 +23,11 @@
     <%- include('./partials/header') %>
 
     <section class="productos-seccion">
-      <h1 class="titulo-casuales">Zapatillas Deportivas</h1>
+      <div class="productos-destacados-titulo-lineas">
+        <div class="linea"></div>
+        <h1 class="titulo-casuales">Casuales</h1>
+        <div class="linea"></div>
+      </div>
 
       <div class="productos-container">
         <% casualProducts.map(product => { %>

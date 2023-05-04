@@ -23,7 +23,8 @@ const upload = multer({ storage: storage });
 
 //Todos los productos
 
-router.get("/", productsController.carrito);
+// router.get("/", productsController.carrito);
+router.get("/", productsController.products);
 router.get("/casuales", productsController.casualProducts);
 router.get("/deportivas", productsController.sportingProducts);
 

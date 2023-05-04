@@ -14,15 +14,44 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
       rel="stylesheet"
     />
-    
+
     <link href="/css/header_footer.css" rel="stylesheet" />
-    <link href="/css/carrito.css" rel="stylesheet" />
-    <title>Document</title>
+    <link href="/css/casuales-deportivas-todas.css" rel="stylesheet" />
+    <title>Todas</title>
   </head>
   <body>
     <%- include('./partials/header') %>
 
-    <h1>productos</h1>
+    <section class="productos-seccion">
+      <div class="productos-destacados-titulo-lineas">
+        <div class="linea"></div>
+        <h1 class="titulo-casuales">Todas</h1>
+        <div class="linea"></div>
+      </div>
+
+      <div class="productos-container">
+        <% allProducts.map(product => { %>
+
+        <div class="producto">
+          <a href="/products/detail/<%= product.id %>">
+            <img
+              src="/images/products/<%= product.image %>"
+              alt=""
+              class="producto-img"
+            />
+          </a>
+          <div class="producto-info-container">
+            <div class="producto-nombre-precio">
+              <p class="producto-nombre"><%= product.name.toUpperCase() %></p>
+              <p class="producto-precio">$<%= product.price %></p>
+            </div>
+            <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
+          </div>
+        </div>
+
+        <% }) %>
+      </div>
+    </section>
 
     <%- include('./partials/footer') %>
   </body>
