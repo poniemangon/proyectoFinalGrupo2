@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link href="/css/header_footer.css" rel="stylesheet" />
+    <link href="/css/casuales-deportivas-todas.css" rel="stylesheet" />
+    <title>Zapatillas Casuales</title>
+  </head>
+  <body>
+    <%- include('./partials/header') %>
+
+    <section class="productos-seccion">
+      <h1 class="titulo-casuales">Zapatillas Deportivas</h1>
+
+      <div class="productos-container">
+        <% casualProducts.map(product => { %>
+
+        <div class="producto">
+          <a href="/products/detail/<%= product.id %>">
+            <img
+              src="/images/products/<%= product.image %>"
+              alt=""
+              class="producto-img"
+            />
+          </a>
+          <div class="producto-info-container">
+            <div class="producto-nombre-precio">
+              <p class="producto-nombre"><%= product.name.toUpperCase() %></p>
+              <p class="producto-precio">$<%= product.price %></p>
+            </div>
+            <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
+          </div>
+        </div>
+
+        <% }) %>
+      </div>
+    </section>
+
+    <%- include('./partials/footer') %>
+  </body>
+</html>
