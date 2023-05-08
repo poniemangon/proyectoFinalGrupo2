@@ -11,6 +11,7 @@ const apiRoutes = require("./src/routes/apiRoutes");
 const methodOverride = require("method-override");
 const session = require("express-session");
 const bodyParser = require("body-parser");
+const categories = require('./src/middlewares/categories');
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cors());
@@ -44,7 +45,7 @@ app.use(express.json());
 
 const setUser = require("./src/middlewares/setUser");
 app.use(setUser);
-
+app.use(categories);
 // Main
 app.use("/", mainRouter);
 app.get("/carrito", productsRouter);

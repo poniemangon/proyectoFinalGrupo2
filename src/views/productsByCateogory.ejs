@@ -17,7 +17,7 @@
 
     <link href="/css/header_footer.css" rel="stylesheet" />
     <link href="/css/casuales-deportivas-todas.css" rel="stylesheet" />
-    <title>Zapatillas Casuales</title>
+    <title>Zapatillas <%= category.category_name %></title>
   </head>
   <body>
     <%- include('./partials/header') %>
@@ -30,7 +30,7 @@
       </div>
 
       <div class="productos-container">
-        <% casualProducts.map(product => { %>
+        <% products.map(product => { %>
 
         <div class="producto">
           <a href="/products/detail/<%= product.id %>">

@@ -189,20 +189,18 @@ const productsController = {
     return res.render("productsCasuales", { casualProducts });
   },
 
-  sportingProducts: async (req, res) => {
-    const allProducts = await db.Product.findAll();
-    const sportingProducts = allProducts.filter(
-      (product) => product.id_product_category == 2
-    );
-
-    console.log(sportingProducts);
-
-    return res.render("productsDeportivas", { sportingProducts });
+  productsByCategory: async (req, res) => {
+    const id = req.params.id;
+    const category = await db.ProductCategory.findByPk(id);
+    const products = await db.Product.findAll({
+      where: { id_product_category: id }
+    });
+    return res.render("productsByCateogory", { products, category });
   },
-  products: async (req, res) => {
+  allProducts: async (req, res) => {
     const allProducts = await db.Product.findAll();
 
-    res.render("products", { allProducts });
+    return res.render("products", { allProducts });
   },
 };
 

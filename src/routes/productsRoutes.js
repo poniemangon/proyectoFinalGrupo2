@@ -24,9 +24,9 @@ const upload = multer({ storage: storage });
 //Todos los productos
 
 // router.get("/", productsController.carrito);
-router.get("/", productsController.products);
-router.get("/casuales", productsController.casualProducts);
-router.get("/deportivas", productsController.sportingProducts);
+router.get("/", productsController.allProducts);
+router.get("/productsby/:id", productsController.productsByCategory);
+
 
 //Crear un producto
 router.get("/create", productsController.create);

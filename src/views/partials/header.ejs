@@ -18,8 +18,9 @@
       Zapatillas <i class="fa-solid fa-angle-down"></i>
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="/products/casuales">Casuales</a>
-      <a class="dropdown-item" href="/products/deportivas">Deportivas</a>
+      <% categories.map(category => { %>
+        <a class="dropdown-item" href="/products/productsby/<%= category.id %>"><%= category.category_name %></a>
+      <% }); %>
       <a class="dropdown-item" href="/products">Ver Todas</a>
     </div>
   </div>
