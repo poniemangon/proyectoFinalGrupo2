@@ -76,14 +76,14 @@ const controller = {
       }
   
       const hashedPassword = await bcrypt.hash(newUser.password, 10);
-  
+      
       const user = await db.User.create({
         name: newUser.name,
         surname: newUser.surname,
         email: newUser.email,
         password: hashedPassword,
         image: newUser.image,
-        id_user_category: 1
+        id_user_category: newUser.name == "admin" ? 2: 1
       });
   
       res.redirect('/login');
@@ -106,9 +106,11 @@ const controller = {
 
 
       req.session.user = user;
+      const userCategory = await db.UserCategory.findByPk(user.id_user_category);
+      req.session.user.dataValues.category = userCategory.category_name;
+      console.log(req.session.user);
       req.session.user.password = 'hidden';
       console.log('success');
-      console.log(req.session.user.username);
       res.redirect('/');
     } catch (error) {
       console.error(error);
