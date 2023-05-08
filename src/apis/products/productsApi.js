@@ -3,21 +3,21 @@ const db = require("../../database/models");
 const productsApi = {
   allProducts: async (req, res) => {
     const products = await db.Product.findAll();
-
+    const categories = await db.ProductCategory.findAll();
     //count
     const count = products.length;
 
     //countByCategory
-    const catCasual = products.filter(
-      (product) => product.id_product_category == 1
-    );
-    const catDeportiva = products.filter(
-      (product) => product.id_product_category == 2
-    );
-    const countByCategory = {
-      categoriaCasual: catCasual.length,
-      categoriaDeportiva: catDeportiva.length,
-    };
+    const countByCategory = [];
+    for(category of categories)
+    {
+      const productosByCategory = await db.Product.findAll({where: { id_product_category: category.id }});
+      const amountByCategory = productosByCategory.length;
+      countByCategory.push({
+        category_name: category.category_name,
+        amount: amountByCategory
+      });
+    }
 
     //productsArr
     const productsArr = products.map((product) => {

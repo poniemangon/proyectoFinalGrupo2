@@ -208,15 +208,6 @@ const productsController = {
     }
   },
 
-  casualProducts: async (req, res) => {
-    const allProducts = await db.Product.findAll();
-    const casualProducts = allProducts.filter(
-      (product) => product.id_product_category == 1
-    );
-
-    return res.render("productsCasuales", { casualProducts });
-  },
-
   productsByCategory: async (req, res) => {
     const id = req.params.id;
     const category = await db.ProductCategory.findByPk(id);
