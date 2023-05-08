@@ -60,7 +60,7 @@
             <option value="5">5</option>
           </select>
         </form>
-
+        <% if (user) { %>
         <form
           action="/products/add"
           method="post"
@@ -76,6 +76,7 @@
             Agregar al carrito
           </button>
         </form>
+        <% } %>
         <% if (user) { %>
         <div class="editar-eliminar-btns-container">
           <a href="/products/edit/<%= product.id %>" class="editar-eliminar-btn"

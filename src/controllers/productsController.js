@@ -7,7 +7,12 @@ const { validationResult } = require("express-validator");
 
 const productsController = {
   carrito: (req, res) => {
+    if(!req.session.carrito){
+      req.session.carrito = [];
+    }
     const productos = req.session.carrito;
+    console.log(productos);
+    
     return res.render("carrito", { productos });
   },
 
@@ -26,11 +31,34 @@ const productsController = {
       console.log("hay user logueado");
     }
     const id = req.body.productId;
-    const product = await db.Product.findByPk(id);
-    product.dataValues.numeroCarrito = req.session.carrito.length + 1;
-    req.session.carrito.push(product.dataValues);
-    console.log(req.session.carrito);
+    const findInCart = req.session.carrito.find(product => product.id == id);
+    if(findInCart){
+      findInCart.amount += 1;
+    }
+    else{
+      const productInDB = await db.Product.findByPk(id);
+      const product = {
+        id: productInDB.dataValues.id,
+        name: productInDB.dataValues.name,
+        description: productInDB.dataValues.description,
+        image: productInDB.dataValues.image,
+        price: productInDB.dataValues.price,
+        id_product_category: productInDB.dataValues.id_product_category,
+        banner: productInDB.dataValues.banner,
+        amount: 1
+      }
+      req.session.carrito.push(product);
+    }
+  
     return res.redirect("back");
+  },
+
+  removeFromCart: async (req, res)=> {
+    const id = await req.body.productId;
+    const productToRemove = await req.session.carrito.findIndex(product => product.id == id);
+    req.session.carrito.splice(productToRemove, 1);
+    return res.redirect("back");
+
   },
 
   create: async (req, res) => {

@@ -40,6 +40,7 @@ router.post(
 //Detalle producto
 router.get("/detail/:id", productsController.detail);
 router.post("/add", productsController.addToCart);
+router.post("/remove", productsController.removeFromCart);
 
 //Editar un producto
 router.get("/edit/:id", productsController.edit);
@@ -51,11 +52,11 @@ router.put(
 );
 // carrito
 router.get("/carrito", productsController.carrito);
+
+//delete
 router.get("/delete/:id", productsController.delete);
 router.delete("/delete/:id", productsController.delete);
 
-// delete
-// router.delete('/delete/:id', productsController.destroy);
-// router.get('/delete/:id', productsController.destroy);
+
 
 module.exports = router;

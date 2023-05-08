@@ -1,191 +1,63 @@
-*{
-    padding: 0px;
-    margin: 0px;
-}
-
-body {
-    height: 100%;
-   
-}
-
-main {
-    margin: 10px; 
-    
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
   
-}
-.caja-padre {
-    width: 100%;
+  .producto {
     display: flex;
-    flex-direction: row;
-    border: 7px solid rgb(95, 168, 211, 0.7);;
-}
-
-.caja-padre .caja-60 {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-
-/* //////////////////// */
-/* ARTICULO  */
-.caja-padre .carrito {
-    width: 100%;
-    border: solid 1px black;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: space-between; */
-}
-.articulo {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-
-.nombre {
-    display: flex;
-    flex-direction: column;
-    margin: 5px;
-
-}
-
-.precio {
-    margin: 5px;
-}
-
-.imagen {
-    border: solid 2px black;
-}
-
-/* //////////////////// */
-/* TITULO CARRITO */
-
-.caja-padre .caja-60 .titulo-carrito {
-    display: flex;
-    flex-direction: column;
-}
-
-.caja-padre .caja-60 .titulo-carrito .titulo {
-    font-size: xx-large;
-}
-
-.caja-padre .caja-60 .titulo-carrito .seleccion {
-    display: flex;
-    flex-direction: row;
-}
-
-/* //////////////////// */
-/* ARTICULO CARRITO  */
-.carrito .articulo {
-    border: solid 1px black;
-}
-.carrito .articulo .imagen {
-    width: 10%;
-}
-
-.carrito .articulo .nombre {
-    width: 70%;
-}
-.carrito .articulo .precio {
-    width: 20%;
-}
-
-
-/* //////////////////// */
-/* CAJA SUBTOTAL  */
-
-
-.caja-subtotal {
-    width: 20%;
-    display: flex;
-    flex-direction: column;
-    border: solid 1px black;
-    padding: 5px;
-}
-
-.caja-subtotal .articulo {
-    display: flex;
-    flex-direction: row;
-}
-.caja-subtotal .articulo .imagen {
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%; 
+    height: 50px; 
+    margin-bottom: 5px; 
     border: 1px solid black;
-    width: 30%;
-}
-
-.caja-subtotal .articulo .descripcion {
-    display: flex;
-    flex-direction: column;
-    width: 70%;
-    padding: 10%;
-}
-
-.caja-subtotal .articulo .descripcion p {
-    padding: 0%;
-}
-
-
-
-/* //////////////////// */
-/* CAJA SUBTOTAL  */
-
-
-
-
-/* //////////////////// */
-/* VISTO X ULTIMA VEZ  */
-
-.last-box{
-    width: 100%;
-    border: 7px solid rgb(95, 168, 211, 0.7);
-    height: 400px;
-    padding: 8px;
-    font-size: 20px;
-    font-weight: bold;
-    margin: auto;
-    max-width: 1650px;
-}
-
-.visto-recientemente{
-    margin-bottom: -10px;
-}
-.articulos{
-    height:  100%;
-    display: flex;
-       align-items: center;
-    gap: 20px;
-    
+    transition: background-color 0.3s ease-in-out;
+  }
   
-
-
-
-}
-
-.articulo-1, .articulo-2, .articulo-3, .articulo-4,  .articulo-5,  .articulo-6  {
-width: 80%;
-height:90%;
-border: solid black 1px;
-display: flex;
-flex-direction: column;
-padding: 10px;
-
-} 
-
-.pic{
-    height: 70%;
-}
-
-@media (min-width: 360px) {
-    .articulo-3, .articulo-4,  .articulo-5,  .articulo-6 {
-        display: none;
-    }
-}
-@media (min-width: 760px) {
-    .articulo-3, .articulo-4 {
-        display: block;
-    }
-}
-@media (min-width: 1400px) {
-    .articulo-5,  .articulo-6 {
-        display: block;
-    }
-}
+  .producto:hover {
+    background-color: lightblue;
+  }
+  
+  .producto .descripcion {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: space-between; 
+    width: 100%;
+    height: 100%;
+    padding: 10px; 
+  }
+  
+  .producto .nombre {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-right: 10px; 
+  }
+  
+  .producto .color {
+    margin-right: 10px; 
+  }
+  
+  .producto .talle {
+    margin-right: 10px; 
+  }
+  
+  .producto .cantidad {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .producto .cantidad label {
+    margin-right: 10px;
+  }
+  
+  .producto .cantidad .main-select {
+    width: 50px;
+    height: 25px;
+  }
+  
