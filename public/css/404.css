@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #ebebeb;
+}
+
+/*/ ////////////////////*/
+/*/ //////MAIN////////*/
+/*/ ////////////////////*/
+
+main {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*/ ////////////////////*/
+/*/ //////ERROR////////*/
+/*/ ////////////////////*/
+.error-container {
+  height: 80vh;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.number-icon-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  color: #476975;
+
+  margin-bottom: 20px;
+}
+
+.number {
+  font-size: 100px;
+}
+
+.error-icon {
+  font-size: 100px;
+
+  animation-name: rotar;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.text1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.text2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.btn-home {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+
+  border: none;
+  border-radius: 10000px;
+  background-color: #476975;
+  transition: all 0.35s;
+
+  padding: 10px 60px;
+  margin-top: 5px;
+}
+
+.btn-home:hover {
+  cursor: pointer;
+  background-color: #598392;
+  box-shadow: 3px 0 30px rgba(163, 163, 163, 0.4);
+}
+
+/*/ ////////////////////*/
+/*/ //////ANIMACION////////*/
+/*/ ////////////////////*/
+@keyframes rotar {
+  0% {
+    transform: rotate3d(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
+}

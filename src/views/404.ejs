@@ -14,13 +14,25 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
       rel="stylesheet"
     />
-    <link href="/css/home.css" rel="stylesheet" />
     <link href="/css/header_footer.css" rel="stylesheet" />
-    <link href="/css/carrito.css" rel="stylesheet" />
-    <link href="/css/agregar.css" rel="stylesheet"/>
-    <title>Document</title>
+    <link href="/css/404.css" rel="stylesheet" />
+    <title>Error</title>
   </head>
   <body>
     <%- include('./partials/header') %>
-    <p>no existe</p>
+    <main class="error-main">
+      <div class="error-container">
+        <div class="number-icon-container">
+          <h1 class="number">404</h1>
+          <i class="fa-solid fa-circle-exclamation error-icon"></i>
+        </div>
+        <p class="text1">Sección no encontrada</p>
+        <p class="text2">
+          Lo sentimos, no podemos encontrar a la sección que solicitaste.
+        </p>
+        <a href="/" class="btn-home">HOME</a>
+      </div>
+    </main>
+    <%- include('./partials/footer') %>
   </body>
+</html>

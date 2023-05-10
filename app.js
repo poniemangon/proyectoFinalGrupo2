@@ -11,7 +11,7 @@ const apiRoutes = require("./src/routes/apiRoutes");
 const methodOverride = require("method-override");
 const session = require("express-session");
 const bodyParser = require("body-parser");
-const categories = require('./src/middlewares/categories');
+const categories = require("./src/middlewares/categories");
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cors());
@@ -63,3 +63,8 @@ app.use("/api", apiRoutes);
 // ************ Server ************
 app.use(express.static("public"));
 app.listen(3100, () => console.log("Listening on port 3100"));
+
+//Ruta no encontrada
+app.use((req, res, next) => {
+  res.status(404).render("404");
+});
