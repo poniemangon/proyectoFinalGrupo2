@@ -20,17 +20,18 @@ const productsApi = {
     }
 
     //productsArr
-    const productsArr = products.map((product) => {
+    const productsArr = products.map( (product) => {
       return {
         id: product.id,
         name: product.name,
         description: product.description,
-        relaciones: [],
+        category: categories.find(category => category.id == product.id_product_category).category_name,
+        image: `http://localhost:3100/images/products/${product.image}`,
         detail: `http://localhost:3100/products/detail/${product.id}`,
       };
     });
 
-    return res.json({ count, countByCategory, productsArr });
+    return res.json({ count, countByCategory, productsArr, categories });
   },
 
   oneProduct: async (req, res) => {

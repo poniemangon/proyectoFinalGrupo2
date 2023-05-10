@@ -4,16 +4,39 @@ const db = require("../database/models/");
 const multer = require("multer");
 const upload = multer({ dest: "public/images/products" });
 const { validationResult } = require("express-validator");
+const { Op } = require('sequelize');
 
 const productsController = {
-  carrito: (req, res) => {
+  search: async (req, res) => {
+    const searchQuery = req.query.search;
+    const productsFound = await db.Product.findAll({
+      where: {
+        name: {
+          [Op.like]: `%${searchQuery}%`
+        }
+      }
+    });
+    if (productsFound.length > 0) {
+      return res.render('busqueda_result', { products: productsFound, busqueda: searchQuery });
+    } else {
+      return res.render('busqueda_result', { message: `No se ha encontrado ningún producto con ${searchQuery}` });
+    }
+  },
+  carrito: async (req, res) => {
     if(!req.session.carrito){
       req.session.carrito = [];
     }
     const productos = req.session.carrito;
     console.log(productos);
+    let amountProductos = 0;
+    let totalPrice = 0;
+    for(producto of productos){
+      const pricePerProduct = producto.price * producto.amount;
+      totalPrice += pricePerProduct;
+      amountProductos += producto.amount;
+    }
     
-    return res.render("carrito", { productos });
+    return res.render("carrito", { productos, totalPrice, amountProductos  });
   },
 
   detail: async (req, res) => {

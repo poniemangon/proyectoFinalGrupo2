@@ -57,6 +57,9 @@ router.get("/carrito", productsController.carrito);
 router.get("/delete/:id", productsController.delete);
 router.delete("/delete/:id", productsController.delete);
 
+//searchBar
 
+router.get('/search', productsController.search);
+router.get('/search/result', productsController.search)
 
 module.exports = router;

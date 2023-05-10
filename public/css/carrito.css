@@ -1,63 +1,80 @@
-.main {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-  }
+.container {
+  display: flex;
+  flex: row;
+}
+
+.productos-container {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+.producto {
+  display: flex;
+  flex-direction: column;
   
-  .producto {
-    display: flex;
-    flex-direction: row; 
-    align-items: center;
-    justify-content: space-between; 
-    width: 100%; 
-    height: 50px; 
-    margin-bottom: 5px; 
-    border: 1px solid black;
-    transition: background-color 0.3s ease-in-out;
-  }
+}
+
+.producto-data {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
   
-  .producto:hover {
-    background-color: lightblue;
-  }
-  
-  .producto .descripcion {
-    display: flex;
-    flex-direction: row; 
-    align-items: center;
-    justify-content: space-between; 
-    width: 100%;
-    height: 100%;
-    padding: 10px; 
-  }
-  
-  .producto .nombre {
-    font-weight: bold;
-    font-size: 1.5rem;
-    margin-right: 10px; 
-  }
-  
-  .producto .color {
-    margin-right: 10px; 
-  }
-  
-  .producto .talle {
-    margin-right: 10px; 
-  }
-  
-  .producto .cantidad {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  
-  .producto .cantidad label {
-    margin-right: 10px;
-  }
-  
-  .producto .cantidad .main-select {
-    width: 50px;
-    height: 25px;
-  }
-  
+  border: 1px solid black;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.producto:hover {
+  background-color: lightblue;
+}
+
+.producto .descripcion {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px;
+}
+
+.producto .nombre {
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-right: 10px;
+}
+
+.producto .color {
+  margin-right: 10px;
+}
+
+.producto .talle {
+  margin-right: 10px;
+}
+
+.producto .cantidad {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.producto .cantidad label {
+  margin-right: 10px;
+}
+
+.producto .cantidad .main-select {
+  width: 50px;
+  height: 25px;
+}
+
+.total {
+  border: 1px solid black;
+  width: 50%;
+  height: 200px;
+}
+
+.eliminar {
+  margin-top: 5px;
+}
