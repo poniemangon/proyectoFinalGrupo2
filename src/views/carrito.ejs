@@ -52,15 +52,16 @@
                   <p class="precio">$<%= producto.price %>
                   </p>
                 </div>
+                <form class="eliminar" action="/products/remove" method="post" enctype="application/x-www-form-urlencoded">
+                  <input type="hidden" id="productId" name="productId" value="<%= producto.id %>" />
+                  <button type="submit" class="agregar-carrito-btn">
+                    <i class="fa-solid fa-trash-can"></i>
+                  </button>
+                </form>
               </div>
 
             </div>
-            <form class="eliminar" action="/products/remove" method="post" enctype="application/x-www-form-urlencoded">
-              <input type="hidden" id="productId" name="productId" value="<%= producto.id %>" />
-              <button type="submit" class="agregar-carrito-btn">
-                Eliminar de carrito
-              </button>
-            </form>
+
             <% } %>
           </div>
               <div class="total">

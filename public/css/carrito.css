@@ -6,7 +6,7 @@
 .productos-container {
   display: flex;
   flex-direction: column;
-  width: 75%;
+  width: 85%;
 }
 
 .producto {
@@ -22,8 +22,8 @@
   justify-content: space-between;
   width: 100%;
   height: 100%;
-  
-  border: 1px solid black;
+  border-bottom: 2px solid grey;
+  background-color: whitesmoke;
   transition: background-color 0.3s ease-in-out;
 }
 
@@ -70,11 +70,31 @@
 }
 
 .total {
-  border: 1px solid black;
   width: 50%;
   height: 200px;
+  background-color: whitesmoke;
 }
 
 .eliminar {
   margin-top: 5px;
+}
+
+button {
+  
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+button i {
+  color: rgb(61, 61, 82);
+}
+button:hover i {
+  color: rgb(11, 11, 59);
+}
+
+button:hover {
+  background-color: rgb(182, 182, 182);
+  cursor: pointer;
 }
