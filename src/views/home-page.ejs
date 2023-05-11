@@ -96,6 +96,7 @@
         </div>
 
         <div class="ultimos-productos-container">
+          <% if(locals && locals.products1) {%>
           <% products1.map(product => { %>
 
           <div class="ultimo-producto">
@@ -117,6 +118,7 @@
             </div>
           </div>
           <% }); %>
+          <% }%>
         </div>
       </section>
     </main>

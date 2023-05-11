@@ -12,6 +12,7 @@ const mainController = {
             req.session.carrito = [];
           }
         console.log(req.session.carrito);
+        try{
         const products = await db.Product.findAll();
 
         const products1 = await products.slice(products.length-8, products.length).reverse();
@@ -19,6 +20,10 @@ const mainController = {
         
 
         return res.render("home-page", {products1} );
+        }
+        catch (error){
+            return res.render('404', { error: 'Error.' });
+          }
     },
 };
 
