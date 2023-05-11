@@ -121,7 +121,7 @@ const controller = {
   editUser: async (req, res) => {
     const id = await req.params.id;
     if(!req.session.user || req.session.user.id != id){
-      return res.render('404');
+      return res.render('denegado');
     }
   
     
@@ -136,7 +136,7 @@ const controller = {
   editUserProcess: async (req, res) => {
     const id = await req.params.id;
     if(!req.session.user || req.session.user.id != id){
-      return res.render('404');
+      return res.render('denegado');
     }
  
     
@@ -187,7 +187,7 @@ const controller = {
   deleteUser: async (req, res) => {
     const id = await req.params.id;
     if(!req.session.user || req.session.user.id != id){
-      return res.render('404');
+      return res.render('denegado');
     }
     try {
       const user = await db.User.findOne({ where: { id } });

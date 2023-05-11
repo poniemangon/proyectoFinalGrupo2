@@ -87,7 +87,7 @@ const productsController = {
 
   create: async (req, res) => {
     if(!req.session.user)
-    {return res.render('404');}
+    {return res.render('denegado');}
     else{
       const isAdmin = validateAdmin(req.session.user.id_user_category);
       if(isAdmin == false){
@@ -101,11 +101,11 @@ const productsController = {
 
   store: async (req, res) => {
     if(!req.session.user)
-    {return res.render('404');}
+    {return res.render('denegado');}
     else{
       const isAdmin = validateAdmin(req.session.user.id_user_category);
       if(isAdmin == false){
-        return res.render('404');
+        return res.render('denegado');
       }
     }
     console.log(req.body, req.file);
@@ -143,7 +143,7 @@ const productsController = {
     else{
       const isAdmin = validateAdmin(req.session.user.id_user_category);
       if(isAdmin == false){
-        return res.render('404');
+        return res.render('denegado');
       }
     }
     const categorias = await db.ProductCategory.findAll();
@@ -218,7 +218,7 @@ const productsController = {
     if(req.session.user){
       const isAdmin = validateAdmin(req.session.user.id_user_category);
       if(isAdmin == false){
-        return res.render('404');
+        return res.render('denegado');
       }
     }
     const id = req.params.id;
