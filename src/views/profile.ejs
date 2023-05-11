@@ -23,7 +23,7 @@
     <br />
 
     <% if (user && user.id==userFound.id) {%>
-      <h1 class="profile-title">Bienvenido a tu perfil, <%= userFound.name %>
+      <h1 class="profile-title">Bienvenido a tu perfil, "<%= userFound.name %>"
       </h1>
       <% } else { %>
         <h1 class="profile-title">Perfil de <%= userFound.username %>
@@ -41,7 +41,7 @@
               </h2>
 
               <a href="/edituser/<%= user.id %>" class="profile-edit-data">Editar datos</a>
-              <a href="/delete/<%= user.id %>" class="profile-delete">Eliminar usuario</a>
+              <a href="/delete/<%= user.id %>" class="profile-delete">Eliminar usuario</a> 
 
               <% } else { %>
 
@@ -57,7 +57,12 @@
                   <% if (user && user.id==userFound.id) {%>
 
                     <!-- <p><%= userFound.name %></p> -->
-                    <a class="profile-logout" href="/logout">Log-out</a>
+                    <a  href="/logout" class="profile-logout">Cerrar Sesión</a>
+
+                    <%if (userFound.id_user_category == 2) { %>
+                      <a href="/products/create" class="profile-crear-prod">Crear Producto</a>
+                    <% } %> 
+
                     <% }%>
           </div>
           <%- include('./partials/footer') %>

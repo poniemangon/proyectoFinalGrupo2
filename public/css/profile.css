@@ -64,7 +64,7 @@ body {
   width: 150px;
 
   margin-bottom: 40px;
-  background-color: rgb(95, 168, 211);
+  background-color: #3e5c66;
   border-radius: 100px;
   transition: all 0.35s;
 
@@ -73,7 +73,7 @@ body {
 }
 
 .profile-edit-data:hover {
-  background-color: rgb(95, 168, 211, 0.7);
+  background-color: #598392;
 }
 
 .profile-delete {
@@ -85,7 +85,7 @@ body {
   width: 150px;
 
   margin-bottom: 40px;
-  background-color: rgba(211, 95, 95);
+  background-color: #3e5c66;
   border-radius: 100px;
   transition: all 0.35s;
 
@@ -94,7 +94,7 @@ body {
 }
 
 .profile-delete:hover {
-  background-color: rgba(211, 95, 95, 0.7);
+  background-color: #598392;
 }
 
 .profile-logout {
@@ -102,13 +102,16 @@ body {
   font-size: 20px;
   font-weight: 600;
   text-decoration: none;
+  width: 230px;
+  text-align: center;
 
   border: none;
   border-radius: 10000px;
   background-color: #3e5c66;
   transition: all 0.35s;
 
-  padding: 10px 80px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   margin-bottom: 20px;
 }
 
@@ -116,6 +119,30 @@ body {
   cursor: pointer;
   background-color: #598392;
   box-shadow: 3px 0 30px rgba(163, 163, 163, 0.4);
+}
+
+.profile-crear-prod {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  width: 230px;
+  text-align: center;
+
+  border: none;
+  border-radius: 10000px;
+  background-color: #f57c00;
+  transition: all 0.2s;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.profile-crear-prod:hover {
+  cursor: pointer;
+  outline: 4px solid #f57c00;
+  outline-offset: 3px;
 }
 
 /*///////////////////////////*/
@@ -167,7 +194,14 @@ body {
   .profile-logout {
     font-size: 18px;
 
-    padding: 6px 70px;
-    margin-bottom: 20px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .profile-crear-prod {
+    font-size: 18px;
+
+    padding-top: 6px;
+    padding-bottom: 6px;
   }
 }
