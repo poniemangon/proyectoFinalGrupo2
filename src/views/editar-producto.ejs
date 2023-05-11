@@ -24,15 +24,17 @@
     <main>
       <div class="container-principal">
         <h2 class="titulo-seccion">
-          ESTÁS EDITANDO:<p><%= product.name %></p>
+          ESTÁS EDITANDO:<p>"<%= product.name %>"</p>
         </h2>
 
+        <div class="formularios">
         <form
           action="/products/edit/<%= product.id %>?_method=PUT"
           method="post"
           enctype="multipart/form-data"
           id="formulario"
         >
+
           <div class="container-titulo-input-small container-name">
             <label for="name">Nombre</label>
             <input
@@ -45,6 +47,7 @@
               Este campo es obligatorio y deberá tener al menos 5 caracteres.
             </small>
           </div>
+
           <div class="container-titulo-input-small container-description">
             <label for="description">Descripcion</label>
             <textarea id="description" name="description" value="">
@@ -54,6 +57,7 @@
               Este campo es obligatorio y deberá tener al menos 20 caracteres.
             </small>
           </div>
+
           <div class="container-titulo-input-small">
             <label for="category">Categoria</label>
             <select id="category" name="category">
@@ -64,6 +68,7 @@
               <% }); %>
             </select>
           </div>
+
           <div class="container-titulo-input-small">
             <label for="price">Precio</label>
             <input
@@ -73,6 +78,7 @@
               value="<%= product.price %>"
             />
           </div>
+
           <div class="container-titulo-input-small container-product_image">
             <label for="product_image">Imagen</label>
             <input type="file" id="product_image" name="product_image" />
@@ -80,13 +86,17 @@
               La imagen debe ser JPG, JPEG, PNG o GIF.
             </small>
           </div>
+
           <div class="container-btn">
             <p class="mensaje-incorrecto-invisible">
               Debe llenar el formulario correctamente!
             </p>
             <button class="button" type="submit">Editar Producto</button>
           </div>
+
+        </div>
         </form>
+
       </div>
     </main>
 

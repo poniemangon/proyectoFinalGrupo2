@@ -4,8 +4,8 @@ const db = require("../database/models/");
 const multer = require("multer");
 const upload = multer({ dest: "public/images/products" });
 const { validationResult } = require("express-validator");
-const { Op } = require('sequelize');
-const validateAdmin = require('../middlewares/validateAdmin');
+const { Op } = require("sequelize");
+const validateAdmin = require("../middlewares/validateAdmin");
 
 const productsController = {
   search: async (req, res) => {
@@ -13,31 +13,37 @@ const productsController = {
     const productsFound = await db.Product.findAll({
       where: {
         name: {
-          [Op.like]: `%${searchQuery}%`
-        }
-      }
+          [Op.like]: `%${searchQuery}%`,
+        },
+      },
     });
     if (productsFound.length > 0) {
-      return res.render('busqueda_result', { products: productsFound, busqueda: searchQuery });
+      return res.render("busqueda_result", {
+        products: productsFound,
+        busqueda: searchQuery,
+      });
     } else {
-      return res.render('busqueda_result', { message: `No se ha encontrado ningún producto con ${searchQuery}` });
+      return res.render("busqueda_result", {
+        message: `No se ha encontrado ningún producto con ${searchQuery}`,
+        busqueda: searchQuery,
+      });
     }
   },
   carrito: async (req, res) => {
-    if(!req.session.carrito){
+    if (!req.session.carrito) {
       req.session.carrito = [];
     }
     const productos = req.session.carrito;
     console.log(productos);
     let amountProductos = 0;
     let totalPrice = 0;
-    for(producto of productos){
+    for (producto of productos) {
       const pricePerProduct = producto.price * producto.amount;
       totalPrice += pricePerProduct;
       amountProductos += producto.amount;
     }
-    
-    return res.render("carrito", { productos, totalPrice, amountProductos  });
+
+    return res.render("carrito", { productos, totalPrice, amountProductos });
   },
 
   detail: async (req, res) => {
@@ -52,46 +58,46 @@ const productsController = {
 
   addToCart: async (req, res) => {
     if (req.session.user) {
-      
-    
-    const id = req.body.productId;
-    const findInCart = req.session.carrito.find(product => product.id == id);
-    if(findInCart){
-      findInCart.amount += 1;
-    }
-    else{
-      const productInDB = await db.Product.findByPk(id);
-      const product = {
-        id: productInDB.dataValues.id,
-        name: productInDB.dataValues.name,
-        description: productInDB.dataValues.description,
-        image: productInDB.dataValues.image,
-        price: productInDB.dataValues.price,
-        id_product_category: productInDB.dataValues.id_product_category,
-        banner: productInDB.dataValues.banner,
-        amount: 1
+      const id = req.body.productId;
+      const findInCart = req.session.carrito.find(
+        (product) => product.id == id
+      );
+      if (findInCart) {
+        findInCart.amount += 1;
+      } else {
+        const productInDB = await db.Product.findByPk(id);
+        const product = {
+          id: productInDB.dataValues.id,
+          name: productInDB.dataValues.name,
+          description: productInDB.dataValues.description,
+          image: productInDB.dataValues.image,
+          price: productInDB.dataValues.price,
+          id_product_category: productInDB.dataValues.id_product_category,
+          banner: productInDB.dataValues.banner,
+          amount: 1,
+        };
+        req.session.carrito.push(product);
       }
-      req.session.carrito.push(product);
-    }
     }
     return res.redirect("back");
   },
 
-  removeFromCart: async (req, res)=> {
+  removeFromCart: async (req, res) => {
     const id = await req.body.productId;
-    const productToRemove = await req.session.carrito.findIndex(product => product.id == id);
+    const productToRemove = await req.session.carrito.findIndex(
+      (product) => product.id == id
+    );
     req.session.carrito.splice(productToRemove, 1);
     return res.redirect("back");
-
   },
 
   create: async (req, res) => {
-    if(!req.session.user)
-    {return res.render('denegado');}
-    else{
+    if (!req.session.user) {
+      return res.render("denegado");
+    } else {
       const isAdmin = validateAdmin(req.session.user.id_user_category);
-      if(isAdmin == false){
-        return res.render('404');
+      if (isAdmin == false) {
+        return res.render("404");
       }
     }
     const categorias = await db.ProductCategory.findAll();
@@ -100,12 +106,12 @@ const productsController = {
   },
 
   store: async (req, res) => {
-    if(!req.session.user)
-    {return res.render('denegado');}
-    else{
+    if (!req.session.user) {
+      return res.render("denegado");
+    } else {
       const isAdmin = validateAdmin(req.session.user.id_user_category);
-      if(isAdmin == false){
-        return res.render('denegado');
+      if (isAdmin == false) {
+        return res.render("denegado");
       }
     }
     console.log(req.body, req.file);
@@ -138,12 +144,12 @@ const productsController = {
   },
 
   edit: async (req, res) => {
-    if(!req.session.user)
-    {return res.render('404');}
-    else{
+    if (!req.session.user) {
+      return res.render("404");
+    } else {
       const isAdmin = validateAdmin(req.session.user.id_user_category);
-      if(isAdmin == false){
-        return res.render('denegado');
+      if (isAdmin == false) {
+        return res.render("denegado");
       }
     }
     const categorias = await db.ProductCategory.findAll();
@@ -157,10 +163,10 @@ const productsController = {
   },
 
   update: async (req, res) => {
-    if(req.session.user){
+    if (req.session.user) {
       const isAdmin = validateAdmin(req.session.user.id_user_category);
-      if(isAdmin == false){
-        return res.render('404');
+      if (isAdmin == false) {
+        return res.render("404");
       }
     }
     console.log(req.body, req.file);
@@ -215,10 +221,10 @@ const productsController = {
   },
 
   delete: async (req, res) => {
-    if(req.session.user){
+    if (req.session.user) {
       const isAdmin = validateAdmin(req.session.user.id_user_category);
-      if(isAdmin == false){
-        return res.render('denegado');
+      if (isAdmin == false) {
+        return res.render("denegado");
       }
     }
     const id = req.params.id;
@@ -272,7 +278,7 @@ const productsController = {
     const id = req.params.id;
     const category = await db.ProductCategory.findByPk(id);
     const products = await db.Product.findAll({
-      where: { id_product_category: id }
+      where: { id_product_category: id },
     });
     return res.render("productsByCateogory", { products, category });
   },

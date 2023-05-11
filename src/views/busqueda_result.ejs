@@ -17,7 +17,7 @@
 
     <link href="/css/header_footer.css" rel="stylesheet" />
     <link href="/css/casuales-deportivas-todas.css" rel="stylesheet" />
-    <title>Resultado busqueda</title>
+    <title>Resultado búsqueda</title>
   </head>
   <body>
     <%- include('./partials/header') %>
@@ -25,13 +25,12 @@
     <section class="productos-seccion">
       <div class="productos-destacados-titulo-lineas">
         <div class="linea"></div>
-        <h1 class="titulo-casuales">Has buscado <%= locals.busqueda %></h1>
+        <h1 class="titulo-casuales">Has buscado "<%= locals.busqueda %>"</h1>
         <div class="linea"></div>
       </div>
 
       <div class="productos-container">
-        <% if(locals.products){ %>
-        <% products.map(product => { %>
+        <% if(locals.products){ %> <% products.map(product => { %>
 
         <div class="producto">
           <a href="/products/detail/<%= product.id %>">
@@ -52,9 +51,9 @@
 
         <% }) %>
       </div>
-      <% } else {  %>
-        <h2>No se ha encontrado ningun resultado</h2>
-        <% } %>
+      <% } else { %>
+      <h2 class="not-found-text">No se ha encontrado ningun resultado</h2>
+      <% } %>
     </section>
 
     <%- include('./partials/footer') %>

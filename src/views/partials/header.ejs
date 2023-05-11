@@ -18,9 +18,10 @@
       Zapatillas <i class="fa-solid fa-angle-down"></i>
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <% if(locals && locals.categories) {%>
-      <% categories.map(category => { %>
-        <a class="dropdown-item" href="/products/productsby/<%= category.id %>"><%= category.category_name %></a>
+      <% if(locals && locals.categories) {%> <% categories.map(category => { %>
+      <a class="dropdown-item" href="/products/productsby/<%= category.id %>"
+        ><%= category.category_name %></a
+      >
       <% }); %>
       <a class="dropdown-item" href="/products">Ver Todas</a>
       <% }%>
@@ -36,12 +37,9 @@
         name="search"
         class="search"
       />
-
-        <i class="fa-solid fa-magnifying-glass"></i>
-
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
     </form>
   </div>
-  
 
   <div class="usuario-carrito">
     <!-- <p>Mi Usuario</p> -->

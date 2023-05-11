@@ -101,3 +101,38 @@ main {
     transform: rotate3d(0, 1, 0, 360deg);
   }
 }
+
+/*/ ////////////////////*/
+/*/ //////MEDIA QUERIES////////*/
+/*/ ////////////////////*/
+@media (max-width: 480px) {
+  main {
+    width: 90%;
+  }
+
+  .number {
+    font-size: 70px;
+  }
+
+  .error-icon {
+    font-size: 70px;
+  }
+
+  .text1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .text2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .btn-home {
+    font-size: 18px;
+
+    padding: 8px 50px;
+    margin-top: 5px;
+  }
+}
