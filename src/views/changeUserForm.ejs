@@ -7,15 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet" />
   <link href="/css/detalle-producto-style.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-  <link rel="stylesheet" href="css/styles.css">
-  <link href="/css/login-style.css" rel="stylesheet" />
   <link href="/css/header_footer.css" rel="stylesheet" />
-  <title>Documento</title>
+  <link href="/css/agregar-editar-login-register.css" rel="stylesheet" />
+  <title>Editar Perfil</title>
 </head>
 
 <body>
@@ -28,80 +27,71 @@
       <% if (user && user.id==picUser.id) {%>
 
         <section class="container-principal">
-          <div class="titulo">
-            <p>Editar perfil de <%= user.username %>
-            </p>
-          </div>
-
-
-          <hr class="linea">
+          <h2 class="titulo-seccion">
+            EDITAR PERFIL 
+          </h2>
 
           <div class="formularios">
 
-
-
-            <form method="POST" action="/edituser/<%= picUser.id %>?_method=PUT" enctype="multipart/form-data">
-              <div class="formulario-email">
-                <div class="palabra-email"> Usuario</i></div>
-                <i class="fa-solid fa-envelope iconos"></i>
-                <label for="email"></label>
+            <form method="POST" action="/edituser/<%= picUser.id %>?_method=PUT" enctype="multipart/form-data" id="formulario">
+              <!-- <div class="container-titulo-input-small">
+                <div class="container-titulo-icono">
+                  <label>Usuario</label>
+                  <i class="fa-solid fa-envelope iconos"></i>
+                </div>
                 <input class="email-form" type="text" id="username" name="username" value="<%= picUser.username %>"><br>
-              </div>
+              </div> -->
 
-
-              <div class="formulario-pass">
-                <div class="palabra-contraseña"> CONTRASEÑA </div>
-                <i class="fa-sharp fa-solid fa-lock iconos"></i><label for="password"> </label>
-                <input class="email-pass" type="password" id="password" name="password"><br>
-
-
-
-              </div>
-
-              <div class="formulario-pass">
-                <div class="palabra-contraseña"> NOMBRE </div>
-                <i class="fa-sharp fa-solid fa-lock iconos"></i><label for="name"> </label>
+              <div class="container-titulo-input-small">
+                <div class="container-titulo-icono">
+                  <label>Nombre</label>
+                  <i class="fa-solid fa-user"></i>
+                </div>
                 <input class="email-pass" type="text" id="name" name="name" value="<%= picUser.name %>"><br>
-
-
-
               </div>
-              <div class="formulario-pass">
-                <div class="palabra-contraseña"> MAIL </div>
-                <i class="fa-sharp fa-solid fa-lock iconos"></i><label for="email"> </label>
+
+              <div class="container-titulo-input-small">
+                <div class="container-titulo-icono">
+                  <label>Correo Electrónico</label>
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
                 <input class="email-pass" type="text" id="email" name="email" value="<%= picUser.email %>"><br>
-
-
-
               </div>
-              <div class="formulario-pass">
-                <div class="palabra-contraseña"> IMAGEN </div>
-                <i class="fa-sharp fa-solid fa-lock iconos"></i><label for="user_image"> </label>
+
+              <div class="container-titulo-input-small">
+                <div class="container-titulo-icono">
+                  <label>Contraseña</label>
+                  <i class="fa-sharp fa-solid fa-lock iconos"></i>
+                </div>
+                <input class="email-pass" type="password" id="password" name="password"><br>
+              </div>
+
+              <div class="container-titulo-input-small">
+                <div class="container-titulo-icono">
+                  <label>Imagen</label>
+                  <i class="fa-solid fa-image"></i>
+                </div>
                 <input class="email-pass" type="file" id="user_image" name="user_image"><br>
-
-
-
             </div>
 
           </div>
-          <section class="final">
 
-
-            <button type="submit"> Cambiar datos <i class="fa-sharp fa-solid fa-arrow-right"></i> </button>
-
-          </section>
-
-
+          <div class="container-btn">
+            <button class="button" type="submit">Cambiar datos</button>
+          </div>
 
         </section>
         </form>
+
     </main>
     <br>
+
     <% } else { %>
       <p>Acceso denegado</p>
     <% }%>
 
     <%- include('./partials/footer') %>
+
 </body>
 
 </html>
