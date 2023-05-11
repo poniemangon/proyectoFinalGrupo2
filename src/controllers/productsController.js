@@ -5,6 +5,7 @@ const multer = require("multer");
 const upload = multer({ dest: "public/images/products" });
 const { validationResult } = require("express-validator");
 const { Op } = require('sequelize');
+const validateAdmin = require('../middlewares/validateAdmin');
 
 const productsController = {
   search: async (req, res) => {
@@ -51,8 +52,8 @@ const productsController = {
 
   addToCart: async (req, res) => {
     if (req.session.user) {
-      console.log("hay user logueado");
-    }
+      
+    
     const id = req.body.productId;
     const findInCart = req.session.carrito.find(product => product.id == id);
     if(findInCart){
@@ -72,7 +73,7 @@ const productsController = {
       }
       req.session.carrito.push(product);
     }
-  
+    }
     return res.redirect("back");
   },
 
@@ -85,12 +86,28 @@ const productsController = {
   },
 
   create: async (req, res) => {
+    if(!req.session.user)
+    {return res.render('404');}
+    else{
+      const isAdmin = validateAdmin(req.session.user.id_user_category);
+      if(isAdmin == false){
+        return res.render('404');
+      }
+    }
     const categorias = await db.ProductCategory.findAll();
 
     return res.render("agregar", { categorias });
   },
 
   store: async (req, res) => {
+    if(!req.session.user)
+    {return res.render('404');}
+    else{
+      const isAdmin = validateAdmin(req.session.user.id_user_category);
+      if(isAdmin == false){
+        return res.render('404');
+      }
+    }
     console.log(req.body, req.file);
     const errors = validationResult(req).array();
     const categorias = await db.ProductCategory.findAll();
@@ -121,6 +138,14 @@ const productsController = {
   },
 
   edit: async (req, res) => {
+    if(!req.session.user)
+    {return res.render('404');}
+    else{
+      const isAdmin = validateAdmin(req.session.user.id_user_category);
+      if(isAdmin == false){
+        return res.render('404');
+      }
+    }
     const categorias = await db.ProductCategory.findAll();
     const id = await req.params.id;
     const product = await db.Product.findOne({ where: { id } });
@@ -132,6 +157,12 @@ const productsController = {
   },
 
   update: async (req, res) => {
+    if(req.session.user){
+      const isAdmin = validateAdmin(req.session.user.id_user_category);
+      if(isAdmin == false){
+        return res.render('404');
+      }
+    }
     console.log(req.body, req.file);
     const errors = validationResult(req).array();
     const categorias = await db.ProductCategory.findAll();
@@ -184,6 +215,12 @@ const productsController = {
   },
 
   delete: async (req, res) => {
+    if(req.session.user){
+      const isAdmin = validateAdmin(req.session.user.id_user_category);
+      if(isAdmin == false){
+        return res.render('404');
+      }
+    }
     const id = req.params.id;
     try {
       // Find the product to delete

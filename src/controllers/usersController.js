@@ -108,7 +108,8 @@ const controller = {
       req.session.user = user;
       const userCategory = await db.UserCategory.findByPk(user.id_user_category);
       req.session.user.dataValues.category = userCategory.category_name;
-      console.log(req.session.user);
+      
+      console.log(req.session.user.dataValues, req.session.user.dataValues.category);
       req.session.user.password = 'hidden';
       console.log('success');
       res.redirect('/');
@@ -118,8 +119,12 @@ const controller = {
     }
   },
   editUser: async (req, res) => {
-    
     const id = await req.params.id;
+    if(!req.session.user || req.session.user.id != id){
+      return res.render('404');
+    }
+  
+    
     const picUser = await db.User.findOne({ where: { id } });
     if (picUser) {
     return res.render('changeUserForm', {picUser});
@@ -130,7 +135,11 @@ const controller = {
   },
   editUserProcess: async (req, res) => {
     const id = await req.params.id;
-   
+    if(!req.session.user || req.session.user.id != id){
+      return res.render('404');
+    }
+ 
+    
     const picUser = await db.User.findOne({ where: { id } });
 
     const imagePath = path.join(__dirname, '..', '..', 'public', 'images', 'userimages', picUser.dataValues.image);
@@ -177,6 +186,9 @@ const controller = {
   },
   deleteUser: async (req, res) => {
     const id = await req.params.id;
+    if(!req.session.user || req.session.user.id != id){
+      return res.render('404');
+    }
     try {
       const user = await db.User.findOne({ where: { id } });
       if (!user) {
