@@ -27,7 +27,7 @@ const mainController = {
 
       return res.render("home-page", { products1, destacados });
     } catch (error) {
-      return res.render("404", { error: "Error." });
+      return res.render("home", { error: "Database desconectada" });
     }
   },
   setProductoDestacado1: async (req, res) => {

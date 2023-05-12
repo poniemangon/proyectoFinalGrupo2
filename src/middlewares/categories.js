@@ -7,7 +7,7 @@ const categoriesMiddleware = async (req, res, next) => {
   next();
   }
   catch (error){
-    return res.render('404', { error: 'Error.' });
+    return res.render('home-page', { error: 'Database disconnected' });
   }
 }
 

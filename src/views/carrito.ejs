@@ -35,10 +35,15 @@
           <% for (producto of productos){ %>
             <div class="producto">
               <div class="producto-data">
+
                 <div class="descripcion">
+
+    
+
                   <p class="nombre">
                     <%= producto.name %>
                   </p>
+
                   <p class="color">Color: Negro</p>
                   <p class="talle">Talle: M</p>
                   <form class="cantidad">
@@ -72,6 +77,15 @@
                 </p>
 
               </div>
+      </div>
+
+      <div class="total2">
+        <p>CANTIDAD DE UNIDADES: <%= locals.amountProductos %>
+        </p>
+
+        <p>PRECIO TOTAL: <%= locals.totalPrice %>
+        </p>
+
       </div>
         
     </main>

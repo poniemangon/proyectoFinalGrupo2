@@ -59,15 +59,12 @@
   </div>
   <div class="hmb-menu-container hmb-menu-out">
     <h2 class="hmb-menu-titulo">Zapatillas</h2>
-    <a href="" class="hmb-menu-link"
-      >Casuales <i class="fa-solid fa-angle-right"></i
-    ></a>
-    <a href="" class="hmb-menu-link"
-      >Deportivas <i class="fa-solid fa-angle-right"></i
-    ></a>
-    <a href="" class="hmb-menu-link"
-      >Ver Todas <i class="fa-solid fa-angle-right"></i
-    ></a>
+    <% if(locals && locals.categories) {%> <% categories.map(category => { %>
+    <a href="/products/productsby/<%= category.id %>" class="hmb-menu-link"
+      ><i class="fa-solid fa-angle-right"></i
+    ><%= category.category_name %></a>
+    <% })} %>
+
     <i class="fa-solid fa-xmark icon-header-usario icon-close-hmb-menu"></i>
   </div>
   <script src="/js/header.js"></script>
