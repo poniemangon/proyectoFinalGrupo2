@@ -54,35 +54,25 @@
           <div class="linea"></div>
         </div>
         <div class="productos-destacados-container">
+          <% if (locals && locals.destacados[1] && locals.destacados[0] ) { %>
+          <% destacados.map(destacado => { %>
           <div class="producto-destacado">
             <img
-              src="/images/nikeTanjun.jpg"
+              src="/images/products/<%= destacado.image %>"
               alt=""
               class="producto-destacado-img"
             />
             <div class="producto-destacado-info-container">
-              <p class="producto-destacado-nombre">ZAPATILLAS TANJUN NN NIKE</p>
+              <p class="producto-destacado-nombre"><%= destacado.name %></p>
               <p class="producto-destacado-descripcion">
-                No exageramos. El Nike Tanjun te brinda la máxima simplicidad.
-                Este modelo no pasa ningún detalle por alto. Este calzado es
-                todo lo que necesitas.
+                <%= destacado.description %>
               </p>
-              <button class="producto-destacado-boton">Mas Info</button>
+              <a href="/products/detail/<%= destacado.id %>"><button class="producto-destacado-boton">Mas Info</button></a>
             </div>
           </div>
+          <% }) %>
+          <% } %>
 
-          <div class="producto-destacado">
-            <img
-              src="/images/nikeTanjun.jpg"
-              alt=""
-              class="producto-destacado-img"
-            />
-            <div class="producto-destacado-info-container">
-              <p class="producto-destacado-nombre">Nombre producto</p>
-              <p class="producto-destacado-descripcion">Descripcion producto</p>
-              <button class="producto-destacado-boton">Mas info</button>
-            </div>
-          </div>
         </div>
       </section>
 

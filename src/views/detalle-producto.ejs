@@ -68,9 +68,22 @@
           <% } %>
             <% if (user && user.id_user_category==2) { %>
               <div class="editar-eliminar-btns-container">
+
                 <a href="/products/edit/<%= product.id %>" class="editar-eliminar-btn">Editar producto</a>
                 <a href="/products/delete/<%= product.id %>" class="editar-eliminar-btn">Eliminar producto</a>
               </div>
+              <form action="/destacado1" method="post" enctype="application/x-www-form-urlencoded">
+                <input type="hidden" name="id_destacado" value="<%= product.id %>" />
+                <button type="submit" class="agregar-carrito-btn">Destacar 1</button>
+              </form>
+              
+              </form>
+              <form action="/destacado2" method="post" enctype="application/x-www-form-urlencoded">
+                <input type="hidden" name="id_destacado" value="<%= product.id %>" />
+                <button type="submit" class="agregar-carrito-btn">Destacar 2</button>
+              </form>
+              
+              </form>
               <% } %>
                 <div class="pago-envio">
                   <div>
