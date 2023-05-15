@@ -62,7 +62,7 @@ app.use("/api", apiRoutes);
 
 // ************ Server ************
 app.use(express.static("public"));
-app.listen(3100, () => console.log("Listening on port 3100"));
+app.listen(3000, () => console.log("Listening on port 3100"));
 
 //Ruta no encontrada
 app.use((req, res, next) => {

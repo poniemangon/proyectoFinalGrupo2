@@ -21,16 +21,14 @@ const mainController = {
 
    
 
-      const products1 = await products
-        .slice(products.length - 8, products.length)
-        .reverse();
+      const products1 = await products;
 
       return res.render("home-page", { products1, destacados });
     } catch (error) {
-      return res.render("home", { error: "Database desconectada" });
+      return res.render("home-page", { error: "Database desconectada" });
     }
   },
-  setProductoDestacado1: async (req, res) => {
+  setProductoDestacado: async (req, res) => {
     if (req.session.user) {
       const isAdmin = validateAdmin(req.session.user.id_user_category);
       if (isAdmin == false) {
@@ -40,24 +38,10 @@ const mainController = {
     const product_id = req.body.id_destacado;
     console.log(product_id);
     const newData = {product_id: product_id};
-    await db.ProductosDestacados.update(newData, { where: { id: 1 } });
+    await db.ProductosDestacados.update(newData, { where: { id: req.body.pk_destacado } });
 
     return res.redirect('/');
   },
-  setProductoDestacado2: async (req, res) => {
-    if (req.session.user) {
-      const isAdmin = validateAdmin(req.session.user.id_user_category);
-      if (isAdmin == false) {
-        return res.render("404");
-      }
-    }
-    const product_id = req.body.id_destacado;
-    console.log(product_id);
-    const newData = {product_id: product_id};
-    await db.ProductosDestacados.update(newData, { where: { id: 2 } });
-
-    return res.redirect('/');
-  }
 };
 
 module.exports = mainController;

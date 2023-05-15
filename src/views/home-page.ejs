@@ -72,9 +72,11 @@
           </div>
           <% }) %>
           <% } else {%>
+            <% if (locals && locals.user && locals.user.category == 2) { %>
             <h3>
               Agregar destacados desde el detalle de algun producto
             </h3>
+            <% } %>
             <% } %>
 
         </div>
@@ -91,8 +93,8 @@
 
         <div class="ultimos-productos-container">
           <% if(locals && locals.products1) {%>
-          <% products1.map(product => { %>
-
+          <% products1.slice(products1.length-8, products1.length).reverse().map(product => { %>
+            <% if (product && product.name) { %>
           <div class="ultimo-producto">
             <a href="/products/detail/<%= product.id %>">
               <img
@@ -111,6 +113,7 @@
               <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
             </div>
           </div>
+          <% } %>
           <% }); %>
           <% }%>
         </div>
