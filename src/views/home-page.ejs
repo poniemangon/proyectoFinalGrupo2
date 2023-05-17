@@ -72,10 +72,18 @@
           </div>
           <% }) %>
           <% } else {%>
-            <% if (locals && locals.user && locals.user.category == 2) { %>
+            <% if (locals && locals.user && locals.user.id_user_category == 2) { %>
+              <% if (!locals.destacados[0] && locals.destacados[1]) {%>
+                <h3> Agregar destacado 1</h3>
+              <% } else { %>
+              <% if (locals.destacados[0] && !locals.destacados[1]) { %>
+                <h3> Agregar destacado 2</h3>
+              <% } else {%>
             <h3>
               Agregar destacados desde el detalle de algun producto
             </h3>
+            <% } %>
+            <% } %>
             <% } %>
             <% } %>
 
