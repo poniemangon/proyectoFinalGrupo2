@@ -3,7 +3,7 @@ const inputs = document.querySelectorAll("#formulario input");
 const currentValues = {
   name: document.querySelector("#name").value,
   description: document.querySelector("#description").value,
-  product_image: ''
+  product_image: '',
 };
 const regularExpressions = {
   nombre: /^[a-zA-ZÁ-ÿ0-9_.+-\s]{5,100}$/,
@@ -38,7 +38,7 @@ const validacionInput = function (regularExpression, target, input) {
 const validacionForm = function (e) {
   switch (e.target.name) {
     case "name":
-      if (e.target.value !== currentValues.name) {
+      if (e.target.value.trim() !== currentValues.name) {
         validacionInput(regularExpressions.nombre, e.target, "name");
       } else {
         document.getElementById("name").classList.remove("input-invalido");
@@ -64,7 +64,7 @@ const validacionForm = function (e) {
       }
       break;
     case "description":
-      if (e.target.value !== currentValues.description) {
+      if (e.target.value.trim() !== currentValues.description) {
         validacionInput(regularExpressions.descripcion, e.target, "description");
       } else {
         document.getElementById("description").classList.remove("input-invalido");
@@ -95,23 +95,25 @@ descriptionInput.addEventListener("change", validacionForm);
 formulario.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  if (campos.name && campos
-.product_image) {
-    formulario.submit();
-    document;
-    document
-      .querySelector(".mensaje-incorrecto-invisible")
-      .classList.remove("mensaje-incorrecto-visible");
-    document
-      .querySelector(".mensaje-incorrecto-invisible")
-      .classList.add("mensaje-incorrecto-invisible");
+  if (campos.name && campos.description) {
+    if (currentValues.product_image !== '' || document.getElementById("product_image").files.length > 0) {
+      validacionInput(regularExpressions.imagen, document.getElementById("product_image"), "product_image");
+    }
+
+    if (campos.product_image) {
+      formulario.submit();
+      document.querySelector(".mensaje-incorrecto-invisible").classList.remove("mensaje-incorrecto-visible");
+      document.querySelector(".mensaje-incorrecto-invisible").classList.add("mensaje-incorrecto-invisible");
+    } else {
+      e.preventDefault();
+      document.querySelector(".mensaje-incorrecto-invisible").classList.add("mensaje-incorrecto-visible");
+      document.querySelector(".mensaje-incorrecto-invisible").classList.remove("mensaje-incorrecto-invisible");
+    }
   } else {
     e.preventDefault();
-    document
-      .querySelector(".mensaje-incorrecto-invisible")
-      .classList.add("mensaje-incorrecto-visible");
-    document
-      .querySelector(".mensaje-incorrecto-invisible")
-      .classList.remove("mensaje-incorrecto-invisible");
+    document.querySelector(".mensaje-incorrecto-invisible").classList.add("mensaje-incorrecto-visible");
+    document.querySelector(".mensaje-incorrecto-invisible").classList.remove("mensaje-incorrecto-invisible");
   }
 });
+
+

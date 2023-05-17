@@ -172,13 +172,11 @@ const productsController = {
     console.log(req.body, req.file);
     const errors = validationResult(req).array();
     const categorias = await db.ProductCategory.findAll();
-    if (!errors.length == 0) {
+    if (errors.length > 0) {
       console.log(errors);
       if (req.file) {
         fs.unlinkSync(req.file.path);
       }
-
-      console.log(errors);
       return res.render("agregar", { categorias, errors, oldData: req.body });
     }
     const id = req.params.id;
@@ -192,13 +190,6 @@ const productsController = {
       "products",
       product.image
     );
-    if (!errors.length == 0) {
-      return res.render("editar-producto", {
-        categorias,
-        oldData: req.body,
-        errors,
-      });
-    }
     if (req.file) {
       fs.unlink(imagePath, (err) => {
         if (err) {
@@ -206,7 +197,7 @@ const productsController = {
         }
       });
     }
-
+  
     const newData = {
       name: req.body.name,
       description: req.body.description,
@@ -219,6 +210,7 @@ const productsController = {
     await db.Product.update(newData, { where: { id } });
     return res.redirect(`/products/detail/${id}`);
   },
+  
 
   delete: async (req, res) => {
     if (req.session.user) {

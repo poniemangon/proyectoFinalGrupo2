@@ -16,6 +16,9 @@ const controller = {
   return res.render('header', {user: req.session.user})
   },
   register: async (req, res)=>{
+    if (req.session.user){
+      return res.redirect('back');
+    }
     const errors = [];
     const oldData = {
     name: '',
