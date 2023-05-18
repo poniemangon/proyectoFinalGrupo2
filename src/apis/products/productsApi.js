@@ -2,6 +2,7 @@ const db = require("../../database/models");
 
 const productsApi = {
   allProducts: async (req, res) => {
+    
     const products = await db.Product.findAll();
     const categories = await db.ProductCategory.findAll();
     //count
@@ -35,16 +36,24 @@ const productsApi = {
   },
 
   oneProduct: async (req, res) => {
-    const product = await db.Product.findByPk(req.params.id);
-    const categoryOfProduct = await db.ProductCategory.findByPk(product.id_product_category);
-    return res.json({
-      id: product.id,
-      name: product.name,
-      description: product.description,
-      price: product.price,
-      category: categoryOfProduct.category_name,
-      image: `http://localhost:3100/images/products/${product.image}`,
-    });
+    try {
+      const product = await db.Product.findByPk(req.params.id);
+      const categoryOfProduct = await db.ProductCategory.findByPk(product.id_product_category);
+      return res.json({
+        id: product.id,
+        name: product.name,
+        description: product.description,
+        price: product.price,
+        category: categoryOfProduct.category_name,
+        image: `http://localhost:3100/images/products/${product.image}`,
+      });
+    }
+    catch (err){
+      return res.json({
+        error: "Product not found"
+      })
+    }
+
   },
 };
 
