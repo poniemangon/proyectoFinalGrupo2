@@ -155,11 +155,18 @@ const controller = {
 		  });
 		}
 		console.log(picUser.dataValues.image);
+    if(req.body.email != req.session.user.email){
+      const emailExists = await db.User.findOne({ where: {email: req.body.email} });
+      if (emailExists){
+        console.log(emailExists);
+        return res.redirect('back');
+      }
+    }
+    
 
 
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const newData = await {
-      username: req.body.username,
       password: hashedPassword,
       email: req.body.email,
       name: req.body.name,

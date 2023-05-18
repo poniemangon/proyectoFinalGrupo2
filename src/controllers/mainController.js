@@ -6,6 +6,10 @@ const validateAdmin = require('../middlewares/validateAdmin');
 
 const mainController = {
   home: async (req, res) => {
+    if(req.session.user){
+      const nashe = req.session.user;
+      console.log(nashe);
+    }
     if (!req.session.carrito) {
       req.session.carrito = [];
     }
