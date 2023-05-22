@@ -1,3 +1,13 @@
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main{
+  flex-grow: 1;
+}
+
 .container {
   display: flex;
   flex: row;
@@ -7,6 +17,8 @@
   display: flex;
   flex-direction: column;
   width: 85%;
+  justify-content: center;
+  align-items: center;
 }
 
 .producto {
@@ -75,6 +87,21 @@
   width: 50%;
   height: 200px;
   background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  -webkit-box-shadow: -1px 5px 8px 5px rgba(0,0,0,0.2); 
+box-shadow: -1px 5px 8px 5px rgba(0,0,0,0.2);
+}
+
+.total p {
+  margin-right: 35%;
+  padding-bottom: 15px;
+  margin-top: 5px;
+  font-size: 20px;
 }
 
 .eliminar {
@@ -99,6 +126,12 @@ button:hover i {
 button:hover {
   background-color: rgb(182, 182, 182);
   cursor: pointer;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 30px;
+  
 }
 
 
