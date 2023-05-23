@@ -217,6 +217,12 @@ const controller = {
       console.error(error);
       res.status(500).send('Internal Server Error');
     }
+  },
+  facturasByUser: async (req, res) => {
+    const id = req.params.id;
+    const facturas = await db.Factura.findAll({where: {id_user: id}});
+
+    return res.render('facturas', {facturas: facturas});
   }
   
 };

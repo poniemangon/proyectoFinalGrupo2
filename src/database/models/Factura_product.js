@@ -1,30 +1,38 @@
 module.exports = (sequelize, DataTypes) => {
-    const Factura_Producto = sequelize.define(
-      'factura_product',
-      {
-        cantidad: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-        },
-        precio: {
-          type: DataTypes.DECIMAL(10, 2),
-          allowNull: false,
-        },
+  const Factura_Product = sequelize.define(
+    'Factura_Product',
+    {
+      quantity: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
       },
-      {
-        tableName: 'factura_product',
-        timestamps: false,
-      }
-    );
-  
-    Factura_Producto.associate = function (models) {
-      Factura_Producto.belongsTo(models.Factura, {
-        foreignKey: 'factura_id',
-      });
-      Factura_Producto.belongsTo(models.Product, {
-        foreignKey: 'producto_id',
-      });
-    };
-  
-    return Factura_Producto;
+      price: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      id_factura: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      id_product: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+    },
+    {
+      tableName: 'factura_product',
+      timestamps: false,
+    }
+  );
+
+  Factura_Product.associate = function (models) {
+    Factura_Product.belongsTo(models.Factura, {
+      foreignKey: 'id_factura',
+    });
+    Factura_Product.belongsTo(models.Product, {
+      foreignKey: 'id_product',
+    });
   };
+
+  return Factura_Product;
+};

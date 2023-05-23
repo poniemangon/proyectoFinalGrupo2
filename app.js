@@ -5,6 +5,7 @@ const path = require("path");
 const app = express();
 const usersRoutes = require("./src/routes/usersRoutes");
 const mainRouter = require("./src/routes/mainRoutes");
+const facturaRouter = require("./src/routes/facturaRoutes");
 const productsRouter = require("./src/routes/productsRoutes");
 // const usersApiRoutes = require('./src/routes/apiRoutes');
 const apiRoutes = require("./src/routes/apiRoutes");
@@ -52,6 +53,8 @@ app.get("/carrito", productsRouter);
 
 //user interface
 app.use("/", usersRoutes);
+
+app.use("/factura", facturaRouter);
 
 //Products routes
 app.use("/products", productsRouter);

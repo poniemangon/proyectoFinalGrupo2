@@ -233,6 +233,11 @@ main {
   }
 }
 
+.producto-destacado-descripcion p{
+  width: 100%;
+  word-break: break-all;
+}
+
 @media (max-width: 1170px) {
   .productos-destacados-container {
     display: flex;

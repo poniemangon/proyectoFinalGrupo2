@@ -37,6 +37,7 @@ router.get('/logout', usersController.logout);
 router.post('/search', usersController.search);
 router.get('/delete/:id', usersController.deleteUser);
 router.delete('/delete/:id', usersController.deleteUser);
+router.get('/facturas/:id', usersController.facturasByUser);
 
 
 

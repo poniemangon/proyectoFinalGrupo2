@@ -24,15 +24,12 @@
       </br>
       </br>
       <h1>
-        Carrito <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
+        Factura <%= factura.id %> <i class="fa-solid fa-cart-shopping icon-header-carrito"></i>
       </h1>
 
       <div class="container">
         <div class="productos-container">
-          <% if (productos.length == 0){ %>
-            <h1>No hay productos en el carrito!</h1>
-          <% } %>
-          <% for (producto of productos){ %>
+          <% for (producto of productosInFactura){ %>
             <div class="producto">
               <div class="producto-data">
 
@@ -44,8 +41,6 @@
                     <%= producto.name %>
                   </p>
 
-                  <p class="color">Color: Negro</p>
-                  <p class="talle">Talle: M</p>
                   <form class="cantidad">
                     <label>Cantidad:</label>
                     <p>
@@ -57,12 +52,6 @@
                   <p class="precio">$<%= producto.price %>
                   </p>
                 </div>
-                <form class="eliminar" action="/products/remove" method="post" enctype="application/x-www-form-urlencoded">
-                  <input type="hidden" id="productId" name="productId" value="<%= producto.id %>" />
-                  <button type="submit" class="agregar-carrito-btn">
-                    <i class="fa-solid fa-trash-can"></i>
-                  </button>
-                </form>
               </div>
 
             </div>
@@ -70,28 +59,14 @@
             <% } %>
           </div>
               <div class="total">
-                <p>CANTIDAD DE UNIDADES: <%= locals.amountProductos %>
-                </p>
 
-                <p>PRECIO TOTAL: <%= locals.totalPrice %>
+                <p>PRECIO TOTAL: <%= factura.price %>
                 </p>
-                <% if (productos.length > 0){ %>
-                <form action="/factura/create" method="post">
-                  <button type="submit">Create Factura</button>
-                </form>
-                <% } %>
 
               </div>
       </div>
 
-      <div class="total2">
-        <p>CANTIDAD DE UNIDADES: <%= locals.amountProductos %>
-        </p>
 
-        <p>PRECIO TOTAL: <%= locals.totalPrice %>
-        </p>
-
-      </div>
         
     </main>
 

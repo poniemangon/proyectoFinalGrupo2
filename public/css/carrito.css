@@ -22,10 +22,14 @@ main{
 }
 
 .producto {
+  width: 90%;
   height: 50px;
   display: flex;
   flex-direction: column;
   
+}
+.producto .nombre {
+  font-size: small;
 }
 
 .producto-data {

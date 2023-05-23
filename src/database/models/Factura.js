@@ -1,42 +1,37 @@
-module.exports = (sequelize, dataTypes) => {
-  let alias = "Factura";
-  let cols = {
-    id: {
-      type: dataTypes.INTEGER(10),
-      primaryKey: true,
-      allowNull: false,
-      unique: true,
-      autoIncrement: true,
+module.exports = (sequelize, DataTypes) => {
+  const Factura = sequelize.define(
+    'Factura',
+    {
+      id: {
+        type: DataTypes.INTEGER(10),
+        primaryKey: true,
+        allowNull: false,
+        unique: true,
+        autoIncrement: true,
+      },
+      id_user: {
+        type: DataTypes.INTEGER(10),
+        allowNull: false,
+      },
+      price: {
+        type: DataTypes.INTEGER(10),
+        allowNull: false,
+      },
     },
-    id_user: {
-      type: dataTypes.INTEGER(10),
-      allowNull: false,
-    },
-    price: {
-      type: dataTypes.INTEGER(10),
-      allowNull: false,
-    },
-  };
-  let config = {
-    tableName: "facturas",
-    timestamps: false,
-  };
-
-  let Factura = sequelize.define(alias, cols, config);
+    {
+      tableName: 'facturas',
+      timestamps: false,
+    }
+  );
 
   Factura.associate = function (models) {
     Factura.belongsTo(models.User, {
-      as: "users",
-      foreignKey: "id_user",
+      as: 'users',
+      foreignKey: 'id_user',
     });
 
-
-    Factura.belongsToMany(models.Product, {
-      as: "products",
-      through: "factura_product",
-      foreignKey: "id_factura",
-      otherKey: "id_product",
-      timestamps: false,
+    Factura.hasMany(models.Factura_Product, {
+      foreignKey: 'id_factura',
     });
   };
 

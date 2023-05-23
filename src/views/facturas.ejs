@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link href="/css/header_footer.css" rel="stylesheet" />
+    <link href="/css/casuales-deportivas-todas.css" rel="stylesheet" />
+    <title>Facturas</title>
+  </head>
+  <body>
+    <%- include('./partials/header') %>
+    <% if (locals && locals.facturas) { %>
+    <section class="productos-seccion">
+      <div class="productos-destacados-titulo-lineas">
+        <div class="linea"></div>
+        <h1 class="titulo-casuales">Facturas</h1>
+        <div class="linea"></div>
+      </div>
+
+      <div class="productos-container">
+        <% facturas.map(factura => { %>
+        <a href="/factura/factura/<%= factura.id %>">
+        <div class="producto">
+          <p class="factura-id">ID: <%= factura.id %></p>
+          <p class="factura-precio">Precio: <%= factura.price %></p>
+        </div>
+      </a>
+
+        <% }) %>
+      </div>
+    </section>
+    <% } %>
+    <%- include('./partials/footer') %>
+  </body>
+</html>

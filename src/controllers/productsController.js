@@ -42,6 +42,7 @@ const productsController = {
       totalPrice += pricePerProduct;
       amountProductos += producto.amount;
     }
+    console.log(req.session.carrito);
 
     return res.render("carrito", { productos, totalPrice, amountProductos });
   },
@@ -97,7 +98,7 @@ const productsController = {
     } else {
       const isAdmin = validateAdmin(req.session.user.id_user_category);
       if (isAdmin == false) {
-        return res.render("404");
+        return res.render("denegado");
       }
     }
     const categorias = await db.ProductCategory.findAll();

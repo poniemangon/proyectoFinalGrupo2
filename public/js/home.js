@@ -10,4 +10,4 @@ setInterval(function () {
   if (currentImg > imagesArr.length - 1) {
     currentImg = 0;
   }
-}, 4000);
+}, 2500);

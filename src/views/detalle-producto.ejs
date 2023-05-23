@@ -70,6 +70,10 @@
             </button>
           </form>
           <% } %>
+            <% if (!user) { %>
+              <a href="/login"><h2>Loguearse para agregar al carrito!</h2></a>
+            </br>
+              <% } %>
             <% if (user && user.id_user_category==2) { %>
               <div class="editar-eliminar-btns-container">
 
